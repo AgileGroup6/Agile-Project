@@ -11,7 +11,7 @@ assignees: ''
 <!-- - What this issue to solving -->
 
 # Definition of done
-- [] requirements for this issue to be marked as completed
-- [] Follows the colour scheme
-- [] Code is well commented
-- [] Tests have been completed
+- [ ] requirements for this issue to be marked as completed
+- [ ] Follows the colour scheme
+- [ ] Code is well commented
+- [ ] Tests have been completed
