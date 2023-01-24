@@ -1,6 +1,6 @@
 const addNumbers = require("./api/addNumbers.js");
 const ping = require("./api/ping.js");
-const adminLogin = require("./api/test.js");
+const adminLogin = require("./api/adminLogin.js");
 
 const accessController = require('./middleware/accessController.js');
 
@@ -11,7 +11,7 @@ const routes = (route) => {
 
   route.use(
   "/api/adminLogin",
-  accessController,
+  accessController, //Requires authorization to access admin panel
   adminLogin.router
   );
 };
