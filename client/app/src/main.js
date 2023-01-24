@@ -6,6 +6,8 @@ import router from "./router";
 
 import "./assets/main.css";
 import 'bootstrap/dist/css/bootstrap.css'
+import './registerServiceWorker'
+
 
 const app = createApp(App);
 
