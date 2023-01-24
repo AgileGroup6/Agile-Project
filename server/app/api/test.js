@@ -1,0 +1,12 @@
+const express = require("express");
+
+const router = express.Router();
+router.post("/", (req, res) => {
+  res.status(200).send({
+    success: true,
+    data: "working",
+  });
+});
+
+// export
+exports.router = router;
