@@ -12,7 +12,7 @@ const routes = (route) => {
   route.use(
   "/api/adminLogin",
   accessController,
-  adminLogin.router 
+  adminLogin.router
   );
 };
 
