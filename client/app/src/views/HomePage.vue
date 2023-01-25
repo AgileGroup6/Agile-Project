@@ -7,10 +7,15 @@
             </div>
         </div>
 
+
         <div class="row">
             <div class="col mt-2">
                 <IngredientSearch />
             </div>
+        </div>
+
+        <div>
+
         </div>
 
     </div>
