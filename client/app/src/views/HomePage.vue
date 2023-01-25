@@ -7,10 +7,24 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col mt-2">
+                <IngredientSearch />
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
+import IngredientSearch from "../components/IngredientSearch.vue";
+
+export default {
+    components: {
+        IngredientSearch
+    }
+}
+
 </script>
 
 <style >
