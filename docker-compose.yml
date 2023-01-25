@@ -9,6 +9,8 @@ services:
       - DB_PASS=???
       - DB_NAME=???
       - DB_HOST=???
+    depends_on:
+      - database
 
   client: # front-end vuejs ran with nginx
     build: ./client
@@ -18,3 +20,11 @@ services:
       - "8083:80" # port 8083 on host maps to port 80 on container
     depends_on:
       - server
+  
+  database: # middle mariadb
+    build: ./database
+    restart: always
+    # map host /var/lib/lgl to docker /var/lib/mysql to persist data
+    volumes:
+      - /var/lib/lgl:/var/lib/mysql
+  
