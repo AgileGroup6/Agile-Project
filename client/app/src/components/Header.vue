@@ -18,7 +18,8 @@ export default {
 }
 
 .logo {
-    align-items: center;
-    justify-content: space-between;
+    position:relative;
+width: 258px;
+height: 172px;
 }
 </style>
