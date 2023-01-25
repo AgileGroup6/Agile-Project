@@ -1,7 +1,6 @@
 const mysql = require("mysql");
 const config = require("../config");
 
-print(config.DB_HOST);
 const pool = mysql.createPool({
   host: config.DB_HOST,
   database: config.DB_NAME,
