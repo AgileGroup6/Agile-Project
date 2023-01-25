@@ -1,5 +1,4 @@
 const allIngredients = require("./api/allIngredients.js");
-const ping = require("./api/ping.js");
 const adminLogin = require("./api/adminLogin.js");
 
 const findRecipe = require("./api/findRecipe.js");
