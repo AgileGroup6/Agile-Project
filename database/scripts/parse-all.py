@@ -3,9 +3,6 @@
 
 # clear database
 print("USE lgl;")
-deleteTables = ['Ingredient_Grp', 'Recipe_Measurement',
-                'Measurement', 'Recipe', 'Grp', 'Ingredient', 'Category']
-[print("DELETE FROM %s;" % (t)) for t in deleteTables]
 
 tagSet = set()
 
@@ -81,7 +78,7 @@ for group in groupSet:
 
 # ingredients
 ingredientMap = {}
-print("""INSERT INTO Ingredient(ingredient_id, category_id, ingredient_name, store_has,
+print("""INSERT INTO Ingredient(ingredient_id, category_id, grp_id, ingredient_name, store_has,
 vegan, fillable, weightable, chilled, organic, jarred, canned) VALUES """)
 index = 0
 for ingredient in allIngredients:
@@ -97,27 +94,15 @@ for ingredient in allIngredients:
     organic = 'Organic' in ingredient['tags']
     jarred = 'Jarred' in ingredient['tags']
     canned = 'Canned' in ingredient['tags']
+
+    group = "Null"
+    if ingredient['group'] != None:
+        group = groupMap[ingredient['group']]
+
     store_has = True
-    group = ingredient['group']
-    print("(%d, %d, '%s', %s, %s, %s, %s, %s, %s, %s, %s)%s" %
-          (index, categoryMap[ingredient['category']], ingredient['name'],
+    print("(%d, %d, %s, '%s', %s, %s, %s, %s, %s, %s, %s, %s)%s" %
+          (index, categoryMap[ingredient['category']], group, ingredient['name'],
            store_has, vegan, fillable, weightable, chilled, organic, jarred, canned, trail))
-
-
-# linking table for ingredients to group
-print("INSERT INTO Ingredient_Grp(ingredient_id, grp_id) VALUES")
-index = 0
-values = []
-for ingredient in allIngredients:
-    if not ingredient['group']:
-        continue
-    group = ingredient['group']
-    name = ingredient['name']
-    ingredient_id = ingredientMap[name]
-    group_id = groupMap[group]
-    values.append("(%d, %d)" % (ingredient_id, group_id))
-print("%s;" % (",\n".join(values)))
-
 
 # recipes
 recipes = []
