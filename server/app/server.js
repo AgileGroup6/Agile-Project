@@ -20,6 +20,8 @@ if (process.env.NODE_ENV === "development") {
   app.use(cors());
 }
 
+const config = require("./config");
+console.log(config);
 // configure api routes
 routes(app);
 
