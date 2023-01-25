@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import HomePage from "../views/HomePage.vue"
 
 const router = createRouter({
 
@@ -26,6 +26,7 @@ const router = createRouter({
       component: () => import("../views/BrowseView.vue"),
     },
   ],
+
 });
 
 export default router;
