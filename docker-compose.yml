@@ -3,7 +3,7 @@ version: "3.9"
 services:
   server: # back-end nodejs
     build: ./server
-    restart: always
+    #restart: always
     environment:
       - DB_USER=???
       - DB_PASS=???
@@ -12,7 +12,7 @@ services:
 
   client: # front-end vuejs ran with nginx
     build: ./client
-    restart: always
+    #restart: always
     # nginx static files
     ports:
       - "8083:80" # port 8083 on host maps to port 80 on container
