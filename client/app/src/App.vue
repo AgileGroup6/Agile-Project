@@ -1,17 +1,17 @@
+import { RouterLink, RouterView } from "vue-router";
+
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="The Green Larder Logo" src="./assets/logo.webp"> -->
+  <!-- Home page nav -->
+  <!-- <RouterLink to="/">Home</RouterLink> -->
+
+  <RouterView />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script>
+
 </script>
 
 <style>
