@@ -1,4 +1,4 @@
-const addNumbers = require("./api/addNumbers.js");
+const allIngredients = require("./api/allIngredients.js");
 const ping = require("./api/ping.js");
 const adminLogin = require("./api/adminLogin.js");
 
@@ -7,7 +7,7 @@ const findRecipe = require("./api/findRecipe.js");
 const accessController = require("./middleware/accessController.js");
 
 const routes = (route) => {
-  route.use("/api/addNumbers", addNumbers.router);
+  route.use("/api/allIngredients", allIngredients.router);
 
   route.use("/api/ping", ping.router);
 
