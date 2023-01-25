@@ -14,15 +14,24 @@
             </div>
         </div>
 
-        <div>
-
-        </div>
+        <ButtonComponent  label="Brouse all" :doOnClick="testFunction"/>
 
     </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    testFunction: function () {
+      console.log('test clicked')
+    }
+  }
+}
+</script>
+
 <script setup>
-import IngredientSearch from "../components/IngredientSearch.vue";
+import IngredientSearch from "../components/home/IngredientSearch.vue";
+import ButtonComponent from "@/components/home/ButtonComponent.vue";
 </script>
 
 <style >
