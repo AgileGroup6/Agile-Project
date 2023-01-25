@@ -1,11 +1,12 @@
 <!-- View created for the browse view -->
 
+
 <template>
   <div class="browse">
     <h1>Browse Store</h1>
   </div>
 
- <v-btn block @click="toggle"> Browse by Category </v-btn>
+ <button @click="toggle"> Browse by Category </button>
   <div v-if="active">
     <tr>
       <button @click="search(1)"> Organic </button>
@@ -18,10 +19,23 @@
     </tr>
   </div>
 
+  
+
+  <browseResults />
+  
+
 </template>
 
 <script>
+
+  import browseResults from "../components/browseResults.vue"
+  //import card from "../components/ingredientCard.vue"
+
   export default {
+
+    components: {
+        browseResults,
+      },
     data () {
       return {
         active: false
@@ -47,9 +61,7 @@
     min-height: 100vh;
     display: flex;
     place-items: flex-start;
-    left: 50%;
-    flex-wrap: wrap;
-    
+    flex-direction: column;
     
   }
 }
