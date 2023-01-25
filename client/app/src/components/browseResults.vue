@@ -9,13 +9,14 @@
             card
         },
     };
+
 </script>
 
 <!-- Run call to db here to get names of food and fill them in to cards -->
 
 <template>
 
-
+    
     <div class = "row"> 
         <div class = "col">
             <card ingredientName='corn' /> 
@@ -29,7 +30,7 @@
 
 </template>
 
-<style>
+<style scoped>
 
 .row {
     display:flex;
@@ -38,6 +39,7 @@
 /* Clear floats after the columns */
 .column {
   flex:50%;
+  margin:10px;
 }
 
 </style>

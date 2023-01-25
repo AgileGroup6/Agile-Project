@@ -48,6 +48,7 @@
 
       search (category) {
         this.active = !this.active
+        document.getElementById('categoryButton').innerHTML = category;
         console.log(category);
       }
     }
