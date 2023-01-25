@@ -1,13 +1,20 @@
 <template >
-    <div>
-        <h1>Home Page</h1>
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <img src="../assets/logo.webp" alt="">
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
-console.log('hey')
 </script>
 
 <style >
-
+img {
+    height: 120px;
+}
 </style>
