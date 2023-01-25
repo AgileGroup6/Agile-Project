@@ -10,6 +10,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "ci": "^2.2.0",
     "core-js": "^3.8.3",
     "pinia": "^2.0.29",
     "vue": "^3.2.13",

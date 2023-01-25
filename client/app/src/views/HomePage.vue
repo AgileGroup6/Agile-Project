@@ -1,4 +1,4 @@
-<template >
+<template>
     <div class="container">
 
         <div class="row">
@@ -16,15 +16,8 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import IngredientSearch from "../components/IngredientSearch.vue";
-
-export default {
-    components: {
-        IngredientSearch
-    }
-}
-
 </script>
 
 <style >
