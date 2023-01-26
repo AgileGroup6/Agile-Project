@@ -6,17 +6,13 @@ import { RouterLink, RouterView } from "vue-router";
   <header>
     
 
-    <nav>
-      <img id="homeRoute" src="./assets/home.png" alt="">
-    </nav>
+    <div class="wrapper">
+      <nav>
+
+      </nav>
+
+    </div>
   </header>
 
   <RouterView />
 </template>
-
-<style>
-#homeRoute{
-  
-  height: 10vw;
-}
-</style>

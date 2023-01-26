@@ -18,7 +18,9 @@
       
       <div class="row mt-3">
           <div class="col mt-2">
-            <ButtonComponent  label="Browse All" :doOnClick="testFunction"/>      
+            <RouterLink to="/browse">
+              <ButtonComponent label="Browse All" :doOnClick="testFunction"/>     
+            </RouterLink>
           </div>
       </div>
 
