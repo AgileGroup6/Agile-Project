@@ -1,9 +1,20 @@
-var SOLR_HOST = "http://database:8983/";
-if (process.NODE_ENV === "development") {
-  SOLR_HOST = "http://localhost:8983";
+var DB_HOST = "http://database";
+var DB_USER = "green";
+var DB_PASS = "veggie";
+var DB_NAME = "lgl";
+
+if (process.env.NODE_ENV === "development") {
+  DB_HOST = process.env.DB_HOST;
+  DB_USER = process.env.DB_USER;
+  DB_PASS = process.env.DB_PASS;
 }
 
+const ACCESS_TOKEN = "1234";
+
 module.exports = {
-  DATA_HOST: "/slides",
-  SOLR_HOST: SOLR_HOST,
+  DB_HOST,
+  DB_NAME,
+  DB_USER,
+  DB_PASS,
+  ACCESS_TOKEN,
 };
