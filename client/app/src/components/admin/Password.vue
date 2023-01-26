@@ -1,26 +1,19 @@
 <template>
    <div class="input">
     <label class="left-text" for="username">Password</label>
-    <input class="bar" type=password name="password" placeholder="Password">
-    <span></span>
+    <input class="bar" type=password name="password" placeholder="Password" required>
     <!-- <div class="icons"><img alt="" class="shape" src="https://static.overlay-tech.com/assets/39f3f2a5-b7ab-4f4f-b7f2-1d624c9a2a0b.svg"/></div> -->
   </div>
 </template>
-<script>
-// export default {
-//     props: {
-//         Text: {
-//             type: String,
-//             default: () => "Label",
-//         },
-//         TxType: {
-//             type: String,
-//             default: () => "Label",
-//         },
-//     },
-// };
-
-</script>
+<!-- <script>
+  export default {
+    props: {
+      Pass: {
+        type: String
+      },
+    },
+  };
+</script> -->
 
 <style lang="scss" scoped>
 

@@ -1,10 +1,19 @@
 <template>
     <div class="input">
-        <label class="left-text" for="username">Username</label>
-        <input class="bar" type="text" name="username" placeholder="Username">
-        <span></span>
-      </div>
+      <label class="left-text" for="username">Username</label>
+      <input class="bar" type="text" name="username" placeholder="Username" required>
+    </div>
 </template>
+
+<!-- <script>
+  export default {
+    props: {
+      User: {
+        type: String
+      },
+    },
+  };
+</script> -->
 
 <style>
 

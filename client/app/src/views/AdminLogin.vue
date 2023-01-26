@@ -1,8 +1,3 @@
-<script setup>
-import Username from "../components/admin/Username.vue";
-import Password from "../components/admin/Password.vue";
-</script>
-
 <template>
   <body>
       <title>Admin-Login</title>
@@ -13,41 +8,44 @@ import Password from "../components/admin/Password.vue";
       </header>
 
       <form>
-        <Username />
-        <Password />
-        <button type="button" v-on:click="login()" id="button-continue">Continue</button>
+        <div class="input">
+        <label class="left-text" for="username">Username</label>
+        <input v-model="usernameLogin" class="bar" type="text" name="username" placeholder="Username" required>
+      </div>
+
+      <div class="input">
+        <label class="left-text" for="username">Password</label>
+        <input v-model="passwordLogin" class="bar" type=password name="password" placeholder="Password" required>
+      </div>
+
+        <button type="button" @click="doLogin" id="button-continue">Continue</button>
       </form>
   </body>
 </template>
 
 <script>
-    // export default {
-    //     name: 'Login',
-    //     data() {
-    //         return {
-    //             input: {
-    //                 username: "",
-    //                 password: ""
-    //             }
-    //         }
-    //     },
-    //     methods: {
-    //         login() {
-    //             if(this.input.username != "" && this.input.password != "") {
-    //                 // This should actually be an api call not a check against this.$parent.mockAccount
-    //                 if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-    //                     this.$emit("authenticated", true);
-    //                     this.$router.replace({ name: "Secure" });
-    //                 } else {
-    //                     console.log("The username and / or password is incorrect");
-    //                 }
-    //             } else {
-    //                 console.log("A username and password must be present");
-    //             }
-    //         }
-    //     }
-    // }
+export default {
+   data() {
+      return {
+        usernameLogin: "",
+        passwordLogin: "",
+        emptyFields: false
+      }
+   },
+   
+   methods: {
+      doLogin() {
+         if (this.usernameLogin === "" || this.passwordLogin === "") {
+            this.emptyFields = true;
+         } else {
+            alert("You are now logged in");
+            this.$router.push({ path: '/admin' })
+         }
+      },
+   }
+}
 </script>
+
 <style>
 
   * {
