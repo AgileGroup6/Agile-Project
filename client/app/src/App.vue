@@ -1,18 +1,28 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+
+
 </script>
 
 <template>
+
   <header>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
+  
+      <a class="navbar-brand" href="#">
+        <div class="row">
+          <div class="col-3 align-self-center">
+            <RouterLink to='/'>
+            <img src="src/assets/logo.webp"  alt="" width="250" height="120">
+            </RouterLink>
+          </div>
+        </div>
+        
+        
+      </a>
+  </nav>
 
-    <div class="wrapper">
-      <nav>
-
-      </nav>
-
-    </div>
-  </header>
+</header>
 
   <RouterView />
 </template>
