@@ -1,6 +1,6 @@
 <template>
    <div class="add-button">
-        <a href="/"><div class="button-action">Add recipe</div></a>
+        <a href="AddRecipe"><div class="button-action">Add recipe</div></a>
     </div>
 </template>
 
