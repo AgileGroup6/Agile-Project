@@ -1,4 +1,5 @@
 <!-- View created for the browse view -->
+<!-- @Authors Caleb, Chris -->
 
 
 <template>
@@ -13,6 +14,7 @@
       Browse by Category
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <!-- THIS IS CURRENTLY HARD-CODED DATA!!! CHANGE BEFORE FINAL -->
       <li><a class="dropdown-item text-center" href="#" @click="search('Bread Loafs')">Bread Loafs</a></li>
       <li><a class="dropdown-item text-center" href="#" @click="search('Cereals')">Cereals</a></li>
       <li><a class="dropdown-item text-center" href="#" @click="search('Fresh Fruits')">Fresh Fruit</a></li>
@@ -26,6 +28,7 @@
   <div class = "row" id = "row-cards">
 
     <div class = "col" id = "col-left">
+      <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
       <card v-for="(item, index) in testNames.slice(testNames.length/2)"
           :key="item.id" 
           :ingredientName="item.ingredientName"
@@ -50,17 +53,10 @@
 <script>
 
   import card from '../components/ingredientCard.vue';
-  import browseResults from "../components/browseResults.vue"
-  //import card from "../components/ingredientCard.vue"
-
-  
-  
-
 
   export default {
 
     components: {
-        browseResults,
         card,
       },
     data () {
@@ -98,8 +94,11 @@
       //When connecting the backend, replace with API Call to get ingredients by category.
       //Set resultsArray from query to testNames (rename for final) to run
 
+      //This clears the array so that when a new category is searched the old items are removed from the DOM
         this.testNames = [];
 
+        //Pushing items to an array will allow them to be added to the DOM after the component has alrady rendered.
+        //Documentation here: https://vuejs.org/guide/essentials/list.html
         this.testNames.push({
           id: 4,
           ingredientName: "Toast",
