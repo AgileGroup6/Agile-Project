@@ -4,11 +4,6 @@ services:
   server: # back-end nodejs
     build: ./server
     restart: always
-    environment:
-      - DB_USER=???
-      - DB_PASS=???
-      - DB_NAME=???
-      - DB_HOST=???
     depends_on:
       - database
 
