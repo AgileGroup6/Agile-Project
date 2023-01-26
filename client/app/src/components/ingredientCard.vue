@@ -9,7 +9,7 @@
         <div class = "row justify-content-center"> 
             <!-- <img src={{image}}> -->
             <!-- HARD CODED IMAGE FOR TESTING! CHANGE BEFORE FINAL -->
-            <img src = "../views/favicon.ico"> 
+            <img src = "../../public/favicon.ico"> 
         </div>
         <div class = "row justify-content-center" > 
         <button class = "btn btn-light" @click="addToCart()">Add to cart</button>
