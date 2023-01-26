@@ -1,3 +1,5 @@
+<!-- @Authors Caleb, Chris -->
+
 <template>
     <div class = "container" id = 'ingredient_card'>
         <div class = "row text-center"> 
@@ -6,6 +8,7 @@
         
         <div class = "row justify-content-center"> 
             <!-- <img src={{image}}> -->
+            <!-- HARD CODED IMAGE FOR TESTING! CHANGE BEFORE FINAL -->
             <img src = "../views/favicon.ico"> 
         </div>
         <div class = "row justify-content-center" > 
@@ -18,15 +21,16 @@
 
 
 function addToCart(){
-    console.log("yeet");
+    
 }
 
 export default {
+    //Uses view properties to fill the cards with their relevant fields
     props: ['ingredientName','image'],
     
     methods: {
         addToCart(){
-        console.log("yeet");
+       
         }
     }
 
