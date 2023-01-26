@@ -1,40 +1,24 @@
 <template>
-  <div class="container">
-
-    <div class="row">
-      <div class="col">
-
-        <img alt="Little Green Logo" class="logo"
-          src="https://static.overlay-tech.com/assets/eda3f67d-06b8-41cb-9619-8eb0e8dd9c04.png" />
+  <div class="container d-flex justify-content-center h-100">
+    <form class="login-form justfiy-content-center">
+      <h1 class="text-center">Admin Login</h1>
+      <p>Please enter your login details to access the admin account.</p>
+      <div class="form-group">
+        <label class="left-text" for="username">Username</label>
+        <input v-model="usernameLogin" class="form-control" type="text" name="username" placeholder="Username" required>
       </div>
-
-      <div class="row">
-        <div class="col">
-          <h1>Admin Login</h1>
-          <p class="sub">Please enter your login details to access the admin account.</p>
-        </div>
-
+      <div class="form-group">
+        <label class="left-text" for="password">Password</label>
+        <input v-model="passwordLogin" class="form-control" type=password name="password" placeholder="Password"
+          required>
       </div>
-      <form class="login-form">
-        <div class="form-group">
-          <label class="left-text" for="username">Username</label>
-          <input v-model="usernameLogin" class="bar" type="text" name="username" placeholder="Username" required>
+      <div class="row mt-3">
+        <div class="col text-center">
+          <button @click="doLogin" id="button-continue">Continue</button>
         </div>
-        <div class="form-group">
-          <label class="left-text" for="password">Password</label>
-          <input v-model="passwordLogin" class="bar" type=password name="password" placeholder="Password" required>
-        </div>
-        <div class="row mt-3">
-          <div class="col">
-            <ButtonComponent label="Continue" :doOnClick="doLogin" />
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
-
-  <!-- Form end -->
-
 </template>
 
 <script>
@@ -59,40 +43,33 @@ export default {
 }
 </script>
 
-<script setup>
-import ButtonComponent from "@/components/homePage/ButtonComponent.vue";
-</script>
+<style scoped>
+#button-continue {
+  background-color: #329E63;
+  padding: 6px 12px;
+  width: 291px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
 
-<!-- <style>
+.form-control {
+  border-radius: 4px;
+  padding: 7px 11px;
+  display: flex;
+  border: 1px solid #000000;
+}
 
-  #button-continue {
-    background-color: #329E63;
-    font-weight: 600;
-    color: #FFFFFF;
-    transition-duration: 0.4s;
-  }
+.left-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #191D23;
+}
 
-  #button-continue:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  }
-
-  .bar {
-    border-radius: 4px;
-    padding: 7px 11px;
-    display: flex;
-    border: 1px solid #000000;
-  }
-
-  .left-text {
-    font-size: 14px;
-    font-weight: 600;
-    color: #191D23;
-  }
-
-  span {
-    display: block;
-    margin-left: 20px;
-    color: red;
-    font-style: italic;
-  }
-</style> -->
+span {
+  display: block;
+  margin-left: 20px;
+  color: red;
+  font-style: italic;
+}
+</style>
