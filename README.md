@@ -1,5 +1,9 @@
 # Link to live project
-tbc...
+Customer View:
+https://lgl.caydey.com/
+
+Admin Login:
+https://lgl.caydey.com/adminlogin
 
 # Scrum Recordings
 https://drive.google.com/drive/folders/13EP8KN7fw9zRpmSqi2pWKWRh0OpJcdpX?usp=share_link
