@@ -1,7 +1,17 @@
 <template>
-    <div id = 'ingredient_card'>
-        <h3> {{ingredientName}} </h3>
-        <button @click="addToCart()">Add to cart</button>
+    <div class = "container" id = 'ingredient_card'>
+        <div class = "row text-center"> 
+            <h3> {{ingredientName}} </h3>
+        </div>
+        
+        <div class = "row justify-content-center"> 
+            <!-- <img src={{image}}> -->
+            <img src = "../views/favicon.ico"> 
+        </div>
+        <div class = "row justify-content-center" > 
+        <button class = "btn btn-light" @click="addToCart()">Add to cart</button>
+        </div>
+
     </div>
 </template>
 <script> 
@@ -12,7 +22,7 @@ function addToCart(){
 }
 
 export default {
-    props: ['ingredientName'],
+    props: ['ingredientName','image'],
     
     methods: {
         addToCart(){
