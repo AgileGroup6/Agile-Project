@@ -13,9 +13,22 @@
               <IngredientSearch />
               <ListItem :ingredients="shoppingList"/>
           </div>
+        </div>
+
+      
+      <div class="row mt-3">
+          <div class="col mt-2">
+            <ButtonComponent  label="Browse All" :doOnClick="testFunction"/>      
+          </div>
       </div>
 
-      <ButtonComponent  label="Browse all" :doOnClick="testFunction"/>
+      <div class="row mt-3">
+        <div class="col">
+          <ButtonComponent  label="Featured Recipes" :doOnClick="testFunction"/>
+        </div>
+      </div>
+      
+     
 
   </div>
 </template>
