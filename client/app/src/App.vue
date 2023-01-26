@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from "vue-router";
         <div class="row">
           <div class="col-3 align-self-center">
             <RouterLink to='/'>
-            <img src="src/assets/logo.webp"  alt="" width="200">
+            <img src="@/assets/logo.webp"  alt="" width="200">
             </RouterLink>
           </div>
         </div>
