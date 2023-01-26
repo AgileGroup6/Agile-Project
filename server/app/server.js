@@ -14,11 +14,8 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-// development
-if (process.env.NODE_ENV === "development") {
-  // Cross Origin Resource Sharing
-  app.use(cors());
-}
+// Cross Origin Resource Sharing
+app.use(cors());
 
 // configure api routes
 routes(app);

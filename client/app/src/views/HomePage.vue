@@ -1,11 +1,7 @@
 <template>
   <div class="container">
 
-      <div class="row">
-          <div class="col">
-              <img src="../assets/logo.webp" alt="">
-          </div>
-      </div>
+      
 
 
       <div class="row">
@@ -18,7 +14,9 @@
       
       <div class="row mt-3">
           <div class="col mt-2">
-            <ButtonComponent  label="Browse All" :doOnClick="testFunction"/>      
+            <RouterLink to="/browse">
+            <ButtonComponent label="Browse All" :doOnClick="testFunction"/>     
+            </RouterLink>
           </div>
       </div>
 
@@ -58,7 +56,7 @@ import ButtonComponent from "@/components/homePage/ButtonComponent.vue";
 import ListItem from "../components/homePage/ListItem.vue";
 </script>
 
-<style >
+<style scoped>
 img {
   height: 120px;
 }
