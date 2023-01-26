@@ -32,7 +32,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (Admin.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../views/addRecipe.vue"),
+      component: () => import("../views/AddRecipe.vue"),
     },
     {
       path: "/browse",
