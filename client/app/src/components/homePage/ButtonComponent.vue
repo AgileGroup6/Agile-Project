@@ -16,5 +16,10 @@ export default {
 </script>
 
 <style>
+
+button{
+    width:90vw;
+    height:35vw;
+}
     
 </style>
