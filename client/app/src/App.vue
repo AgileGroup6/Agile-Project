@@ -9,14 +9,17 @@ import HelloWorld from "./components/HelloWorld.vue";
   <header>
     
 
-    <div class="wrapper">
-      <nav>
-
-        <RouterLink to="/browse">Browse All Ingredients</RouterLink>
-      </nav>
-
-    </div>
+    <nav>
+      <img id="homeRoute" src="./assets/home.png" alt="">
+    </nav>
   </header>
 
   <RouterView />
 </template>
+
+<style>
+#homeRoute{
+  
+  height: 10vw;
+}
+</style>
