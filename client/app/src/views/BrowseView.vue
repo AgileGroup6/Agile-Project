@@ -10,7 +10,7 @@
 </div>
     <div class="dropdown-center">
       <div class = "row" >
-    <button class="btn btn-light dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown" aria-expanded="false">
       Browse by Category
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -52,7 +52,7 @@
 
 <script>
 
-  import card from '../components/ingredientCard.vue';
+  import card from '../components/browseAll/ingredientCard.vue';
 
   export default {
 
@@ -62,7 +62,6 @@
     data () {
       
       return {
-        active: false,
         range: 0,
         testNames: [ {
           id: 1,
@@ -82,11 +81,8 @@
       }
     },
     methods: {
-      toggle () {
-        this.active = !this.active
-      },
 
-      search (category) {
+    search (category) {
         this.active = !this.active
         document.getElementById('categoryButton').innerHTML = category;
 
@@ -102,17 +98,17 @@
         this.testNames.push({
           id: 4,
           ingredientName: "Toast",
-          image: '../../public/favicon.ico' //ADD IMAGE
+          image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
         })
         this.testNames.push({
           id: 5,
           ingredientName: "Toastier Toast",
-          image: '../../public/favicon.ico' //ADD IMAGE
+          image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
         })
         this.testNames.push({
           id: 6,
           ingredientName: "Scones",
-          image: '../../public/favicon.ico' //ADD IMAGE
+          image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
         })
     
       }
