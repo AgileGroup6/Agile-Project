@@ -52,7 +52,7 @@
 
 <script>
 
-  import card from '../components/ingredientCard.vue';
+  import card from '../components/browseAll/ingredientCard.vue';
 
   export default {
 

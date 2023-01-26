@@ -1,25 +1,19 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
 
 </script>
 
 <template>
- <RouterView />
   <header>
     
 
-    <nav>
-      <img id="homeRoute" src="./assets/home.png" alt="">
-    </nav>
+    <div class="wrapper">
+      <nav>
+
+      </nav>
+
+    </div>
   </header>
 
   <RouterView />
 </template>
-
-<style>
-#homeRoute{
-  
-  height: 10vw;
-}
-</style>
