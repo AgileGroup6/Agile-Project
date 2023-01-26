@@ -1,8 +1,20 @@
 <template>
    <div class="add-button">
-        <a href="AddRecipe"><div class="button-action">Add recipe</div></a>
+    
+        <a href={{buttonLink}}><div class="button-action">{{buttonName}}</div></a>
     </div>
 </template>
+
+<script>
+import { stringLiteral } from '@babel/types';
+
+export default {
+ props: {
+    buttonName: string,
+    buttonLink: string
+ }
+}
+</script>
 
 
 <style>

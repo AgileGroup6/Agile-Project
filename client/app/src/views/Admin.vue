@@ -11,10 +11,11 @@ import LogOut from "../components/admin/LogOut.vue";
         Please choose an option below
       </p>
     </div>
+ 
 
-    <BigButton />
-    <BigButton />
-    <BigButton />
+    <BigButton buttonLink='AddRecipe' buttonName='Add Recipe' />
+    <BigButton buttonLink='AddRecipe' buttonName='Highlight Recipe' />
+    <BigButton buttonLink='AddRecipe' buttonName='Remove Recipe' />
 
     <LogOut />
 
