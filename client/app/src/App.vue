@@ -26,3 +26,10 @@ import { RouterLink, RouterView } from "vue-router";
 
   <RouterView />
 </template>
+
+<style>
+#homeRoute{
+  
+  height: 10vw;
+}
+</style>
