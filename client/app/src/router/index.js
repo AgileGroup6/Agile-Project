@@ -22,26 +22,18 @@ const router = createRouter({
       path: "/admin",
       name: "admin",
       // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
+      // this generates a separate chunk (Admin.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/Admin.vue"),
     },
-    // {
-    //   path: "/admin-login",
-    //   name: "admin-login",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (AdminLogin.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import("../views/AdminLogin.vue"),
-    // },
-    // {
-    //   path: "/admin-main",
-    //   name: "admin-main",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (AdminLogin.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import("../admin/admin-main.vue"),
-    // },
+    {
+      path: "/addRecipe",
+      name: "addRecipe",
+      // route level code-splitting
+      // this generates a separate chunk (Admin.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/addRecipe.vue"),
+    },
   ],
 });
 
