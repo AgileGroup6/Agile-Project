@@ -1,4 +1,4 @@
-var DB_HOST = "http://database";
+var DB_HOST = "database";
 var DB_USER = "green";
 var DB_PASS = "veggie";
 var DB_NAME = "lgl";
