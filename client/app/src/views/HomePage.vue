@@ -8,23 +8,24 @@
       <div class="col mt-2">
         <!-- <IngredientSearch /> -->
         <!-- <ListItem :ingredients="shoppingList"/> -->
-        
+
         <!-- <form class="form-inline">
             <input class="form-control mr-sm-2" id = "search" type="search" placeholder="Search Ingredients" aria-label="Search Ingredients">
         </form> -->
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id = "search" placeholder="Enter Ingredient" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button @click = "setIngredient()" class="btn btn-success" type="button" id="button-addon2">Search</button>
+          <input type="text" class="form-control" id="search" placeholder="Enter Ingredient"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button @click="setIngredient()" class="btn btn-success" type="button" id="button-addon2">Search</button>
         </div>
-    
+
       </div>
     </div>
 
     <!-- shopping list -->
     <div class="row">
       <div class="col">
-        <ShoppingList :searchResult = this.searchedIng  />
+        <ShoppingList :searchResult="searchedIng" />
       </div>
     </div>
 
@@ -54,8 +55,8 @@ export default {
 
 
   components: {
-        ShoppingList,
-      },
+    ShoppingList,
+  },
 
   data() {
     return {
@@ -71,7 +72,7 @@ export default {
     },
     setIngredient() {
       this.searchedIng = document.getElementById('search').value;
-      
+
     }
   }
 }
