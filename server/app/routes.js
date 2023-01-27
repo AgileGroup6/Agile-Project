@@ -1,23 +1,31 @@
-const allIngredients = require("./api/allIngredients.js");
-const adminLogin = require("./api/adminLogin.js");
+const { customLimit } = require("./middleware/rate-limits");
 
-const allRecipes = require('./api/allRecipes.js');
+const allIngredients = require("./api/allIngredients");
+const allRecipes = require("./api/allRecipes");
+const findRecipe = require("./api/findRecipe");
 
-const findRecipe = require("./api/findRecipe.js");
+const addRecipe = require("./api/addRecipe");
 
-const accessController = require("./middleware/accessController.js");
+const checkAdminPassword = require("./api/checkAdminPassword");
+
+const accessController = require("./middleware/accessController");
 
 const routes = (route) => {
   route.use("/api/allIngredients", allIngredients.router);
-
-  route.use("/api/allRecipes", allRecipes.router)
-
+  route.use("/api/allRecipes", allRecipes.router);
   route.use("/api/findRecipe", findRecipe.router);
 
   route.use(
-    "/api/adminLogin",
-    accessController, //Requires authorization to access admin panel
-    adminLogin.router
+    "/api/checkAdminPassword",
+    customLimit(16, 4), // only allow 16 attempts every 4 minutes
+    checkAdminPassword.router
+  );
+
+  // not used at the moment, testing admin authentication
+  route.use(
+    "/api/addRecipe",
+    accessController, // must have admin cookie set for this
+    addRecipe.router
   );
 };
 
