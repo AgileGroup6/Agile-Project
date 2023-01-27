@@ -6,15 +6,25 @@
     <!-- search ingredients -->
     <div class="row">
       <div class="col mt-2">
-        <IngredientSearch />
+        <!-- <IngredientSearch /> -->
         <!-- <ListItem :ingredients="shoppingList"/> -->
+        
+        <!-- <form class="form-inline">
+            <input class="form-control mr-sm-2" id = "search" type="search" placeholder="Search Ingredients" aria-label="Search Ingredients">
+        </form> -->
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id = "search" placeholder="Enter Ingredient" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button @click = "setIngredient()" class="btn btn-success" type="button" id="button-addon2">Search</button>
+        </div>
+    
       </div>
     </div>
 
     <!-- shopping list -->
     <div class="row">
       <div class="col">
-        <ShoppingList />
+        <ShoppingList :searchResult = this.searchedIng  />
       </div>
     </div>
 
@@ -42,9 +52,15 @@
 
 export default {
 
+
+  components: {
+        ShoppingList,
+      },
+
   data() {
     return {
       shoppingList: [{ ing: 'Curry Powder' }, { ing: 'Pepper' }],
+      searchedIng: " ",
     }
 
   },
@@ -52,6 +68,10 @@ export default {
   methods: {
     testFunction: function () {
       console.log('test clicked')
+    },
+    setIngredient() {
+      this.searchedIng = document.getElementById('search').value;
+      
     }
   }
 }
