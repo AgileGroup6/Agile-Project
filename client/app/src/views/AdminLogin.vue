@@ -14,7 +14,7 @@
       </div>
       <div class="row mt-3">
         <div class="col text-center">
-          <button @click="doLogin" id="button-continue">Continue</button>
+          <button type="button" @click="doLogin" id="button-continue">Continue</button>
         </div>
       </div>
     </form>
@@ -36,7 +36,7 @@ export default {
       if (this.usernameLogin === "" || this.passwordLogin === "") {
         this.emptyFields = true;
       } else {
-        this.$router.push({ path: '/addRecipe' })
+        this.$router.push({ path: '/admin' })
       }
     },
   }
