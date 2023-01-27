@@ -1,7 +1,7 @@
 <template>
     <div class="logout">
         <div class="logout-button">
-            <a href="HomePage"><div class="button-action">Log out</div></a>
+            <a href="/"><div class="button-action">Log out</div></a>
         </div>
     </div>
 </template>

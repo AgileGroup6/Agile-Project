@@ -1,6 +1,7 @@
 <script setup>
 import BigButton from "../components/admin/BigButton.vue";
 import LogOut from "../components/admin/LogOut.vue";
+import ButtonComponent from "../components/homePage/ButtonComponent.vue";
 
 </script>
 
@@ -14,10 +15,11 @@ import LogOut from "../components/admin/LogOut.vue";
     </div>
  
     <RouterLink to="/addRecipe">
-    <BigButton buttonName="Add Recipe" />
+    <ButtonComponent label="Add Recipe" />
     </RouterLink>
-    <BigButton buttonName="Highlight Recipe" />
-    <BigButton buttonName="Remove Recipe" />
+  
+    <ButtonComponent label="Highlight Recipe" />
+    <ButtonComponent label="Remove Recipe" />
 
     <LogOut />
 

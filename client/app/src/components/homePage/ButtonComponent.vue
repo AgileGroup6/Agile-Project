@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="btn btn-success" @click="doOnClick">{{ label }}</button>
+    <button type="button" class="btn btn-success mt-2" @click="doOnClick">{{ label }}</button>
 </template>
 <script>
 export default {
