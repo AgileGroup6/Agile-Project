@@ -1,20 +1,25 @@
 <script setup>
 import BigButton from "../components/admin/BigButton.vue";
 import LogOut from "../components/admin/LogOut.vue";
+import ButtonComponent from "../components/homePage/ButtonComponent.vue";
+
 </script>
 
 <template>
   <div class="admin-home">
     <div class="header">
-      <h class="title">Admin Page</h>
+      <h1 class="title">Admin Page</h1>
       <p class="subtitle">
         Please choose an option below
       </p>
     </div>
-
-    <BigButton />
-    <BigButton />
-    <BigButton />
+ 
+    <RouterLink to="/addRecipe">
+    <ButtonComponent label="Add Recipe" />
+    </RouterLink>
+  
+    <ButtonComponent label="Highlight Recipe" />
+    <ButtonComponent label="Remove Recipe" />
 
     <LogOut />
 

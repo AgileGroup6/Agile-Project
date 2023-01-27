@@ -98,7 +98,7 @@
       </div>
 
       <div class="row boxes">
-        <button type="button" @click="postRecipe" class="btn btn-success" style="color: white">ADD RECIPE</button>
+        <a href="admin"><button type="button" @click="postRecipe" class="btn btn-success" style="color: white">ADD RECIPE</button></a>
       </div>
 
     </form>
@@ -121,10 +121,10 @@
           name: "Beans"
         }, {
           id: 4,
-          name: "Balls"
+          name: "rice"
         }, {
           id: 4,
-          name: "Poop"
+          name: "pasta"
         }, ],
         ingredient: "",
         amount: "",
@@ -184,5 +184,5 @@
 
   .btn{
     margin-top: 10px;
-  
+  }
 </style>
