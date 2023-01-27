@@ -13,9 +13,9 @@ import LogOut from "../components/admin/LogOut.vue";
     </div>
  
 
-    <BigButton buttonLink='AddRecipe' buttonName='Add Recipe' />
-    <BigButton buttonLink='AddRecipe' buttonName='Highlight Recipe' />
-    <BigButton buttonLink='AddRecipe' buttonName='Remove Recipe' />
+    <BigButton buttonName="Add Recipe" />
+    <BigButton buttonName="Highlight Recipe" />
+    <BigButton buttonName="Remove Recipe" />
 
     <LogOut />
 
