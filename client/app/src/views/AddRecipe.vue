@@ -1,5 +1,7 @@
 <template>
+
   <body>
+
     <head>
       <title>Add Recipe</title>
     </head>
@@ -65,8 +67,9 @@
               {{ ingredient.name }}
             </option>
           </select>
-          <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount" v-model="amount" required />
-          <button class="btn btn-success" type="button" @click="addMeasurement">Add</button>
+          <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount"
+            v-model="amount" required />
+          <button class="btn btn-success" type="button" @click="addMeasurement">Add ingredients</button>
         </div>
       </div>
 
@@ -98,7 +101,8 @@
       </div>
 
       <div class="row boxes">
-        <a href="admin"><button type="button" @click="postRecipe" class="btn btn-success" style="color: white">ADD RECIPE</button></a>
+        <a href="admin"><button type="button" @click="postRecipe" class="btn btn-success" style="color: white">Add
+            recipe</button></a>
       </div>
 
     </form>
@@ -106,83 +110,83 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        // TODO fetch ingredients from pinata store
-        ingredients: [{
-          id: 1,
-          name: "Butter"
-        }, {
-          id: 2,
-          name: "Nuts"
-        }, {
-          id: 3,
-          name: "Beans"
-        }, {
-          id: 4,
-          name: "rice"
-        }, {
-          id: 4,
-          name: "pasta"
-        }, ],
-        ingredient: "",
-        amount: "",
-        serves: "",
-        title: "",
-        instructions: "",
-        selectedMeasurements: [],
-      };
+export default {
+  data() {
+    return {
+      // TODO fetch ingredients from pinata store
+      ingredients: [{
+        id: 1,
+        name: "Butter"
+      }, {
+        id: 2,
+        name: "Nuts"
+      }, {
+        id: 3,
+        name: "Beans"
+      }, {
+        id: 4,
+        name: "rice"
+      }, {
+        id: 4,
+        name: "pasta"
+      },],
+      ingredient: "",
+      amount: "",
+      serves: "",
+      title: "",
+      instructions: "",
+      selectedMeasurements: [],
+    };
+  },
+  methods: {
+    addMeasurement() {
+      if (!this.ingredient || !this.amount) {
+        return;
+      }
+      this.selectedMeasurements.push({
+        ingredient: this.ingredient,
+        amount: this.amount,
+      });
     },
-    methods: {
-      addMeasurement() {
-        if (!this.ingredient || !this.amount) {
-          return;
-        }
-        this.selectedMeasurements.push({
-          ingredient: this.ingredient,
-          amount: this.amount,
-        });
-      },
-      deleteMeasurements(n) {
-        this.selectedMeasurements = this.selectedMeasurements.filter(
-          (m) => m.ingredient != n.ingredient || m.amount != n.amount);
-      },
-      postRecipe() {
-        console.log("POST");
-        console.log("measurements", this.selectedMeasurements);
-        console.log("title", this.title);
-        console.log("serves", this.serves);
-        console.log("instructions", this.instructions);
-      },
+    deleteMeasurements(n) {
+      this.selectedMeasurements = this.selectedMeasurements.filter(
+        (m) => m.ingredient != n.ingredient || m.amount != n.amount);
     },
-  };
+    postRecipe() {
+      console.log("POST");
+      console.log("measurements", this.selectedMeasurements);
+      console.log("title", this.title);
+      console.log("serves", this.serves);
+      console.log("instructions", this.instructions);
+    },
+  },
+};
 </script>
 
 <style>
-  * {
-    font-family: "arial";
-    background-color: #ffffff;
-  }
+* {
+  font-family: "arial";
+  background-color: #ffffff;
+}
 
-  body {
-    background-color: #ffffff;
-  }
+body {
+  background-color: #ffffff;
+}
 
-  .title{
-    margin-top: 2%;
-  }
+.title {
+  margin-top: 2%;
+}
 
-  h1 {
-    font-weight: 700;
-  }
+h1 {
+  font-weight: 700;
+}
 
-  .boxes{
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+.boxes {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-  .btn{
-    margin-top: 10px;
-  }
+.btn {
+  margin-top: 10px;
+}
 </style>
