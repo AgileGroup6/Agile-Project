@@ -24,7 +24,7 @@
   
 
 <!-- Container for the ingredient cards-->
-<div class = "container overflow-auto" id = "cardContainer">
+<div class = "container overflow-auto mt-4" id = "cardContainer">
   <div class = "row" id = "row-cards">
 
     <div class = "col" id = "col-left">

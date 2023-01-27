@@ -12,7 +12,7 @@
             <img src = "../../../src/assets/bred1test.jpg"> 
         </div>
         <div class = "row justify-content-center" > 
-        <button class = "btn btn-success" @click="addToCart()">Add to cart</button>
+        <button class = "btn btn-success mt-2" @click="addToCart()">Add to cart</button>
         </div>
 
     </div>
