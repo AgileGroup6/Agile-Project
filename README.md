@@ -1,4 +1,5 @@
 # Link to live project
+## As of sprint 1 these are designed for mobile view only. Sprint 2 will look at making them reactive for mobile and desktop
 Customer View:
 https://lgl.caydey.com/
 
@@ -9,11 +10,15 @@ https://lgl.caydey.com/adminlogin
 https://drive.google.com/drive/folders/13EP8KN7fw9zRpmSqi2pWKWRh0OpJcdpX?usp=share_link
 
 # Backlog files
-## Product Backlog
+## Planning for the backlog
 https://docs.google.com/spreadsheets/d/1Rs4RLAzFC7-CqyPZnF9YlvcS7Lx7Y9WUOiHbzstmipU/edit#gid=228098202
 
+## Product Backlog
+https://docs.google.com/spreadsheets/d/1Rs4RLAzFC7-CqyPZnF9YlvcS7Lx7Y9WUOiHbzstmipU/edit#gid=228098202
+https://github.com/orgs/AgileGroup6/projects/3/views/1
+
 ## Sprint 1 Backlog
-https://docs.google.com/spreadsheets/d/1Rs4RLAzFC7-CqyPZnF9YlvcS7Lx7Y9WUOiHbzstmipU/edit#gid=993105541
+https://github.com/orgs/AgileGroup6/projects/3/views/3
 
 ## Sprint 2 Backlog
 tbc...
