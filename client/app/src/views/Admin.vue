@@ -1,5 +1,5 @@
 <script setup>
-import BigButton from "../components/admin/BigButton.vue";
+
 import LogOut from "../components/admin/LogOut.vue";
 import ButtonComponent from "../components/homePage/ButtonComponent.vue";
 
