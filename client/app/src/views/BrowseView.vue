@@ -1,7 +1,3 @@
-<!-- View created for the browse view -->
-<!-- @Authors Caleb, Chris -->
-
-
 <template>
   <div class ="container d-flex justify-content-center align-item-center" >
     <div class="browse">
@@ -24,10 +20,10 @@
   
 
 <!-- Container for the ingredient cards-->
-<div class = "container overflow-auto mt-4" id = "cardContainer">
-  <div class = "row" id = "row-cards">
 
-    <div class = "col" id = "col-left">
+<div class = "container test" id = "cardContainer">
+  <div class = "row card-content" id = "row-cards">
+<div class = "col">
       <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
       <card v-for="(item, index) in testNames.slice(testNames.length/2)"
           :key="item.id" 
@@ -36,13 +32,14 @@
       /> 
     </div>
 
-    <div class = "col" id = "col-right">
+<!-- <div class="col" id = "col-right">
       <card v-for="(item, index) in testNames.slice(0, testNames.length/2)"
           :key="item.id" 
           :ingredientName="item.ingredientName"
           :image="item.image"
       /> 
-    </div>
+
+ </div> -->
 
   </div>
 </div>
@@ -116,18 +113,38 @@
   }
 </script>
 
-
-<style scoped>
-@media (min-width: 1024px) {
-  .browse {
-    min-height: 100vh;
-    display: flex;
-    place-items: flex-start;
-    flex-direction: column;
-    
-  }
+<style>
+  /* @media (min-width: 1024px) {
+    .browse {
+      min-height: 100vh;
+      display: flex;
+      place-items: flex-start;
+      flex-direction: column;
+      
+    }
+  } */
+  body {
+    margin: 0;
+    font-family: 'Nunito';
 }
 
+.container {
+    padding: 3em;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* // Change "auto-fit" to "auto-fill" above to see the difference */
+}
+  .container .card-content {
+      padding: 2em;
+      border-radius: .3em;
+}
 
-
+@media (min-width: 550px) {
+    /*
+    .span-2 {
+        grid-column: auto / span 2;
+    }
+    */
+}
 </style>
