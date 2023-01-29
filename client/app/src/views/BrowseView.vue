@@ -21,11 +21,11 @@
 
 <!-- Container for the ingredient cards-->
 
-<div class = "container test" id = "cardContainer">
-  <div class = "row card-content" id = "row-cards">
-<div class = "col">
+<div class = "container">
+  <div class = "card-content">
+    <div>
       <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
-      <card v-for="(item, index) in testNames.slice(testNames.length/2)"
+      <card v-for="(item, index) in testNames.slice(1)"
           :key="item.id" 
           :ingredientName="item.ingredientName"
           :image="item.image"
@@ -74,7 +74,8 @@
           id: 3,
           ingredientName: 'Bagels',
           image: '../../public/favicon.ico' //ADD IMAGE
-        }]
+        }
+      ]
       }
     },
     methods: {
@@ -113,16 +114,7 @@
   }
 </script>
 
-<style>
-  /* @media (min-width: 1024px) {
-    .browse {
-      min-height: 100vh;
-      display: flex;
-      place-items: flex-start;
-      flex-direction: column;
-      
-    }
-  } */
+<style scoped>
   body {
     margin: 0;
     font-family: 'Nunito';
@@ -132,7 +124,7 @@
     padding: 3em;
     display: grid;
     grid-gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   /* // Change "auto-fit" to "auto-fill" above to see the difference */
 }
   .container .card-content {

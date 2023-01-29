@@ -1,5 +1,5 @@
 <template>
-    <div class="card" id="ingredient_card" style="width: 18rem;">
+    <div class="container" id="ingredient_card" style="width: 18rem;">
         <img class="card-img-top" src="../../../src/assets/bred1test.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"> {{ingredientName}} </h5>
