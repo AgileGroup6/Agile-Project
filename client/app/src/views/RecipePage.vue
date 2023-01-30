@@ -14,8 +14,8 @@ export default {
             title: "te",
             measurements: [
                 {ingredient: 'Milk', amount: '1 Litre'},
-                {ingredient: 'cum', amount: '20 Litre'},
-                {ingredient: 'shit powder', amount: '1 gram'},
+                {ingredient: 'Water', amount: '20 Litre'},
+                {ingredient: 'Sugar', amount: '1 gram'},
             ],
             instructions: "contents",
             serves: 2
