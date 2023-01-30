@@ -10,8 +10,15 @@
               <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search=''"/>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col">
+            <AllergyNotice />
+          </div>
+        </div>
       </div>
     </div>
+
 
     <!-- shopping list -->
     <div class="row">
@@ -71,6 +78,7 @@ import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
 import ButtonComponent from "@/components/homePage/ButtonComponent.vue";
 import ListItem from "../components/homePage/ListItem.vue";
 import ShoppingList from "@/components/homePage/ShoppingList.vue";
+import AllergyNotice from "../components/homePage/AllergyNotice.vue"
 import {useIngridentsStore} from "../stores/ingridentsStore";
 
 const store = useIngridentsStore(); 
