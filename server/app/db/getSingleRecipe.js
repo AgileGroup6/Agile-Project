@@ -1,4 +1,3 @@
-const e = require("express");
 const { pool } = require("./pool.js");
 
 exports.getSingleRecipe = (recipe_id, callback) => {
