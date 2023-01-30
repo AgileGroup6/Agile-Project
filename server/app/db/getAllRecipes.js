@@ -5,7 +5,7 @@ const { pool } = require('./pool.js');
 
 exports.getAllRecipes = (callback) => {
   pool.query(`SELECT Recipe.recipe_id, Recipe.recipe_name, Recipe.serves,
-    COALESCE(Recipe.highlight_start > NOW() and Recipe.highlight_end < NOW(), 0) as highlighted,
+    COALESCE(Recipe.highlight_start < NOW() and NOW() < Recipe.highlight_end, 0) as highlighted,
     Ingredient.ingredient_name, Ingredient.store_has,
     Category.category_name, Measurement.amount,
     Ingredient.store_has, Ingredient.vegan,
