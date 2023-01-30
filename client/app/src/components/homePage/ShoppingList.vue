@@ -3,8 +3,8 @@
     <div class="container py-4 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
 
-            <div class="col col-lg-8 col-xl-6">
-                <div class="card rounded-3">
+            <div class="col">
+                <div class="card">
                     <div class="card-body p-4">
 
                         <p class="mb-2"><span class="h2 me-2">Shopping List</span> <span
@@ -13,34 +13,12 @@
 
                         <ul class="list-group rounded-0">
 
-                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="(item, index) in ingredients"
-                            :key="item.id">
-                            <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                            {{ item.ingredientName }}
-
-                            <!-- <span class = "text-right">
-                            
-                                <button id = "del" class = "btn btn-danger float-md-end"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                            </svg></button>
-                            </span> -->
-                            </li> 
-
-                            <!-- <li class="list-group-item border-0 d-flex align-items-center ps-0">
+                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox"
+                                v-for="(item, index) in ingredients" :key="item.id">
                                 <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Garlic
+                                {{ item.ingredientName }}
+
                             </li>
-
-                            <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Bicarbonate of soda
-                            </li>
-
-                            <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Desiccated coconut
-                            </li> -->
                         </ul>
 
 
@@ -55,31 +33,35 @@
 </template>
 
 <script>
- export default {
+export default {
 
 
     props: ['searchResult'],
     watch: {
-        searchResult: function() { this.ingredients.push({
-          id: 4,    
-          ingredientName: this.searchResult 
-        })
+        searchResult: function () {
+            this.ingredients.push({
+                id: 4,
+                ingredientName: this.searchResult
+            })
         }
     },
-    data () {
-    return {
-        ingredients: [],
-            }
+    data() {
+        return {
+            ingredients: [],
+        }
 
-    },   
+    },
 }
 
 
 </script>
 
 <style>
-.del{
+.del {
     float: right;
 }
 
+.card {
+    width: 40vw;
+}
 </style>

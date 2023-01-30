@@ -1,14 +1,18 @@
 <template>
-    <button type="button" class="btn btn-success mt-2" @click="doOnClick">{{ label }}</button>
+
+    <button type="button" class="btn btn-success" @click="doOnClick">
+        <p class="h2" id="buttonLabel">{{ label }}</p>
+
+    </button>
 </template>
 <script>
 export default {
     props: {
-        label:{
+        label: {
             type: String,
             default: 'Button'
         },
-        doOnClick:{
+        doOnClick: {
             type: Function
         }
     }
@@ -16,10 +20,13 @@ export default {
 </script>
 
 <style scoped>
-
-button{
-    width:90vw;
-    height:35vw;
+button {
+    width: 40vw;
+    height: 15vw;
 }
-    
+
+#buttonLabel {
+    padding-top: 1vw;
+    font-size: 3vw;
+}
 </style>
