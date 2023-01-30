@@ -7,6 +7,7 @@ const getRecipe = require("./api/getRecipe");
 
 const setFeatured = require("./api/setFeatured");
 const removeFeatured = require("./api/removeFeatured");
+const listFeatured = require("./api/listFeatured");
 
 const addRecipe = require("./api/addRecipe");
 
@@ -36,6 +37,8 @@ const routes = (route) => {
   route.use("/api/setFeatured", setFeatured.router);
 
   route.use("/api/removeFeatured", removeFeatured.router);
+
+  route.use("/api/listFeatured", listFeatured.router);
 };
 
 module.exports = routes;
