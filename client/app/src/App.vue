@@ -2,6 +2,8 @@
 import { RouterLink, RouterView } from "vue-router";
 
 import 'https://kit.fontawesome.com/cf35c5647c.js'
+
+
 </script>
 
 
@@ -27,10 +29,16 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
   </header>
 
   <RouterView />
-  <footer>
+    <footer>
       <div class = "d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class = "col-md-4 d-flex align-items-center">
-            <a class = "mb-3 me-2 mb-md-0 text-decoration-none lh-1 mx-3" style = "color:green;">Our Socials</a>
+          <ul class  ="list-unstyled">
+            <li>
+              <a class = "mb-3 me-2 mb-md-0 text-decoration-none lh-1 mx-3" style = "color:green;">Our Socials</a>
+            </li>
+          </ul>
+           
+            
         </div>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-3">
           <!-- Uses bootstrap icons, view more here: https://icons.getbootstrap.com/ -->
@@ -61,7 +69,19 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
 
       </ul>
       </div>
-  </footer>
+      <div class = "col" style="height: auto;">
+        <div class="embedsocial-hashtag" data-ref="954298ae553cdc0981bb5e5ff52391938b490d61"> <a class="feed-powered-by-es feed-powered-by-es-feed-new" href="https://embedsocial.com/social-media-aggregator/" target="_blank" title="Widget by EmbedSocial"> Widget by EmbedSocial<span>→</span> </a> </div> 
+      </div>
+    </footer>
   
 </template>
 
+<!--<script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script> -->
+<script> 
+//This script is necessary for the linked instagram posts in the footer to work
+(function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript"));
+</script>
+
+<style scoped>
+
+</style>
