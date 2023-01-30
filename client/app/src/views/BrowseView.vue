@@ -1,7 +1,3 @@
-<!-- View created for the browse view -->
-<!-- @Authors Caleb, Chris -->
-
-
 <template>
   <div class ="container d-flex justify-content-center align-item-center" >
     <div class="browse">
@@ -24,27 +20,16 @@
   
 
 <!-- Container for the ingredient cards-->
-<div class = "container overflow-auto mt-4" id = "cardContainer">
-  <div class = "row" id = "row-cards">
 
-    <div class = "col" id = "col-left">
+<div class = "container ingredientsGrid">
       <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
-      <card v-for="(item, index) in testNames.slice(testNames.length/2)"
+      <ingredientCard v-for="(item) in testNames.slice(testNames.slice)"
+          class="card"
           :key="item.id" 
           :ingredientName="item.ingredientName"
           :image="item.image"
       /> 
-    </div>
 
-    <div class = "col" id = "col-right">
-      <card v-for="(item, index) in testNames.slice(0, testNames.length/2)"
-          :key="item.id" 
-          :ingredientName="item.ingredientName"
-          :image="item.image"
-      /> 
-    </div>
-
-  </div>
 </div>
   
 
@@ -52,12 +37,12 @@
 
 <script>
 
-  import card from '../components/browseAll/ingredientCard.vue';
+  import ingredientCard from '../components/browseAll/ingredientCard.vue';
 
   export default {
 
     components: {
-        card,
+      ingredientCard,
       },
     data () {
       
@@ -77,7 +62,13 @@
           id: 3,
           ingredientName: 'Bagels',
           image: '../../public/favicon.ico' //ADD IMAGE
-        }]
+        },
+        {
+          id: 4,
+          ingredientName: 'Sausge Roll',
+          image: '../../public/favicon.ico' //ADD IMAGE
+        }
+      ]
       }
     },
     methods: {
@@ -116,18 +107,14 @@
   }
 </script>
 
-
-<style scoped>
-@media (min-width: 1024px) {
-  .browse {
-    min-height: 100vh;
-    display: flex;
-    place-items: flex-start;
-    flex-direction: column;
-    
-  }
+<style>
+.card {
+  display: inline-block;
+  margin: 6px;
 }
 
-
+.ingredientsGrid {
+  margin-top: 8px;
+}
 
 </style>
