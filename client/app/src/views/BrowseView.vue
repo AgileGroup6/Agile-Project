@@ -3,7 +3,7 @@
     <div class="browse">
       <h1>Browse Store</h1>
     </div>
-</div>
+  </div>
     <div class="dropdown-center">
       <div class = "row" >
     <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown" aria-expanded="false">
