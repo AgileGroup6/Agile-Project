@@ -6,7 +6,7 @@
 
         <div class="row">
           <div class="col mt-2">
-              <IngredientSearch v-model="event.search" @submit="AddNonStoreIngridents_ShoppingList(event.search)"/>
+              <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)"/>
               <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search=''"/>
           </div>
         </div>
@@ -94,7 +94,7 @@ function EmptyShoppingCart(){
 function AddNonStoreIngridents_ShoppingList(nonstore){
   if(!nonstore)
     return; 
-    
+
   const item = {name: nonstore , category:"",store_has:false,tags:[""]}; 
   store.addItem(item); 
   event.search = ""; 
