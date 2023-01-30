@@ -1,7 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-
-import 'https://kit.fontawesome.com/cf35c5647c.js'
 </script>
 
 
