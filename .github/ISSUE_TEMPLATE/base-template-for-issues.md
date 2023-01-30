@@ -15,4 +15,4 @@ assignees: ''
 - [ ] Follows the colour scheme
 - [ ] Code is well commented
 - [ ] Tests have been completed
-- [ ] Run npm run build
+- [ ] Run `npm run build` after front end changes
