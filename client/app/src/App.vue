@@ -62,6 +62,7 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
             </svg>
           </a>
         </li>
+        <!-- Links to LGLs Website -->
         <li>
           <a class = "m-2" style = "text-decoration:none; color:green;" href="https://thelittlegreenlarder.com/" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-browser-safari" viewBox="0 0 16 16">
@@ -73,6 +74,7 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
       </ul>
       </div>
       <!--This calls the instagram post components-->
+      <!-- This checks if the current route is home, if it isn't then the instagram posts are not shown-->
       <div v-show="$route.name === 'home'">
           <instaPosts > </instaPosts>
       </div>
