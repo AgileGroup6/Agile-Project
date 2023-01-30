@@ -61,10 +61,6 @@ data() {
 methods: {
   testFunction: function () {
     console.log('test clicked')
-  },
-  setIngredient() {
-    this.searchedIng = document.getElementById('search').value;
-
   }
 }
 }
@@ -84,7 +80,7 @@ const res = await store.updateAllIngredients();
 function SearchForIngridents(searchVal){
 
   if(searchVal)
-    return store.items.filter(item => item.name.includes(searchVal));
+    return store.items.filter(item => item.name.toLowerCase().includes(searchVal.toLowerCase()));
   
   return []
 }

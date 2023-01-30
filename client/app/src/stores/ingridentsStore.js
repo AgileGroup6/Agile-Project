@@ -18,7 +18,12 @@ export const useIngridentsStore = defineStore({
     },
     actions: {
       addItem(item) {
-        this.shoppingList.push(item);
+        const existingItem = this.shoppingList.find((it) => it.name === item.name);
+        if(!existingItem)
+            this.shoppingList.push(item);
+        // doube up items is needed
+        else
+            return; 
       },
 
       async updateAllIngredients(){

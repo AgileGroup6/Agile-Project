@@ -6,11 +6,6 @@
             <div class="col col-lg-8 col-xl-6">
                 <div class="card rounded-3">
                     <div class="card-body p-4">
-
-                        <p class="mb-2"><span class="h2 me-2">Shopping List</span> <span
-                                class="badge bg-danger">Incomplete</span></p>
-
-
                         <ul class="list-group rounded-0">
 
                             <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="item in ingredients"
