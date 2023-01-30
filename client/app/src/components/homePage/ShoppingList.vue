@@ -13,10 +13,10 @@
 
                         <ul class="list-group rounded-0">
 
-                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="(item, index) in ingredients"
-                            :key="item.id">
+                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="item in ingredients"
+                            :key="item">
                             <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                            {{ item.ingredientName }}
+                            {{ item.name }}
 
                             <!-- <span class = "text-right">
                             
@@ -42,9 +42,6 @@
                                 Desiccated coconut
                             </li> -->
                         </ul>
-
-
-
                     </div>
                 </div>
             </div>
@@ -55,23 +52,13 @@
 </template>
 
 <script>
- export default {
-
-
-    props: ['searchResult'],
-    watch: {
-        searchResult: function() { this.ingredients.push({
-          id: 4,    
-          ingredientName: this.searchResult 
-        })
-        }
-    },
-    data () {
-    return {
-        ingredients: [],
-            }
-
-    },   
+export default {
+   props : {
+    ingredients :{ 
+        type: Array,
+        default : ()=>[{ name: 'Salt' }, { name: 'Pepper' }]
+    }
+   }
 }
 
 
