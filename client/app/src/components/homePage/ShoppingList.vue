@@ -1,31 +1,22 @@
 <template>
 
-    <div class="container py-4 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="card text-">
+        <div class="card-body p-4">
 
-            <div class="col">
-                <div class="card">
-                    <div class="card-body p-4">
-
-                        <p class="mb-2"><span class="h2 me-2">Shopping List</span> <span
-                                class="badge bg-danger">Incomplete</span></p>
+            <h4>Shopping List</h4>
 
 
-                        <ul class="list-group rounded-0">
+            <ul class="list-group rounded-0">
 
-                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox"
-                                v-for="(item, index) in ingredients" :key="item.id">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                {{ item.ingredientName }}
+                <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="(item, index) in ingredients"
+                    :key="item.id">
+                    <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
+                    {{ item.ingredientName }}
 
-                            </li>
-                        </ul>
+                </li>
+            </ul>
 
 
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -62,6 +53,9 @@ export default {
 }
 
 .card {
-    width: 40vw;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    width: 50vw;
 }
 </style>

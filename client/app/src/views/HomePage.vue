@@ -1,18 +1,14 @@
 <template>
   <!-- search ingredients -->
   <div class="row">
-    <div class="col mt-2">
-      <!-- <IngredientSearch /> -->
-      <!-- <ListItem :ingredients="shoppingList"/> -->
-
-      <!-- <form class="form-inline">
-            <input class="form-control mr-sm-2" id = "search" type="search" placeholder="Search Ingredients" aria-label="Search Ingredients">
-        </form> -->
+    <div class="col-12 mt-2">
 
       <div class="input-group mb-3">
-        <input type="text" class="form-control" id="search" placeholder="Enter Ingredient"
-          aria-label="Recipient's username" aria-describedby="button-addon2">
+
+        <input type="text" class="form-control" id="search" placeholder="Enter Ingredient">
+
         <button @click="setIngredient()" class="btn btn-success" type="button" id="button-addon2">Search</button>
+
       </div>
 
     </div>
@@ -77,5 +73,13 @@ import ShoppingList from "@/components/homePage/ShoppingList.vue";
 <style scoped>
 img {
   height: 120px;
+}
+
+.input-group {
+  width: 50vw;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  width: 50vw;
 }
 </style>

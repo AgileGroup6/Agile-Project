@@ -26,7 +26,7 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
 
   </header>
 
-  <div class="container-sm text-center">
+  <div class="container text-center">
     <RouterView />
   </div>
 
@@ -77,3 +77,6 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
 
 </template>
 
+<style>
+
+</style>

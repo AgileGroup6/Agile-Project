@@ -1,7 +1,8 @@
 <template>
 
     <button type="button" class="btn btn-success" @click="doOnClick">
-        <p class="h2" id="buttonLabel">{{ label }}</p>
+        <!-- <p class="h2" id="buttonLabel"></p> -->
+        <h6>{{ label }}</h6>
 
     </button>
 </template>
