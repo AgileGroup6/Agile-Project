@@ -3,6 +3,7 @@
     <div class="card text-">
         <div class="card-body p-4">
 
+
             <h4>Shopping List</h4>
 
 
@@ -25,23 +26,12 @@
 
 <script>
 export default {
-
-
-    props: ['searchResult'],
-    watch: {
-        searchResult: function () {
-            this.ingredients.push({
-                id: 4,
-                ingredientName: this.searchResult
-            })
-        }
-    },
-    data() {
-        return {
-            ingredients: [],
-        }
-
-    },
+   props : {
+    ingredients :{ 
+        type: Array,
+        default : ()=>[{ name: 'Salt' }, { name: 'Pepper' }]
+    }
+   }
 }
 
 
