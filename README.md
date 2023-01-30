@@ -26,6 +26,6 @@ tbc...
 # figma link for base app design 
 https://www.figma.com/proto/IHPEoSVqpofu3hx1YRLGhp/Untitled?node-id=0%3A1&viewport=306%2C275%2C0.22&scaling=scale-down&starting-point-node-id=10%3A75&show-proto-sidebar=1
 
-# Burndown chart
-https://app.zenhub.com/workspaces/my-team-workspace-63cfcf73d8288000199f5abe/reports/burndown?milestoneId=8956685&entity=milestones
-![image](https://user-images.githubusercontent.com/71976336/215156265-aa86fe69-0cff-452c-8728-d146157e7dab.png)
+# Sprint 1 Burndown Chart
+![image](https://user-images.githubusercontent.com/71976336/215483274-d84f8a7c-cb1a-484f-a96b-4e2b40c880d6.png)
+
