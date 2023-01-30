@@ -5,8 +5,8 @@ exports.getSingleRecipe = (recipe_id, callback) => {
   pool.query(
     `SELECT Recipe.recipe_id, Recipe.recipe_name, Recipe.instructions,
     Ingredient.ingredient_name, Measurement.amount,
+    COALESCE(Recipe.highlight_start > NOW() and Recipe.highlight_end < NOW(), 0) as highlighted,
     Category.category_name,
-    
     Ingredient.store_has, Ingredient.vegan, Ingredient.fillable,
     Ingredient.weightable, Ingredient.chilled, Ingredient.organic,
     Ingredient.jarred, Ingredient.canned
@@ -57,6 +57,7 @@ exports.getSingleRecipe = (recipe_id, callback) => {
         id: result[0].recipe_id,
         name: result[0].recipe_name,
         instructions: result[0].instructions,
+        highlighted: (result[0].highlighted === 1),
         ingredients: ingredients,
       });
     }
