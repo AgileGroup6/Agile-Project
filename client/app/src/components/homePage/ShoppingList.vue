@@ -8,7 +8,7 @@
                     <div class="card-body p-4">
                         <ul class="list-group rounded-0">
 
-                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="item in ingredients"
+                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" :class="{'text-danger':!item.store_has}" v-for="item in ingredients"
                             :key="item">
                             <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
                             {{ item.name }}
