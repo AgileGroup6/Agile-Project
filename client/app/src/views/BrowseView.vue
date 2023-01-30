@@ -21,27 +21,15 @@
 
 <!-- Container for the ingredient cards-->
 
-<div class = "container">
-  <div class = "card-content">
-    <div>
+<div class = "container ingredientsGrid">
       <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
-      <card v-for="(item, index) in testNames.slice(1)"
-          :key="item.id" 
-          :ingredientName="item.ingredientName"
-          :image="item.image"
-      /> 
-    </div>
-
-<!-- <div class="col" id = "col-right">
-      <card v-for="(item, index) in testNames.slice(0, testNames.length/2)"
+      <ingredientCard v-for="(item) in testNames.slice(testNames.slice)"
+          class="card"
           :key="item.id" 
           :ingredientName="item.ingredientName"
           :image="item.image"
       /> 
 
- </div> -->
-
-  </div>
 </div>
   
 
@@ -49,12 +37,12 @@
 
 <script>
 
-  import card from '../components/browseAll/ingredientCard.vue';
+  import ingredientCard from '../components/browseAll/ingredientCard.vue';
 
   export default {
 
     components: {
-        card,
+      ingredientCard,
       },
     data () {
       
@@ -73,6 +61,11 @@
         {
           id: 3,
           ingredientName: 'Bagels',
+          image: '../../public/favicon.ico' //ADD IMAGE
+        },
+        {
+          id: 4,
+          ingredientName: 'Sausge Roll',
           image: '../../public/favicon.ico' //ADD IMAGE
         }
       ]
@@ -115,28 +108,13 @@
 </script>
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Nunito';
+.card {
+  display: inline-block;
+  margin: 6px;
 }
 
-.container {
-    padding: 3em;
-    display: grid;
-    grid-gap: 2em;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  /* // Change "auto-fit" to "auto-fill" above to see the difference */
-}
-  .container .card-content {
-      padding: 2em;
-      border-radius: .3em;
+.ingredientsGrid {
+  margin-top: 8px;
 }
 
-@media (min-width: 550px) {
-    /*
-    .span-2 {
-        grid-column: auto / span 2;
-    }
-    */
-}
 </style>
