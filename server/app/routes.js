@@ -3,6 +3,7 @@ const { customLimit } = require("./middleware/rate-limits");
 const allIngredients = require("./api/allIngredients");
 const allRecipes = require("./api/allRecipes");
 const findRecipe = require("./api/findRecipe");
+const getRecipe = require("./api/getRecipe");
 
 const addRecipe = require("./api/addRecipe");
 
@@ -20,6 +21,11 @@ const routes = (route) => {
     customLimit(16, 4), // only allow 16 attempts every 4 minutes
     checkAdminPassword.router
   );
+
+  route.use(
+    "/api/getRecipe",
+    getRecipe.router
+  )
 
   // not used at the moment, testing admin authentication
   route.use(
