@@ -28,8 +28,13 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
 
   </header>
 
-  <RouterView />
-    <footer>
+
+
+  <Suspense>
+    <RouterView />
+  </Suspense>
+  <footer>
+
       <div class = "d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class = "col-md-4 d-flex align-items-center">
           <ul class  ="list-unstyled">
@@ -73,6 +78,7 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
 
       </ul>
       </div>
+
       <!--This calls the instagram post components-->
       <!-- This checks if the current route is home, if it isn't then the instagram posts are not shown-->
       <div v-show="$route.name === 'home'">
@@ -82,7 +88,7 @@ import 'https://kit.fontawesome.com/cf35c5647c.js'
       
     </footer>
   
-</template>
+
 
 <style scoped>
 

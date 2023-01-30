@@ -16,7 +16,10 @@ import ButtonComponent from "../components/homePage/ButtonComponent.vue";
       <ButtonComponent label="Add Recipe" />
     </RouterLink>
 
-    <ButtonComponent label="Highlight Recipe" />
+    
+    <RouterLink to="/HighlightRecipe">
+      <ButtonComponent label="Highlight Recipe" />
+    </RouterLink>
     <ButtonComponent label="Remove Recipe" />
 
     <LogOut />
