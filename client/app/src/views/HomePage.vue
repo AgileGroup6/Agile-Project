@@ -19,8 +19,15 @@
           <button @click="setIngredient()" class="btn btn-success" type="button" id="button-addon2">Search</button>
         </div>
 
+        <div class="row">
+          <div class="col">
+            <AllergyNotice />
+          </div>
+        </div>
+
       </div>
     </div>
+
 
     <!-- shopping list -->
     <div class="row">
@@ -83,6 +90,7 @@ import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
 import ButtonComponent from "@/components/homePage/ButtonComponent.vue";
 // import ListItem from "@/components/homePage/ListItem.vue";
 import ShoppingList from "@/components/homePage/ShoppingList.vue";
+import AllergyNotice from "../components/homePage/AllergyNotice.vue";
 </script>
 
 <style scoped>
