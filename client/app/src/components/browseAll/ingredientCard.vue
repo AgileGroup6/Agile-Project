@@ -20,10 +20,11 @@ export default {
     methods: {
         addToCart(item) {
             store.shoppingList.push(item);
-            console.log(store.shoppingList);
-            
+
+            //console.log(store.categories);
+
         }
-        
+
     }
 
 }
