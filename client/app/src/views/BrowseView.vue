@@ -23,11 +23,11 @@
 
 <div class = "container ingredientsGrid">
       <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
-      <ingredientCard v-for="(item) in testNames.slice(testNames.slice)"
+      <ingredientCard v-for="item in testNames"
           class="card"
           :key="item.id" 
-          :ingredientName="item.ingredientName"
-          :image="item.image"
+          :ingredientArray="item"
+          
       /> 
 
 </div>
@@ -50,22 +50,27 @@
         range: 0,
         testNames: [ {
           id: 1,
-          ingredientName: 'Baguette',
+          name: 'Baguette',
           image: '../../public/favicon.ico' //ADD IMAGE - CURRENTLY HARDCODED IN ingredientCard FILE
         },
         {
           id: 2,
-          ingredientName: 'Sourdough',
+          name: 'Sourdough',
           image: '"../views/favicon.ico"' //ADD IMAGE
         },
         {
           id: 3,
-          ingredientName: 'Bagels',
+          name: 'Bagels',
           image: '../../public/favicon.ico' //ADD IMAGE
         },
         {
           id: 4,
-          ingredientName: 'Sausge Roll',
+          name: 'Sausge Roll',
+          image: '../../public/favicon.ico' //ADD IMAGE
+        },
+        {
+          id: 5,
+          name: 'Chickpeas',
           image: '../../public/favicon.ico' //ADD IMAGE
         }
       ]
@@ -88,17 +93,17 @@
         //Documentation here: https://vuejs.org/guide/essentials/list.html
         this.testNames.push({
           id: 4,
-          ingredientName: "Toast",
+          name: "Toast",
           image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
         })
         this.testNames.push({
           id: 5,
-          ingredientName: "Toastier Toast",
+          name: "Toastier Toast",
           image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
         })
         this.testNames.push({
           id: 6,
-          ingredientName: "Scones",
+          name: "Scones",
           image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
         })
     

@@ -8,12 +8,14 @@ export const useIngridentsStore = defineStore({
     state: () => ({
       /** @type {string[]} */
       items : [],
+      categories : [],
       shoppingList: useStorage('shoppingList', [])
     }),
     getters: {
       getItems:() => {
         return this.items;
       }
+      
         
     },
     actions: {
