@@ -1,33 +1,35 @@
 <template>
     <div class="add-button">
-     
-         <a href="AddRecipe"><div class="button-action">{{ buttonName }}</div></a>
-     </div>
- </template>
- 
+
+        <a href="AddRecipe">
+            <div class="button-action">{{ buttonName }}</div>
+        </a>
+    </div>
+</template>
+
 <script>
 export default {
- props: ['buttonName']
+    props: ['buttonName']
 }
 </script>
- 
- <style>
-     .add-button {
-         background-color: #329E63;
-         margin-bottom: 12px;
-         overflow: hidden;
-         border-radius: 8px;
-         padding: 62px 122px 62px 121px;
-         display: flex;
-         align-items: center;
-         height: 16px;
-     }
-     .button-action {
-         font-family: "arial";
-         font-size: 16px;
-         font-weight: 600;
-         color: #FFFFFF;
-         text-align: center;
-     }
- </style>
- 
+
+<style>
+.add-button {
+    background-color: #329E63;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 62px 122px 62px 121px;
+    display: flex;
+    align-items: center;
+    height: 16px;
+}
+
+.button-action {
+    font-family: "arial";
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-align: center;
+}
+</style>
