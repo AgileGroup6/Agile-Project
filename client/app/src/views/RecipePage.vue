@@ -1,26 +1,44 @@
 <template>
-    <div class="card container" style="background-color: #edffed;">
+
+    <div v-if="errored">
+        <div class="card container error">
+            <img src="../assets/sadFace.png" alt="ERROR">
+            <h1>404</h1>
+            <h2>Recipe Not Found</h2>
+            <p>sorry the recipe you are looking for doesn't seem to exist.</p>
+        </div>
+    </div>
+    <div v-else-if="loading">
+        <div class="card container loading">
+            <p>Loading...</p>
+            <div style="margin: auto;" class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    </div>
+
+    <div v-else class="card container" style="background-color: #edffed;">
         <div class="card-vertical">
             <div class="img-square-wrapper">
-                <img class="recipe-img" src="../../src/assets/bred1test.jpg" alt="Card image cap">
+                <img src="../../src/assets/bred1test.jpg" alt="Card image cap">
             </div>
             <div class="card-body">
 
                 <div style="float: left;">
-                    <u><h1 class="card-title">{{ title }}</h1></u>
+                    <u><h1 class="card-title">{{ recipe.name }}</h1></u>
                 </div>
 
                 <div style="text-align: right;">
-                    <h1>Serves {{ serves }}</h1>
+                    <h1>Serves {{ recipe.serves }}</h1>
                 </div>
                     
                 <br>
                 <h3 class="card-title">Ingredients:</h3>
                 <div class="measurement card-text">
 
-                    <div class="singleMeasurement" v-for="measurement in measurements" :key="measurement.ingredient.name">
+                    <div class="singleMeasurement" v-for="measurement in recipe.ingredients" :key="measurement.name">
                         <div style="float: left; width: 200px;">
-                            {{ measurement.ingredient.name }}
+                            {{ measurement.name }}
                         </div>
 
                         <div>
@@ -28,44 +46,41 @@
                         </div>
                     </div>
                     <h3 class="card-title">Instructions:</h3>
-                    <textarea style="background-color: #edffed; border-color: transparent;">{{ instructions }}</textarea>
+                    <textarea style="width: 100%; background-color: #edffed; border-color: transparent;">{{ recipe.instructions }}</textarea>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios';
     export default {
         data() {
             return {
-                title: "Pancakes",
-                measurements: [{
-                    ingredient: {
-                        name: "milk",
-                        store_has: true,
-                        tags: ['vegan']
-                    },
-                    amount: '1 Litre'
-                }, {
-                    ingredient: {
-                        name: "water",
-                        store_has: true,
-                        tags: ['vegan']
-                    },
-                    amount: '20 Litre'
-                }, {
-                    ingredient: {
-                        name: "ink",
-                        store_has: true,
-                        tags: ['vegan']
-                    },
-                    amount: '1 gram'
-                }, ],
-                instructions: "contents\nyou first do this\n then do this",
-                serves: 2
+                recipe: {},
+                errored: false,
+                loading: true
             }
         },
-        methods: {}
+        methods: {},
+
+        beforeMount(){
+            this.loading = true
+            axios.get('https://lgl.caydey.com/api/getRecipe?id=' + this.$route.params.recipe_id)
+            .then((response) => {
+                // handle success
+                
+                this.recipe =  response.data.data;
+                this.errored = false
+                this.loading = false
+            })
+            .catch((error) => {
+                // handle error
+                this.loading = false
+                this.errored = true
+                console.log(error);
+            })
+        },
     }
 </script>
 <style>
@@ -83,9 +98,32 @@
         padding-top: 1rem;
     }
 
-    .recipe-img{
+    .img-square-wrapper img{
         border: 2px solid #000;
         border-radius: 5px;
     }
+    
+    .error{
+        text-align: center;
+    }
+
+    .error img{
+        width: 30%; 
+        height: 30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .loading{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    
 
 </style>
+
+
+
