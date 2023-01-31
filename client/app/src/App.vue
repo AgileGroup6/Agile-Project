@@ -2,9 +2,6 @@
 import { RouterLink, RouterView } from "vue-router";
 import instaPosts from "../src/components/homePage/instagramPosts.vue"
 
-import 'https://kit.fontawesome.com/cf35c5647c.js'
-
-
 </script>
 
 
