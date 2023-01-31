@@ -1,5 +1,7 @@
 <template>
   <div>
+    
+  
     <div class ="container d-flex justify-content-center align-item-center" >
     <div class="Highlight">
       <h1>Highlight Recipe</h1>
@@ -58,23 +60,24 @@
   
 <script>
 import axios from 'axios'
+import { useRecipestore } from "../stores/RecipeStore.js";
+
+const store = useRecipestore();
+
+const res = await store.updateAllRecipes();
+
+console.log(store.items);
+
 
 export default {
   data() {
     return {
-      selectedRecipe: "",
-
-      recipes: [
-      {
-        id: 1,
-        name: "watered down bread"
-      },
-      {
-        id: 2,
-        name: "ice"
-      },
-      ],
-    };
+      recipes: store.items,    
+    }
+  },
+  onMount() {
+    console.log("hehrere")
+    //this.recipes = store.items
   },
   methods: {
     select(recipe) {
@@ -107,7 +110,7 @@ export default {
       
 
     }
-  },
+  }
 };
 </script>
 
