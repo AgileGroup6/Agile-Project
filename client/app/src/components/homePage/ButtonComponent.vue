@@ -1,5 +1,11 @@
 <template>
-    <button id="thebut" type="button" class="btn btn-success mt-2" @click="doOnClick">{{ label }}</button>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col col-lg-8 col-xl-6">
+                <button id="thebut" type="button" class="btn btn-success" @click="doOnClick">{{ label }}</button>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
 export default {
@@ -17,6 +23,7 @@ export default {
 
 <style scoped>
 #thebut {
-    width: 60%;
+    width: 100%;
+    height: 100%;
 }
 </style>

@@ -1,42 +1,39 @@
 <template>
 
   <!-- allergy notice -->
-  <AllergyNotice />
+  <div class="container py-4">
+    <!-- <div class="row d-flex justify-content-center align-items-center h-100"> -->
+    <AllergyNotice />
 
-  <!-- search ingredients -->
-  <div class="row">
-    <div class="col mt-1">
-      <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
-      <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
+    <!-- search ingredients -->
+    <div class="row">
+      <div class="col">
+        <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
+        <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
+      </div>
+    </div>
+
+
+
+    <!-- shopping list -->
+    <div class="row">
+      <div class="col">
+        <ShoppingList :ingredients="store.shoppingList" />
+      </div>
+    </div>
+
+
+    <!-- cannot center the content -->
+    <div class="row">
+      <div class="col">
+
+        <RouterLink to="/browse">
+          <ButtonComponent label="Browse All" :doOnClick="testFunction" />
+        </RouterLink>
+
+      </div>
     </div>
   </div>
-
-
-
-  <!-- shopping list -->
-  <div class="row">
-    <div class="col">
-      <ShoppingList :ingredients="store.shoppingList" />
-    </div>
-  </div>
-
-
-  <!-- cannot center the content -->
-  <div class="row d-flex justify-content-center align-items-center h-100">
-    <div class="col col-lg-8 col-xl-6">
-
-      <RouterLink to="/browse">
-        <ButtonComponent label="Browse All" :doOnClick="testFunction" />
-      </RouterLink>
-
-    </div>
-  </div>
-
-  <!-- <div class="row mt-3 mb-3">
-    <div class="col">
-      <ButtonComponent label="Featured Recipes" :doOnClick="testFunction" />
-    </div>
-  </div>  -->
 </template>
 
 <script>
