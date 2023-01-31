@@ -1,11 +1,7 @@
 <template>
-  <div class="container d-flex justify-content-center align-item-center">
-    <div class="browse">
-      <h1>Browse Store</h1>
-    </div>
-  </div>
-  <div class="dropdown-center">
-    <div class="row">
+  <div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+      <h1 class="display-6 mb-3">Browse Store</h1>
       <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown"
         aria-expanded="false">
         Browse by Category
@@ -15,21 +11,13 @@
             @click="search(category)">{{
               category
             }}</a></li>
-
       </ul>
     </div>
-  </div>
-
-
-  <!-- Container for the ingredient cards-->
-
-  <div class="container ingredientsGrid">
+    <div class="ingredientsGrid">
     <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
     <ingredientCard v-for="item in ingredientsInCategory" class="card" :key="item.id" :ingredientArray="item" />
-
+    </div>
   </div>
-
-
 </template>
 <script setup>
 import { useIngridentsStore } from "../stores/ingridentsStore.js";
@@ -41,8 +29,6 @@ const store = useIngridentsStore();
 <script>
 const store = useIngridentsStore();
 export default {
-
-
   components: {
     ingredientCard,
   },
@@ -57,8 +43,7 @@ export default {
     search(category) {
       this.active = !this.active
       document.getElementById('categoryButton').innerHTML = category;
-
-
+      
       //The below is text data to test the formatting of the table.
       //When connecting the backend, replace with API Call to get ingredients by category.
       //Set resultsArray from query to ingredientsInCategory to run
@@ -74,7 +59,6 @@ export default {
           this.ingredientsInCategory.push(store.items[i])
         }
       }
-
     }
   }
 }
@@ -83,10 +67,11 @@ export default {
 <style>
 .card {
   display: inline-block;
-  margin: 6px;
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 .ingredientsGrid {
-  margin-top: 8px;
+  margin-top: 20px;
 }
 </style>

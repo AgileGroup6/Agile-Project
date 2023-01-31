@@ -1,61 +1,53 @@
 <template>
-  <div>
-    
-  
-    <div class ="container d-flex justify-content-center align-item-center" >
-    <div class="Highlight">
-      <h1>Highlight Recipe</h1>
-    </div>
-  </div>
-
-  <div class="dropdown-center">
-    <div class = "row" >
-      <button class="btn btn-success dropdown-toggle mt-4" type="button" id="categoryButton" data-bs-toggle="dropdown" aria-expanded="false">
-        Browse Recipes
+  <div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+      <h1 class="display-6 mb-3">Highlight Recipe</h1>
+      <p class="lead"> Select a recipe from the drop-down below to schedule a featured recipe for a date of your choice.
+      </p>
+      <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Browse by Category
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <!-- THIS IS CURRENTLY HARD-CODED DATA!!! CHANGE BEFORE FINAL -->
         <li v-for="recipe in recipes" :key="recipe.id">
-          <a class="dropdown-item text-center" href="#" @click="select(recipe)">{{recipe.name}}</a>
+          <a class="dropdown-item" href="#" @click="select(recipe)">{{ recipe.name }}</a>
         </li>
       </ul>
-    </div>
+      <div v-if="selectedRecipe">
+        <div class='ingredient_card'>
 
-    <div v-if="selectedRecipe">
-      <div class = "container" id = 'ingredient_card'>
-    
-    <div class = "row text-center mt-4"> 
-        <h3> {{selectedRecipe.name}} </h3>
-    </div>
-    
-    <div class = "row justify-content-center"> 
-        <!-- <img src={{image}}> -->
-        <!-- HARD CODED IMAGE FOR TESTING! CHANGE BEFORE FINAL -->
-        <img src = "../../src/assets/bred1test.jpg"> 
-    </div>
-    <div class = "row justify-content-center mt-4 align-item-center d-flex" > 
-        
-            <div class="col-5 justify-content-center d-flex">
-            <input type="date" v-model="scheduleStart"> 
+          <div class="row mt-4">
+            <h3> {{ selectedRecipe.name }} </h3>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-7">
+              <!-- <img src={{image}}> -->
+              <!-- HARD CODED IMAGE FOR TESTING! CHANGE BEFORE FINAL -->
+              <img src="../../src/assets/bred1test.jpg">
             </div>
-            <div class="col-2 justify-content-center d-flex">
-            to
+          </div>
+          <div class="row justify-content-center mt-4 d-flex">
+
+            <div class="justify-content-center">
+              <input type="date" v-model="scheduleStart">
             </div>
-            <div class="col-5 justify-content-center d-flex">
+            <div class="justify-content-center">
+              to
+            </div>
+            <div class="justify-content-center">
               <input type="date" v-model="scheduleEnd">
             </div>
-        
-    </div>
-    <div class = "row justify-content-center d-flex mt-4">
-        <button class = "btn btn-success " @click="highlightRecipe" >Schedule</button>
-    </div>
-</div>
+            <div class="justify-content-center d-flex mt-3">
+              <button class="btn btn-success" id="schedule-button" @click="highlightRecipe">Schedule</button>
+            </div>
+          </div>
+        </div>
 
-    
+      </div>
     </div>
 
   </div>
-</div>
 </template>
   
 <script>
@@ -72,7 +64,7 @@ console.log(store.items);
 export default {
   data() {
     return {
-      recipes: store.items,    
+      recipes: store.items,
     }
   },
   onMount() {
@@ -83,7 +75,7 @@ export default {
     select(recipe) {
       this.selectedRecipe = recipe
     },
-    highlightRecipe(){
+    highlightRecipe() {
       // this.scheduleStart
       const id = this.selectedRecipe.id
       const scheduleStart = this.scheduleStart
@@ -101,13 +93,13 @@ export default {
         scheduleEnd: this.scheduleEnd
       }
 
-      axios.post("https://cloud.caydey.com/api/setFeatured", json).then(() =>{
+      axios.post("https://cloud.caydey.com/api/setFeatured", json).then(() => {
         alert("schedules")
       }).catch((err) => {
         console.log(err);
         alert("error scheduling message")
       })
-      
+
 
     }
   }
@@ -116,16 +108,5 @@ export default {
 
 
 <style scoped>
-@media (min-width: 1024px) {
-  .browse {
-    min-height: 100vh;
-    display: flex;
-    place-items: flex-start;
-    flex-direction: column;
-    
-  }
-}
-
-
 
 </style>

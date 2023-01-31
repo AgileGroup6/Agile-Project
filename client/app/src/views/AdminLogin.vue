@@ -51,32 +51,13 @@ import ButtonComponent from "../components/homePage/ButtonComponent.vue";
 </script>
 
 <style scoped>
-#button-continue {
-  background-color: #329E63;
-  padding: 6px 12px;
-  width: 291px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-
 .form-control {
-  border-radius: 4px;
-  padding: 7px 11px;
-  display: flex;
   border: 1px solid #000000;
 }
 
 .left-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #191D23;
-}
-
-span {
-  display: block;
-  margin-left: 20px;
-  color: red;
-  font-style: italic;
 }
 </style>
