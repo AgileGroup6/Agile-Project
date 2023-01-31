@@ -34,14 +34,7 @@ export default {
 #button-link {
     background-color: #329E63;
     color: #FFFFFF;
-    outline: none;
     border: none;
     text-decoration: underline;
-}
-
-a:link,
-a:visited {
-    color: #FFFFFF;
-    cursor: pointer
 }
 </style>

@@ -1,120 +1,109 @@
 <template>
-  <div class ="container d-flex justify-content-center align-item-center" >
-    <div class="browse">
-      <h1>Browse Store</h1>
+  <div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+      <h1 class="display-6 mb-3">Browse Store</h1>
+      <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Browse by Category
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <!-- THIS IS CURRENTLY HARD-CODED DATA!!! CHANGE BEFORE FINAL -->
+        <li><a class="dropdown-item" href="#" @click="search('Bread Loafs')">Bread Loafs</a></li>
+        <li><a class="dropdown-item" href="#" @click="search('Cereals')">Cereals</a></li>
+        <li><a class="dropdown-item" href="#" @click="search('Fresh Fruits')">Fresh Fruit</a></li>
+      </ul>
+    </div>
+    <div class="ingredientsGrid">
+      <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
+      <ingredientCard v-for="(item) in testNames.slice(testNames.slice)" class="card" :key="item.id"
+        :ingredientName="item.ingredientName" :image="item.image" />
     </div>
   </div>
-    <div class="dropdown-center">
-      <div class = "row" >
-    <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown" aria-expanded="false">
-      Browse by Category
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <!-- THIS IS CURRENTLY HARD-CODED DATA!!! CHANGE BEFORE FINAL -->
-      <li><a class="dropdown-item text-center" href="#" @click="search('Bread Loafs')">Bread Loafs</a></li>
-      <li><a class="dropdown-item text-center" href="#" @click="search('Cereals')">Cereals</a></li>
-      <li><a class="dropdown-item text-center" href="#" @click="search('Fresh Fruits')">Fresh Fruit</a></li>
-    </ul>
-  </div>
-</div>
-  
 
-<!-- Container for the ingredient cards-->
 
-<div class = "container ingredientsGrid">
-      <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
-      <ingredientCard v-for="(item) in testNames.slice(testNames.slice)"
-          class="card"
-          :key="item.id" 
-          :ingredientName="item.ingredientName"
-          :image="item.image"
-      /> 
-
-</div>
-  
 
 </template>
 
 <script>
 
-  import ingredientCard from '../components/browseAll/ingredientCard.vue';
+import ingredientCard from '../components/browseAll/ingredientCard.vue';
 
-  export default {
+export default {
 
-    components: {
-      ingredientCard,
+  components: {
+    ingredientCard,
+  },
+  data() {
+
+    return {
+      range: 0,
+      testNames: [{
+        id: 1,
+        ingredientName: 'Baguette',
+        image: '../../public/favicon.ico' //ADD IMAGE - CURRENTLY HARDCODED IN ingredientCard FILE
       },
-    data () {
-      
-      return {
-        range: 0,
-        testNames: [ {
-          id: 1,
-          ingredientName: 'Baguette',
-          image: '../../public/favicon.ico' //ADD IMAGE - CURRENTLY HARDCODED IN ingredientCard FILE
-        },
-        {
-          id: 2,
-          ingredientName: 'Sourdough',
-          image: '"../views/favicon.ico"' //ADD IMAGE
-        },
-        {
-          id: 3,
-          ingredientName: 'Bagels',
-          image: '../../public/favicon.ico' //ADD IMAGE
-        },
-        {
-          id: 4,
-          ingredientName: 'Sausge Roll',
-          image: '../../public/favicon.ico' //ADD IMAGE
-        }
-      ]
+      {
+        id: 2,
+        ingredientName: 'Sourdough',
+        image: '"../views/favicon.ico"' //ADD IMAGE
+      },
+      {
+        id: 3,
+        ingredientName: 'Bagels',
+        image: '../../public/favicon.ico' //ADD IMAGE
+      },
+      {
+        id: 4,
+        ingredientName: 'Sausge Roll',
+        image: '../../public/favicon.ico' //ADD IMAGE
       }
-    },
-    methods: {
+      ]
+    }
+  },
+  methods: {
 
-    search (category) {
-        this.active = !this.active
-        document.getElementById('categoryButton').innerHTML = category;
+    search(category) {
+      this.active = !this.active
+      document.getElementById('categoryButton').innerHTML = category;
 
       //The below is text data to test the formatting of the table.
       //When connecting the backend, replace with API Call to get ingredients by category.
       //Set resultsArray from query to testNames (rename for final) to run
 
       //This clears the array so that when a new category is searched the old items are removed from the DOM
-        this.testNames = [];
+      this.testNames = [];
 
-        //Pushing items to an array will allow them to be added to the DOM after the component has alrady rendered.
-        //Documentation here: https://vuejs.org/guide/essentials/list.html
-        this.testNames.push({
-          id: 4,
-          ingredientName: "Toast",
-          image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
-        })
-        this.testNames.push({
-          id: 5,
-          ingredientName: "Toastier Toast",
-          image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
-        })
-        this.testNames.push({
-          id: 6,
-          ingredientName: "Scones",
-          image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
-        })
-    
-      }
+      //Pushing items to an array will allow them to be added to the DOM after the component has alrady rendered.
+      //Documentation here: https://vuejs.org/guide/essentials/list.html
+      this.testNames.push({
+        id: 4,
+        ingredientName: "Toast",
+        image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
+      })
+      this.testNames.push({
+        id: 5,
+        ingredientName: "Toastier Toast",
+        image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
+      })
+      this.testNames.push({
+        id: 6,
+        ingredientName: "Scones",
+        image: '../../../src/assets/bred1test.jpg' //ADD IMAGE
+      })
+
     }
   }
+}
 </script>
 
 <style>
 .card {
   display: inline-block;
-  margin: 6px;
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 .ingredientsGrid {
-  margin-top: 8px;
+  margin-top: 20px;
 }
-
 </style>
