@@ -1,5 +1,7 @@
 <template>
+
   <body>
+
     <head>
       <title>Add Recipe</title>
     </head>
@@ -75,32 +77,50 @@
 </template>
 
 <script>
+import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
+
+import ListItem from "../components/homePage/ListItem.vue";
+import ShoppingList from "@/components/homePage/ShoppingList.vue";
+
+import { useIngridentsStore } from "../stores/ingridentsStore";
+
+const store = useIngridentsStore();
+
+const res = await store.updateAllIngredients();
+
+console.log(store.items);
+
+function SearchForIngridents(searchVal) {
+
+  if (searchVal)
+    return store.items.filter(item => item.name.toLowerCase().includes(searchVal.toLowerCase()));
+
+  return []
+}
+
+// this is to empty the array later 
+function EmptyShoppingCart() {
+  if (store.shoppingList)
+    store.shoppingList = [];
+}
+
+function AddNonStoreIngridents_ShoppingList(nonstore) {
+  if (!nonstore)
+    return;
+
+  const item = { name: nonstore, category: "", store_has: false, tags: [""] };
+  store.addItem(item);
+  event.search = "";
+}
 export default {
+
+
+
   data() {
     return {
       // TODO fetch ingredients from pinata store
-      ingredients: [{
-        id: 1,
-        name: "Butter"
-      }, {
-        id: 2,
-        name: "Nuts"
-      }, {
-        id: 3,
-        name: "Beans"
-      }, {
-        id: 4,
-        name: "rice"
-      }, {
-        id: 4,
-        name: "pasta"
-      },],
-      ingredient: "",
-      amount: "",
-      serves: "",
-      title: "",
-      instructions: "",
-      selectedMeasurements: [],
+      ingredients: store.items,
+
     };
   },
   methods: {
