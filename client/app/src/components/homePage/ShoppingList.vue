@@ -4,19 +4,14 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
 
             <div class="col col-lg-8 col-xl-6">
-                <div class="card rounded-3">
+                <div class="card rounded">
                     <div class="card-body p-4">
-
-                        <p class="mb-2"><span class="h2 me-2">Shopping List</span> <span
-                                class="badge bg-danger">Incomplete</span></p>
-
-
                         <ul class="list-group rounded-0">
 
-                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" v-for="(item, index) in ingredients"
-                            :key="item.id">
+                            <li class="list-group-item border-0 d-flex ps-0" type="checkbox" :class="{'text-danger':!item.store_has}" v-for="item in ingredients"
+                            :key="item">
                             <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                            {{ item.ingredientName }}
+                            {{ item.name}} <small v-if="!item.store_has" class="font-weight-light text-end text-muted"> (item not available in store) </small>
 
                             <!-- <span class = "text-right">
                             
@@ -29,22 +24,10 @@
 
                             <!-- <li class="list-group-item border-0 d-flex align-items-center ps-0">
                                 <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Garlic
+                                {{ item.name }}
                             </li>
 
-                            <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Bicarbonate of soda
-                            </li>
-
-                            <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Desiccated coconut
-                            </li> -->
                         </ul>
-
-
-
                     </div>
                 </div>
             </div>
@@ -55,31 +38,20 @@
 </template>
 
 <script>
- export default {
-
-
-    props: ['searchResult'],
-    watch: {
-        searchResult: function() { this.ingredients.push({
-          id: 4,    
-          ingredientName: this.searchResult 
-        })
+export default {
+    props: {
+        ingredients: {
+            type: Array,
+            default: () => [{ name: 'Salt' }, { name: 'Pepper' }]
         }
-    },
-    data () {
-    return {
-        ingredients: [],
-            }
-
-    },   
+    }
 }
 
 
 </script>
 
 <style>
-.del{
+.del {
     float: right;
 }
-
 </style>

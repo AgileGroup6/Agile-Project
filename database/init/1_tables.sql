@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS Recipe (
 	recipe_name VARCHAR(255) NOT NULL,
 	serves INT DEFAULT FALSE,
 	instructions TEXT NOT NULL,
-	highlighted BOOLEAN DEFAULT FALSE,
+	highlight_start DATE,
+	highlight_end DATE,
 	PRIMARY KEY (recipe_id)
 );
 /*
