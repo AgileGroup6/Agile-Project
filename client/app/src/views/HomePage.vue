@@ -20,38 +20,37 @@
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-sm-6">
+    <div class="row row justify-content-center">
+      <div class="col-md-7">
 
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
-        <!-- carousel items -->
-        <div class="carousel-inner">
+          <!-- carousel items -->
+          <div class="carousel-inner">
 
-          <FavouriteRecipe />
-          <BasketRecipe />
+            <FavouriteRecipe :highlightedRecipes="recipeStore.getHighlightedItems()" />
 
+          </div>
+
+          <!-- carousel controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </button>
         </div>
 
-        <!-- carousel controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden"></span>
-        </button>
       </div>
-
     </div>
-  </div>
 
 
     <!-- cannot center the content -->
-    <div class="row">
+    <div class="row mt-3">
       <div class="col">
 
         <RouterLink to="/browse">
@@ -96,10 +95,21 @@ import AllergyNotice from "@/components/homePage/AllergyNotice.vue"
 import FavouriteRecipe from "@/components/homePage/FavouriteRecipe.vue"
 import BasketRecipe from "@/components/homePage/BasketRecipe.vue"
 import { useIngridentsStore } from "../stores/ingridentsStore";
+import { useRecipestore } from "../stores/RecipeStore"
 
 const store = useIngridentsStore();
+const recipeStore = useRecipestore();
+
+
+
 
 const res = await store.updateAllIngredients();
+recipeStore.updateAllRecipes().then(() => {
+  console.log(recipeStore.getHighlightedItems())
+}).catch((ex) => {
+  console.log(ex);
+})
+
 
 function SearchForIngridents(searchVal) {
 
