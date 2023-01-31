@@ -54,17 +54,11 @@ export default {
       searchedIng: " ",
     }
   },
-
   methods: {
     testFunction: function () {
       console.log('test clicked')
-    },
-    addItemToCart(item) {
-      if (!item) return;
-      store.addItem(item);
-      //console.log(store.shoppingList);
     }
-  }
+  },
 }
 </script>
 
@@ -79,6 +73,13 @@ import { useIngridentsStore } from "../stores/ingridentsStore";
 const store = useIngridentsStore();
 
 const res = await store.updateAllIngredients();
+
+function addItemToCart(item){
+      if (!item) return;
+      store.addItem(item);
+      //console.log(store.shoppingList);
+    }
+
 
 function SearchForIngridents(searchVal) {
 

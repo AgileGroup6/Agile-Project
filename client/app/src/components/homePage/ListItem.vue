@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="list-group list-group-vertical">
-            <li class="list-group-item shadow bg-white rounded" v-for="item in ingredients" :key="item" @click="addItemToCart(item)"> {{ item.name }} </li>
+            <li class="list-group-item shadow bg-white rounded" v-for="item in ingredients" :key="item" @click="value = item; doOnClick(item)"> {{ item.name }} </li>
         </ul>
     </div>
 </template>
@@ -11,20 +11,22 @@ export default {
     ingredients :{ 
         type: Array,
         default : ()=>[{ name: 'Salt' }, { name: 'Pepper' }]
-    }
-   }
+    },
+    doOnClick: {
+            type: Function
+        }
+   },
+   data() {
+    return { value: '' };
+  },
+  mounted() {
+    // Pass a value to the parent through the function
+    this.doOnClick(this.value);
+  }
 }
 </script>
 <script setup>
-import {useIngridentsStore} from "../../stores/ingridentsStore.js";
 
-const store = useIngridentsStore(); 
-
-function addItemToCart(item) {
-      if (!item) return;
-      store.addItem(item);
-      console.log(store.shoppingList);
-    }
 </script>
 <style lang="">
     
