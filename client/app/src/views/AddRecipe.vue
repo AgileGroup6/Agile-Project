@@ -29,13 +29,11 @@
       <div class="row boxes">
         <div class="form-group">
           <label for="cars">Choose your ingredients:</label>
-          <select class="form-control" placeholder="Ingredients" name="ingredients" v-model="ingredient">
-            <option v-for="ingredient in ingredients" :key="ingredient.id">
-              {{ ingredient.name }}
-            </option>
-          </select>
+          <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
+          <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
           <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount"
             v-model="amount" required />
+
           <button class="btn btn-success" type="button" @click="addMeasurement">Add ingredients</button>
         </div>
       </div>
@@ -77,10 +75,6 @@
 </template>
 
 <script>
-import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
-
-import ListItem from "../components/homePage/ListItem.vue";
-import ShoppingList from "@/components/homePage/ShoppingList.vue";
 
 import { useIngridentsStore } from "../stores/ingridentsStore";
 
@@ -120,6 +114,10 @@ export default {
     return {
       // TODO fetch ingredients from pinata store
       ingredients: store.items,
+      event: {
+        search: ''
+      },
+      searchedIng: " ",
 
     };
   },
@@ -146,6 +144,12 @@ export default {
     },
   },
 };
+</script>
+
+<script setup>
+import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
+import ListItem from "../components/homePage/ListItem.vue";
+import ShoppingList from "@/components/homePage/ShoppingList.vue";
 </script>
 
 <style>
