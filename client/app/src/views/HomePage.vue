@@ -11,12 +11,39 @@
     </div>
   </div>
 
-
-
   <!-- shopping list -->
   <div class="row">
     <div class="col">
       <ShoppingList :ingredients="store.shoppingList" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- carousel items -->
+        <div class="carousel-inner">
+
+          <FavouriteRecipe />
+          <BasketRecipe />
+
+        </div>
+
+        <!-- carousel controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </button>
+      </div>
+
     </div>
   </div>
 
@@ -32,11 +59,6 @@
     </div>
   </div>
 
-  <!-- <div class="row mt-3 mb-3">
-    <div class="col">
-      <ButtonComponent label="Featured Recipes" :doOnClick="testFunction" />
-    </div>
-  </div>  -->
 </template>
 
 <script>
@@ -66,9 +88,11 @@ export default {
 <script setup>
 import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
 import ButtonComponent from "@/components/homePage/ButtonComponent.vue";
-import ListItem from "../components/homePage/ListItem.vue";
+import ListItem from "@/components/homePage/ListItem.vue";
 import ShoppingList from "@/components/homePage/ShoppingList.vue";
-import AllergyNotice from "../components/homePage/AllergyNotice.vue"
+import AllergyNotice from "@/components/homePage/AllergyNotice.vue"
+import FavouriteRecipe from "@/components/homePage/FavouriteRecipe.vue"
+import BasketRecipe from "@/components/homePage/BasketRecipe.vue"
 import { useIngridentsStore } from "../stores/ingridentsStore";
 
 const store = useIngridentsStore();
