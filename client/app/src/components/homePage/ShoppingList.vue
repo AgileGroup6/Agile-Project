@@ -11,7 +11,7 @@
                             <li class="list-group-item border-0 d-flex ps-0" type="checkbox" :class="{'text-danger':!item.store_has}" v-for="item in ingredients"
                             :key="item">
                             <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                            {{ item.name }}
+                            {{ item.name}} <small v-if="!item.store_has" class="font-weight-light text-end text-muted"> (item not available in store) </small>
 
                             <!-- <span class = "text-right">
                             
