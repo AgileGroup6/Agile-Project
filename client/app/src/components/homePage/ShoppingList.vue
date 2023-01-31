@@ -4,7 +4,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
 
             <div class="col col-lg-8 col-xl-6">
-                <div class="card rounded-3">
+                <div class="card rounded">
                     <div class="card-body p-4">
                         <ul class="list-group rounded-0">
 
@@ -24,18 +24,9 @@
 
                             <!-- <li class="list-group-item border-0 d-flex align-items-center ps-0">
                                 <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Garlic
+                                {{ item.name }}
                             </li>
 
-                            <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Bicarbonate of soda
-                            </li>
-
-                            <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                Desiccated coconut
-                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -48,20 +39,19 @@
 
 <script>
 export default {
-   props : {
-    ingredients :{ 
-        type: Array,
-        default : ()=>[{ name: 'Salt' }, { name: 'Pepper' }]
+    props: {
+        ingredients: {
+            type: Array,
+            default: () => [{ name: 'Salt' }, { name: 'Pepper' }]
+        }
     }
-   }
 }
 
 
 </script>
 
 <style>
-.del{
+.del {
     float: right;
 }
-
 </style>
