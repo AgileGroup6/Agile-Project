@@ -1,31 +1,29 @@
 <template>
   <div class="container">
-
-
-
     <!-- search ingredients -->
     <div class="row">
       <div class="col mt-2">
-        <!-- <IngredientSearch /> -->
-        <!-- <ListItem :ingredients="shoppingList"/> -->
 
-        <!-- <form class="form-inline">
-            <input class="form-control mr-sm-2" id = "search" type="search" placeholder="Search Ingredients" aria-label="Search Ingredients">
-        </form> -->
-
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="search" placeholder="Enter Ingredient"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button @click="setIngredient()" class="btn btn-success" type="button" id="button-addon2">Search</button>
+        <div class="row">
+          <div class="col mt-2">
+              <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)"/>
+              <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search=''"/>
+          </div>
         </div>
 
+        <div class="row">
+          <div class="col">
+            <AllergyNotice />
+          </div>
+        </div>
       </div>
     </div>
+
 
     <!-- shopping list -->
     <div class="row">
       <div class="col">
-        <ShoppingList :searchResult="searchedIng" />
+        <ShoppingList :ingredients="store.shoppingList" />
       </div>
     </div>
 
@@ -50,39 +48,65 @@
 </template>
 
 <script>
-
 export default {
 
 
-  components: {
-    ShoppingList,
-  },
+components: {
+  ShoppingList,
+},
 
-  data() {
-    return {
-      shoppingList: [{ ing: 'Curry Powder' }, { ing: 'Pepper' }],
-      searchedIng: " ",
-    }
+data() {
+      return {
+          shoppingList : [{ name: 'Curry Powder' }, { name: 'Pepper' }],
+          event: {
+             search:''
+          },
+          searchedIng: " ",
+      }
+},
 
-  },
-
-  methods: {
-    testFunction: function () {
-      console.log('test clicked')
-    },
-    setIngredient() {
-      this.searchedIng = document.getElementById('search').value;
-
-    }
+methods: {
+  testFunction: function () {
+    console.log('test clicked')
   }
+}
 }
 </script>
 
 <script setup>
 import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
 import ButtonComponent from "@/components/homePage/ButtonComponent.vue";
-// import ListItem from "@/components/homePage/ListItem.vue";
+import ListItem from "../components/homePage/ListItem.vue";
 import ShoppingList from "@/components/homePage/ShoppingList.vue";
+import AllergyNotice from "../components/homePage/AllergyNotice.vue"
+import {useIngridentsStore} from "../stores/ingridentsStore";
+
+const store = useIngridentsStore(); 
+
+const res = await store.updateAllIngredients(); 
+
+function SearchForIngridents(searchVal){
+
+  if(searchVal)
+    return store.items.filter(item => item.name.toLowerCase().includes(searchVal.toLowerCase()));
+  
+  return []
+}
+
+// this is to empty the array later 
+function EmptyShoppingCart(){
+  if(store.shoppingList)
+    store.shoppingList = []; 
+}
+
+function AddNonStoreIngridents_ShoppingList(nonstore){
+  if(!nonstore)
+    return; 
+
+  const item = {name: nonstore , category:"",store_has:false,tags:[""]}; 
+  store.addItem(item); 
+  event.search = ""; 
+}
 </script>
 
 <style scoped>
