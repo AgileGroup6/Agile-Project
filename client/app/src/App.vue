@@ -22,11 +22,9 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue"
   </header>
 
   <!-- main body views -->
-  <div class="container">
-    <Suspense>
-      <RouterView />
-    </Suspense>
-  </div>
+  <Suspense>
+    <RouterView />
+  </Suspense>
 
   <!-- footer containing social media integration -->
   <footer>
