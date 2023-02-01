@@ -13,7 +13,14 @@ export const useIngridentsStore = defineStore({
   }),
   getters: {
     getItems: () => {
-      return this.items;
+      if(this.item.length > 0)
+        return this.items;
+      
+      this.updateAllIngredients().then(()=>{
+        return this.items;
+      }).catch((ex)=>{
+        console.log(ex);
+      })
     }
   },
   actions: {
@@ -44,6 +51,9 @@ export const useIngridentsStore = defineStore({
     },
     getCategories() {
       let cat = [];
+      if(this.categories.length > 0)
+        return this.categories; 
+
       for (let i = 0; i < this.items.length; i++) {
         cat.push(this.items[i].category)
       }
