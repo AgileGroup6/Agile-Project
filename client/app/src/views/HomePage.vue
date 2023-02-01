@@ -29,6 +29,7 @@
           <div class="carousel-inner">
 
             <FavouriteRecipe :highlightedRecipes="recipeStore.getHighlightedItems()" />
+            <BasketRecipe :recommendedRecipes="recipeStore.recommendedRecipes" />
 
           </div>
 
@@ -63,6 +64,7 @@
 </template>
 
 <script>
+
 export default {
   components: {
     ShoppingList,
@@ -70,20 +72,20 @@ export default {
 
   data() {
     return {
-      shoppingList: [{ name: 'Curry Powder' }, { name: 'Pepper' }],
       event: {
         search: ''
       },
       searchedIng: " ",
+      allRecommendedRecipes: []
     }
   },
-
   methods: {
     testFunction: function () {
       console.log('test clicked')
     }
   }
 }
+
 </script>
 
 <script setup>
@@ -96,14 +98,30 @@ import FavouriteRecipe from "@/components/homePage/FavouriteRecipe.vue"
 import BasketRecipe from "@/components/homePage/BasketRecipe.vue"
 import { useIngridentsStore } from "../stores/ingridentsStore";
 import { useRecipestore } from "../stores/RecipeStore"
+import { watch } from "vue";
 
 const store = useIngridentsStore();
 const recipeStore = useRecipestore();
+var currentShoppingList = []
+
+
+
+
+watch(store.shoppingList, (newShoppingList) => {
+
+  // currentShoppingList = newShoppingList
+  //recipeStore.getRecommendedRecipes(currentShoppingList)
+  console.log("hello");
+  recipeStore.getRecommendedRecipes(newShoppingList).then(() => { console.log(recipeStore.recommendedRecipes); }).catch((ex) => { console.log(ex) });
+
+});
+// const result = await recipeStore.getRecommendedRecipes(currentShoppingList)
 
 
 
 
 const res = await store.updateAllIngredients();
+
 recipeStore.updateAllRecipes().then(() => {
   console.log(recipeStore.getHighlightedItems())
 }).catch((ex) => {

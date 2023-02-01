@@ -9,7 +9,8 @@ export const useRecipestore = defineStore({
   state: () => ({
     /** @type {string[]} */
     items: [],
-    RecipeList: []
+    RecipeList: [],
+    recommendedRecipes: []
   }),
   getters: {
     getItems: () => {
@@ -28,6 +29,21 @@ export const useRecipestore = defineStore({
         console.log(ex);
       }
     },
+
+    async getRecommendedRecipes(igredientsList) {
+      const json = {
+        ingredients: igredientsList.map(ingredient => ingredient.name)
+      }
+
+      try {
+        var res = await axios.post("https://lgl.caydey.com/api/findRecipe", json);
+        this.recommendedRecipes = res.data.data.recipes;
+      }
+      catch (ex) {
+        console.log(ex);
+      }
+    },
+
     getHighlightedItems() {
       return this.items.filter((item) => item.highlighted === true)
     }
