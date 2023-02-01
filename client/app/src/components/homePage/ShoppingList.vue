@@ -10,11 +10,13 @@
 
                             <li class="list-group-item border-0 d-flex ps-0" type="checkbox"
                                 :class="{ 'text-danger': !item.store_has }" v-for="item in ingredients" :key="item">
-                                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
-                                {{ item.name }}
-                                <p v-if="!item.store_has" class="font-weight-light text-end text-muted">(item not
+                                <!-- The style tag in the input makes the checkboxes larger, so they are easier to click on mobile-->
+                                <input class="form-check-input me-3" style = "width:30px; height:30px" type="checkbox" value="" aria-label="..." />
+                                <p class = "pt-2">{{ item.name }}</p>
+                                <p v-if="!item.store_has" class="font-weight-light text-end text-muted pt-2 px-1">(item not
                                     available in store)
                                 </p>
+                           
                             </li>
                         </ul>
                     </div>
