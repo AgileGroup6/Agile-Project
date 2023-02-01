@@ -1,0 +1,77 @@
+<template>
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-6 mb-3">Browse Recipes</h1>
+            <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Browse
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li v-for="category in store.getCategories()"><a class="dropdown-item text-center" href="#"
+                        @click="search(category)">{{
+                            category
+                        }}</a></li>
+            </ul>
+        </div>
+        <div class="ingredientsGrid">
+            <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
+            <ingredientCard v-for="item in ingredientsInCategory" class="card" :key="item.id" :ingredientArray="item" />
+        </div>
+    </div>
+</template>
+<script setup>
+import { useIngridentsStore } from "../stores/ingridentsStore.js";
+import ingredientCard from '../components/browseAll/ingredientCard.vue';
+const store = useIngridentsStore();
+
+</script>
+
+<script>
+const store = useIngridentsStore();
+export default {
+    components: {
+        ingredientCard,
+    },
+    data() {
+
+        return {
+            ingredientsInCategory: []
+        }
+    },
+    methods: {
+
+        search(category) {
+            this.active = !this.active
+            document.getElementById('categoryButton').innerHTML = category;
+
+            //The below is text data to test the formatting of the table.
+            //When connecting the backend, replace with API Call to get ingredients by category.
+            //Set resultsArray from query to ingredientsInCategory to run
+
+            //This clears the array so that when a new category is searched the old items are removed from the DOM
+            this.ingredientsInCategory = [];
+
+            //Pushing items to an array will allow them to be added to the DOM after the component has alrady rendered.
+            //Documentation here: https://vuejs.org/guide/essentials/list.html
+
+            for (let i = 0; i < store.items.length; i++) {
+                if (store.items[i].category == category) {
+                    this.ingredientsInCategory.push(store.items[i])
+                }
+            }
+        }
+    }
+}
+</script>
+
+<style>
+.card {
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.ingredientsGrid {
+    margin-top: 20px;
+}
+</style>
