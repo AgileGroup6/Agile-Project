@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col mt-1">
       <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
-      <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" :doOnClick="addItemToCart" />
+      <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
     </div>
   </div>
 
