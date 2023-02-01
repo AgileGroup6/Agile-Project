@@ -21,6 +21,9 @@
                            
                             </li>
                         </ul>
+
+                        <button v-show="!!ingredients.length" type="button" class="btn btn-success" @click="clearIngredientList()" >Clear List</button>
+
                     </div>
                 </div>
             </div>
@@ -36,6 +39,13 @@ export default {
         ingredients: {
             type: Array,
             default: () => [{ name: 'Salt' }, { name: 'Pepper' }]
+        }
+    },
+    methods: {
+        clearIngredientList(){
+            if(confirm("Are you sure you'd like to clear your shopping list?"))
+            this.ingredients.length = 0;
+            
         }
     }
 }
