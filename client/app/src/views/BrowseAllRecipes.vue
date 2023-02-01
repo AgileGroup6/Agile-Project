@@ -4,6 +4,7 @@
             <h1 class="display-6 mb-3">Browse Recipes</h1>
 
         </div>
+        <!-- Uses styling as present for browse all ingredients-->
         <div class="ingredientsGrid">
             <RecipeCard v-for="recipe in recStore.items" class="card" :key="recipe.id" :curRecipe="recipe" />
         </div>

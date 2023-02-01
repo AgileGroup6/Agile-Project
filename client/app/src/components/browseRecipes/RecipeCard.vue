@@ -1,4 +1,7 @@
+
+<!-- Recipe Card for recipes displayed in the browse all recipes page-->
 <template>
+    <!-- Uses styling as present for browse all ingredients-->
     <div class="card" id="ingredient_card">
         <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
         <div class="card-body">
