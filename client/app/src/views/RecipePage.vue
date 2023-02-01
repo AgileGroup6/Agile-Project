@@ -51,7 +51,7 @@
                             </div>
                     </div>
                     </div>
-                    <button type="button" @click="addToCart()" class="btn btn-primary">Add To Shopping List</button>                
+                    <button type="button" @click="addCheckBoxesToArray" class="btn btn-primary">Add To Shopping List</button>                
                     <h3 class="card-title">Instructions:</h3>
                     <textarea style="width: 100%; background-color: #edffed; border-color: transparent;" readonly>{{ recipe.instructions }}</textarea>
                     <button type="button" @click="shareUrl" class="btn btn-primary">Share</button>
