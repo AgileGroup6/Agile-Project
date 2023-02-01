@@ -81,6 +81,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/RecipePage.vue"),
     },
+    {
+      path: "/removeRecipe",
+      name: "removeRecipe",
+      // route level code-splitting
+      // this generates npm a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/RemoveRecipe.vue"),
+    },
   ],
 });
 

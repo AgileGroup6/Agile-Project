@@ -24,7 +24,9 @@ import ButtonComponent from "../components/homePage/ButtonComponent.vue";
       </div>
       <div class="row">
         <div class="col mb-3">
-          <ButtonComponent label="Remove Recipe" />
+          <RouterLink to="/removeRecipe">
+            <ButtonComponent label="Remove Recipe" />
+          </RouterLink>
         </div>
       </div>
       <div class="row">
