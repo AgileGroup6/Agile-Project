@@ -56,7 +56,11 @@ import { useRecipestore } from "../stores/RecipeStore.js";
 
 const store = useRecipestore();
 
-const res = await store.updateAllRecipes();
+store.updateAllRecipes().then(()=>{
+
+}).catch((ex)=>{
+  console.log("exception");
+});
 
 console.log(store.items);
 
