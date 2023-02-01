@@ -29,12 +29,14 @@
       <div class="row boxes">
         <div class="form-group">
           <label for="cars">Choose your ingredients:</label>
-          <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
-          <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
+          <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event)" />
+          <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''"
+            :doOnClick="addItemToCart" />
+          <input type="number" class="form-control" name="serves" :placeholder="selectedIngredient.name" readonly />
           <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount"
             v-model="amount" required />
 
-          <button class="btn btn-success" type="button" @click="addMeasurement">Add ingredients</button>
+          <button class="btn btn-success" type="button" @click="addMeasurement">Add ingredient</button>
         </div>
       </div>
 
@@ -73,39 +75,8 @@
     </form>
   </body>
 </template>
-
+ 
 <script>
-
-import { useIngridentsStore } from "../stores/ingridentsStore";
-
-const store = useIngridentsStore();
-
-const res = await store.updateAllIngredients();
-
-console.log(store.items);
-
-function SearchForIngridents(searchVal) {
-
-  if (searchVal)
-    return store.items.filter(item => item.name.toLowerCase().includes(searchVal.toLowerCase()));
-
-  return []
-}
-
-// this is to empty the array later 
-function EmptyShoppingCart() {
-  if (store.shoppingList)
-    store.shoppingList = [];
-}
-
-function AddNonStoreIngridents_ShoppingList(nonstore) {
-  if (!nonstore)
-    return;
-
-  const item = { name: nonstore, category: "", store_has: false, tags: [""] };
-  store.addItem(item);
-  event.search = "";
-}
 export default {
 
 
@@ -113,7 +84,6 @@ export default {
   data() {
     return {
       // TODO fetch ingredients from pinata store
-      ingredients: store.items,
       event: {
         search: ''
       },
@@ -150,6 +120,47 @@ export default {
 import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
 import ListItem from "../components/homePage/ListItem.vue";
 import ShoppingList from "@/components/homePage/ShoppingList.vue";
+import { useIngridentsStore } from "../stores/ingridentsStore";
+
+const store = useIngridentsStore();
+let selectedIngredient = {};
+
+const res = await store.updateAllIngredients();
+
+console.log(store.items);
+
+function SearchForIngridents(searchVal) {
+
+  if (searchVal)
+    return store.items.filter(item => item.name.toLowerCase().includes(searchVal.toLowerCase()));
+
+  return []
+}
+
+// this is to empty the array later 
+function EmptyShoppingCart() {
+  if (store.shoppingList)
+    store.shoppingList = [];
+}
+function addItemToCart(item) {
+
+  if (!item) return;
+  store.addItem(item);
+  //console.log(store.shoppingList);
+
+}
+
+function AddNonStoreIngridents_ShoppingList(nonstore) {
+  if (!nonstore)
+    return;
+
+  console.log("GOT HRER")
+
+  selectedIngredient = nonstore
+  const item = { name: nonstore, category: "", store_has: false, tags: [""] };
+  store.addItem(item);
+  event.search = "";
+}
 </script>
 
 <style>

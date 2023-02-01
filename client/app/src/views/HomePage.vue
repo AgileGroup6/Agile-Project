@@ -7,7 +7,8 @@
   <div class="row">
     <div class="col mt-1">
       <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
-      <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
+      <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''"
+        :doOnClick="addItemToCart" />
     </div>
   </div>
 
@@ -74,11 +75,11 @@ const store = useIngridentsStore();
 
 const res = await store.updateAllIngredients();
 
-function addItemToCart(item){
-      if (!item) return;
-      store.addItem(item);
-      //console.log(store.shoppingList);
-    }
+function addItemToCart(item) {
+  if (!item) return;
+  store.addItem(item);
+  //console.log(store.shoppingList);
+}
 
 
 function SearchForIngridents(searchVal) {
