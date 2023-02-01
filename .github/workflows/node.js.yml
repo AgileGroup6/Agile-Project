@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main","dev-stable" ]
 
+defaults:
+  run:
+    working-directory: ./client/app
+
 jobs:
   build:
 
@@ -27,8 +31,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'  
     - run: npm ci
-      working-directory: ./client/app
     - run: npm run build
-      working-directory: ./client/app
     - run: npm test
-      working-directory: ./client/app
