@@ -49,12 +49,12 @@
                             <div>
                                 {{ measurement.amount }}
                             </div>
-                            
                     </div>
                     </div>
-                    <button type="button" class="btn btn-primary">Add To Shopping List</button>                
+                    <button type="button" @click="addToCart()" class="btn btn-primary">Add To Shopping List</button>                
                     <h3 class="card-title">Instructions:</h3>
-                    <textarea style="width: 100%; background-color: #edffed; border-color: transparent;">{{ recipe.instructions }}</textarea>
+                    <textarea style="width: 100%; background-color: #edffed; border-color: transparent;" readonly>{{ recipe.instructions }}</textarea>
+                    <button type="button" @click="shareUrl" class="btn btn-primary">Share</button>
                 </div>
             </div>
         </div>
@@ -62,26 +62,33 @@
 </template>
 <script>
 import axios from 'axios';
+import { useIngridentsStore } from "../stores/ingridentsStore.js"
 
-    function toggle(source) {
-        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i] != source)
-                checkboxes[i].checked = source.checked;
-        }
-        console.log("hello");
-    }
-
+const store = useIngridentsStore();
     export default {
         data() {
             return {
                 recipe: {},
                 errored: false,
                 loading: true,
-                selectOn: false,
+                selectOn: false
             }
         },
-        methods: {},
+        methods: {
+            shareUrl() {
+                navigator.clipboard.writeText(window.location.href);
+            },
+            addCheckBoxesToArray() {
+                var checkboxes = document.getElementsByName('ingredient');
+
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked == true) {
+                        store.shoppingList.push(this.recipe.ingredients[i])
+                    }                   
+                }
+
+            },
+        },
 
         beforeMount(){
             this.loading = true
@@ -140,8 +147,17 @@ import axios from 'axios';
         margin-right: auto;
     }
 
-    
+    textarea {
+        border: none;
+        overflow: auto;
+        outline: none;
 
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+        resize: none;
+    }
 </style>
 
 
