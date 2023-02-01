@@ -54,9 +54,18 @@
       <div class="col">
 
         <RouterLink to="/browse">
-          <ButtonComponent label="Browse All" :doOnClick="testFunction" />
+          <ButtonComponent label="Browse All Ingredients" :doOnClick="testFunction" />
         </RouterLink>
 
+
+
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <RouterLink to="/browseRecipes">
+          <ButtonComponent label="Browse All Recipes" :doOnClick="testFunction" />
+        </RouterLink>
       </div>
     </div>
   </div>
