@@ -6,8 +6,10 @@
             <div class="col col-lg-8 col-xl-6">
                 <div class="card rounded">
                     <div class="card-body p-4">
+                        <h3 class = "text-center" > Your Shopping List </h3>
                         <ul class="list-group rounded-0">
-
+                            <!-- Show this string if the customer's shopping list is empty-->
+                            <p class = "text-center text-muted" v-show="!ingredients.length"> Your shopping list is empty </p>
                             <li class="list-group-item border-0 d-flex ps-0" type="checkbox"
                                 :class="{ 'text-danger': !item.store_has }" v-for="item in ingredients" :key="item">
                                 <!-- The style tag in the input makes the checkboxes larger, so they are easier to click on mobile-->
