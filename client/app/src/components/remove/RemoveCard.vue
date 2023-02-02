@@ -2,7 +2,7 @@
 <template>
     <!-- Uses styling as present for browse all ingredients-->
     <div class="card" id="ingredient_card">
-        <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
+        <RecipeImage class="card-img-top" :recipe="curRecipe.name" />
         <div class="card-body">
             <h5 class="card-title"> {{ curRecipe.name }} </h5>
             <button type="button" class="btn btn-success" id="remove-but"
@@ -10,6 +10,11 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import RecipeImage from "@/components/RecipeImage.vue";
+</script>
+
 
 <script>
 export default {

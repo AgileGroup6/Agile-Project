@@ -7,7 +7,7 @@
                 Based on your shopping list
             </div>
 
-            <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
+            <RecipeImage class="card-img-top" :recipe="recipe.name" />
             <div class="card-body">
                 <h5 class="card-title">{{ recipe.name }}</h5>
                 <router-link :to="{ name: 'recipePage', params: { recipe_id: recipe.id } }">
@@ -18,6 +18,10 @@
     </div>
 
 </template>
+
+<script setup>
+import RecipeImage from '@/components/RecipeImage.vue'
+</script>
 
 <script>
 export default {

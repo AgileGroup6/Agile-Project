@@ -24,7 +24,7 @@
             <div class="col-md-7">
               <!-- <img src={{image}}> -->
               <!-- HARD CODED IMAGE FOR TESTING! CHANGE BEFORE FINAL -->
-              <img src="../../src/assets/bred1test.jpg">
+              <RecipeImage :recipe="selectedRecipe.name" />
             </div>
           </div>
           <div class="row justify-content-center mt-4 d-flex">
@@ -50,6 +50,10 @@
   </div>
 </template>
   
+<script setup>
+import RecipeImage from "@/components/RecipeImage.vue";
+</script>
+
 <script>
 import axios from 'axios'
 import { useRecipestore } from "../stores/RecipeStore.js";

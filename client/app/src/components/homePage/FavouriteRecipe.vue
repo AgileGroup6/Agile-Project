@@ -8,7 +8,7 @@
         Recommended by us!
       </div>
 
-      <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
+      <RecipeImage :recipe="recipe.name" class="card-img-top"/>
       <div class="card-body">
         <h5 class="card-title">{{ recipe.name }}</h5>
         <router-link :to="{ name: 'recipePage', params: { recipe_id: recipe.id } }">
@@ -18,6 +18,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import RecipeImage from '@/components/RecipeImage.vue'
+</script>
 
 <script>
 import axios from 'axios';
