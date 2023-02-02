@@ -12,12 +12,14 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue"
     <nav class="navbar justify-content-center">
 
       <a class="navbar-brand">
-
         <RouterLink to='/'>
           <img src="@/assets/logo.webp" alt="" width="200">
         </RouterLink>
       </a>
 
+      <RouterLink to="/adminLogin">
+        <button class="admin-button btn">ADMIN</button>
+      </RouterLink>
     </nav>
   </header>
 
@@ -90,3 +92,11 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue"
 
   </footer>
 </template>
+
+<style scoped>
+.admin-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+</style>
