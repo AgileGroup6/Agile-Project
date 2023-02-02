@@ -1,6 +1,8 @@
 ## Live Project
 Customer View:
 https://lgl.caydey.com/
+password: friendnotfood
+
 
 Admin Login:
 https://lgl.caydey.com/adminlogin
