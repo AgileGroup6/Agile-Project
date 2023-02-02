@@ -12,10 +12,17 @@
 <script setup>
 import { useRecipestore } from "../stores/RecipeStore"
 import RemoveCard from '../components/remove/RemoveCard.vue';
+const recStore = useRecipestore();
+recStore.updateAllRecipes().then(() => {
+  console.log(recipeStore.getHighlightedItems())
+}).catch((ex) => {
+  console.log(ex);
+})
 </script>
 
 <script>
-const recStore = useRecipestore();
+
+
 export default {
   components: {
     RemoveCard,
