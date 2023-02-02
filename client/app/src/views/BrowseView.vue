@@ -16,7 +16,7 @@
       </ul>
     </div>
     <div class="ingredientsGrid">
-    <!--The array is sliced in two so that the items are not added to just one column and are instead added evenly across both of them-->
+    <!--THE KEY VAR IS ACTUALLY IMPORTANT! DO NOT DELETE. USED TO FORCE RE-RENDER OF CARD COMPONENTS -->
     <ingredientCard v-for="item in ingredientsInCategory" class="card" :key="item.tags" :ingredientArray="item" />
     </div>
   </div>
