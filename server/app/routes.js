@@ -4,6 +4,7 @@ const allIngredients = require("./api/allIngredients");
 const allRecipes = require("./api/allRecipes");
 const findRecipe = require("./api/findRecipe");
 const getRecipe = require("./api/getRecipe");
+const removeRecipe = require("./api/removeRecipe");
 
 const setFeatured = require("./api/setFeatured");
 const removeFeatured = require("./api/removeFeatured");
@@ -26,6 +27,8 @@ const routes = (route) => {
     customLimit(32, 4), // only allow 32 attempts every 4 minutes
     checkAdminPassword.router
   );
+
+  route.use("/api/removeRecipe", accessController, removeRecipe.router);
 
   route.use("/api/setFeatured", accessController, setFeatured.router);
   route.use("/api/removeFeatured", accessController, removeFeatured.router);
