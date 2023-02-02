@@ -97,7 +97,7 @@ export default {
         scheduleEnd: this.scheduleEnd
       }
 
-      axios.post("https://cloud.caydey.com/api/setFeatured", json).then(() => {
+      axios.post("https://lgl.caydey.com/api/setFeatured", json).then(() => {
         alert("schedules")
       }).catch((err) => {
         console.log(err);
