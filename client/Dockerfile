@@ -23,6 +23,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 # recipe images
 RUN mkdir /recipeImages
-COPY ./recipeImages/* /recipeImages
+COPY ./recipeImages/* /recipeImages/
 
 EXPOSE 80
