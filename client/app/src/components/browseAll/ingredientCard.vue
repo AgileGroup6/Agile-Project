@@ -6,7 +6,7 @@
             <!-- Because we have no id var in the json for ingredients, I use the name as the ID instead to change the button to added-->
             <button class="btn btn-success" v-bind:id="ingredientArray.name" @click="addToCart(ingredientArray);">
                 <div>
-                Add to Shopping List
+                    Add to Shopping List
                 </div>
             </button>
         </div>
@@ -27,13 +27,13 @@ export default {
 
     data() {
 
-    return {
-        btnID : this.ingredientArray.name
+        return {
+            btnID: this.ingredientArray.name
         }
     },
     methods: {
         addToCart(item) {
-            store.shoppingList.push(item);
+            store.addItem(item);
             document.getElementById(item.name).innerText = "Added!"
 
             //console.log(store.categories);
@@ -42,7 +42,7 @@ export default {
 
     },
     mounted() {
-    document.getElementById(this.btnID).innerText = "Add to Shopping List"
+        document.getElementById(this.btnID).innerText = "Add to Shopping List"
     }
 
 }
