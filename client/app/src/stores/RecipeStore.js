@@ -31,6 +31,11 @@ export const useRecipestore = defineStore({
     },
 
     async getRecommendedRecipes(igredientsList) {
+
+      if (igredientsList.length === 0) {
+        return
+      }
+
       const json = {
         ingredients: igredientsList.map(ingredient => ingredient.name)
       }

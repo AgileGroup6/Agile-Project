@@ -50,7 +50,6 @@
     </div>
 
 
-    <!-- cannot center the content -->
     <div class="row mt-3">
       <div class="col">
 
@@ -111,28 +110,31 @@ import { watch } from "vue";
 
 const store = useIngridentsStore();
 const recipeStore = useRecipestore();
-var currentShoppingList = []
-
-
-
 
 watch(store.shoppingList, (newShoppingList) => {
 
-  // currentShoppingList = newShoppingList
-  //recipeStore.getRecommendedRecipes(currentShoppingList)
-  console.log("hello");
-  recipeStore.getRecommendedRecipes(newShoppingList).then(() => { console.log(recipeStore.recommendedRecipes); }).catch((ex) => { console.log(ex) });
+  let count = 0
+
+  console.log("test")
+  recipeStore.getRecommendedRecipes(store.shoppingList).then(() => {
+
+    console.log("recomended recipes:")
+    console.log(recipeStore.recommendedRecipes);
+
+  }).catch((ex) => { console.log(ex) });
+
+  console.log("shopping list:")
+  console.log(store.shoppingList)
+
+  console.log(count++)
 
 });
-// const result = await recipeStore.getRecommendedRecipes(currentShoppingList)
-
-
 
 
 const res = await store.updateAllIngredients();
 
 recipeStore.updateAllRecipes().then(() => {
-  console.log(recipeStore.getHighlightedItems())
+  // console.log(recipeStore.getHighlightedItems())
 }).catch((ex) => {
   console.log(ex);
 })
@@ -144,12 +146,6 @@ function SearchForIngridents(searchVal) {
     return store.items.filter(item => item.name.toLowerCase().includes(searchVal.toLowerCase()));
 
   return []
-}
-
-// this is to empty the array later 
-function EmptyShoppingCart() {
-  if (store.shoppingList)
-    store.shoppingList = [];
 }
 
 function AddNonStoreIngridents_ShoppingList(nonstore) {
