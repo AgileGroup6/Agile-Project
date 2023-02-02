@@ -23,7 +23,7 @@ const store = useIngridentsStore();
 function addItemToCart(item) {
       if (!item) return;
       store.addItem(item);
-      console.log(store.shoppingList);
+      //console.log(store.shoppingList);
     }
 </script>
 <style lang="">
