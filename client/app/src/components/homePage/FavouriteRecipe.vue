@@ -1,6 +1,6 @@
 <template>
   <!-- v for here  -->
-  <div v-for="recipe in highlightedRecipes" class="carousel-item active">
+  <div v-for="(recipe, index) in highlightedRecipes" class="carousel-item" :class="{ 'active': index === 1 }">
 
     <div class="card text-center border-0 shadow p-3 mb-5 bg-white rounded" style="left:15px;width: 95%">
 
