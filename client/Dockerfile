@@ -21,5 +21,8 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# recipe images
+RUN mkdir /recipeImages
+COPY ./recipeImages/* /recipeImages
 
 EXPOSE 80
