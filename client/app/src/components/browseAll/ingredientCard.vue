@@ -20,17 +20,14 @@ import { useIngridentsStore } from "../../stores/ingridentsStore.js";
 
 const store = useIngridentsStore();
 export default {
+
     //Uses view properties to fill the cards with their relevant fields
 
     props: ['ingredientArray'],
-    data() {
-        //Cannot access props directly from a method, must be assigned to a variable under data first
-        return { buttonID: this.ingredientArray.name }
-    },
     methods: {
         addToCart(item) {
             store.shoppingList.push(item);
-            document.getElementById(this.buttonID).innerHTML = "Added!"
+            document.getElementById(item.name).innerText = "Added!"
 
             //console.log(store.categories);
 
