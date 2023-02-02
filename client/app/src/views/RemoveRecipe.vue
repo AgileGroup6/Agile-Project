@@ -21,8 +21,6 @@ recStore.updateAllRecipes().then(() => {
 </script>
 
 <script>
-
-
 export default {
   components: {
     RemoveCard,
