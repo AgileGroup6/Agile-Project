@@ -8,7 +8,7 @@
         Recommended by us!
       </div>
 
-      <img class="card-img-top" :src="getImageUrl(recipe.name)" alt="Card image cap">
+      <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ recipe.name }}</h5>
         <router-link :to="{ name: 'recipePage', params: { recipe_id: recipe.id } }">
@@ -29,20 +29,6 @@ export default {
     return {
       imageUrls: {}
     }
-  },
-  methods: {
-    getImageUrl(dishName) {
-      if (!this.imageUrls[dishName]) {
-        axios.get(`https://api.unsplash.com/search/photos?query=${dishName}&client_id=${CLIENT_ID}`)
-          .then(response => {
-            this.imageUrls[dishName] = response.data.results[0].urls.regular;
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
-      return this.imageUrls[dishName];
-    }
   }
 }
 </script>
@@ -53,12 +39,5 @@ export default {
   position: absolute;
   top: 5px;
   left: 5px;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 70vw;
-  max-height: 600px;
-  object-fit: cover;
 }
 </style>
