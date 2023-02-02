@@ -24,6 +24,13 @@ export default {
     //Uses view properties to fill the cards with their relevant fields
 
     props: ['ingredientArray'],
+
+    data() {
+
+    return {
+        btnID : this.ingredientArray.name
+        }
+    },
     methods: {
         addToCart(item) {
             store.shoppingList.push(item);
@@ -33,6 +40,9 @@ export default {
 
         }
 
+    },
+    mounted() {
+    document.getElementById(this.btnID).innerText = "Add to Shopping List"
     }
 
 }
