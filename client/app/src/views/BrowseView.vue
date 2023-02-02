@@ -7,6 +7,8 @@
         Browse by Category
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item text-center" href="#"
+            @click="search('All')">All</a></li>
         <li v-for="category in store.getCategories()"><a class="dropdown-item text-center" href="#"
             @click="search(category)">{{
               category
@@ -53,18 +55,32 @@ export default {
 
       //Pushing items to an array will allow them to be added to the DOM after the component has alrady rendered.
       //Documentation here: https://vuejs.org/guide/essentials/list.html
-
+      if(category === "All"){
+        this.displayAll()
+      }
       for (let i = 0; i < store.items.length; i++) {
         if (store.items[i].category == category) {
           this.ingredientsInCategory.push(store.items[i])
         }
       }
+    },
+    displayAll(){
+      for (let i = 0; i < store.items.length; i++) {
+          this.ingredientsInCategory.push(store.items[i]);
+      }
     }
+
+  },
+  //This displays all ingredients on load
+  beforeMount(){
+    this.displayAll()
+    //This scrolls to the top of the page, sometimes it was placing the scroll at the bottom on load, this fixes that
+    window.scrollTo(0,0);
   }
 }
 </script>
 
-<style>
+<style scoped>
 .card {
   display: inline-block;
   margin-right: 8px;

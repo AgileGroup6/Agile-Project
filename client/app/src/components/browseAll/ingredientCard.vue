@@ -3,7 +3,9 @@
         <img class="card-img-top" src="../../../src/assets/bred1test.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"> {{ ingredientArray.name }} </h5>
-            <button class="btn btn-success" @click="addToCart(ingredientArray)">Add to Shopping List</button>
+            <button class="btn btn-success" @click="addToCart(ingredientArray)">
+                Add to Shopping List
+            </button>
         </div>
     </div>
 </template>
