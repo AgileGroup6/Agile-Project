@@ -3,7 +3,7 @@
 <template>
     <!-- Uses styling as present for browse all ingredients-->
     <div class="card" id="ingredient_card">
-        <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
+        <RecipeImage :recipe="curRecipe.name" />
         <div class="card-body">
             <h5 class="card-title"> {{ curRecipe.name }} </h5>
             <router-link :to="{ name: 'recipePage', params: { recipe_id: curRecipe.id } }">
@@ -12,6 +12,11 @@
         </div>
     </div>
 </template>
+
+
+<script setup>
+import RecipeImage from "@/components/RecipeImage.vue";
+</script>
 
 <script>
 export default {
