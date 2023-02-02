@@ -20,8 +20,8 @@
       </div>
     </div>
 
-    <div class="row row justify-content-center">
-      <div class="col-md-7">
+    <div class="row justify-content-center">
+      <div class="col-xs-7">
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
@@ -112,7 +112,7 @@ import { storeToRefs } from "pinia";
 
 const store = useIngridentsStore();
 const recipeStore = useRecipestore();
-var {shoppingList} = storeToRefs(store);
+var { shoppingList } = storeToRefs(store);
 
 
 let count = 0;
@@ -122,8 +122,8 @@ watch(shoppingList, (newShoppingList) => {
   // currentShoppingList = newShoppingList
   //recipeStore.getRecommendedRecipes(currentShoppingList)
   console.log("hello");
-  console.log(count= count + 1);
-  if(newShoppingList.length>0)
+  console.log(count = count + 1);
+  if (newShoppingList.length > 0)
     recipeStore.getRecommendedRecipes(newShoppingList).then(() => { console.log(recipeStore.recommendedRecipes); }).catch((ex) => { console.log(ex) });
 
 });
@@ -168,5 +168,10 @@ function AddNonStoreIngridents_ShoppingList(nonstore) {
 <style scoped>
 img {
   height: 120px;
+}
+
+.carousel {
+  max-width: 700px;
+  margin: auto;
 }
 </style>
