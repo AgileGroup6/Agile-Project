@@ -107,21 +107,24 @@ import FavouriteRecipe from "@/components/homePage/FavouriteRecipe.vue"
 import BasketRecipe from "@/components/homePage/BasketRecipe.vue"
 import { useIngridentsStore } from "../stores/ingridentsStore";
 import { useRecipestore } from "../stores/RecipeStore"
-import { watch } from "vue";
+import { ref, watch, computed } from "vue";
+import { storeToRefs } from "pinia";
 
 const store = useIngridentsStore();
 const recipeStore = useRecipestore();
-var currentShoppingList = []
+var {shoppingList} = storeToRefs(store);
 
 
+let count = 0;
 
-
-watch(store.shoppingList, (newShoppingList) => {
+watch(shoppingList, (newShoppingList) => {
 
   // currentShoppingList = newShoppingList
   //recipeStore.getRecommendedRecipes(currentShoppingList)
   console.log("hello");
-  recipeStore.getRecommendedRecipes(newShoppingList).then(() => { console.log(recipeStore.recommendedRecipes); }).catch((ex) => { console.log(ex) });
+  console.log(count= count + 1);
+  if(newShoppingList.length>0)
+    recipeStore.getRecommendedRecipes(newShoppingList).then(() => { console.log(recipeStore.recommendedRecipes); }).catch((ex) => { console.log(ex) });
 
 });
 // const result = await recipeStore.getRecommendedRecipes(currentShoppingList)

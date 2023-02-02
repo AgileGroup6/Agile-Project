@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { useStorage } from '@vueuse/core'
+import { watch } from "vue";
 
 
 export const useIngridentsStore = defineStore({
   id: "ingredients",
   state: () => ({
-    /** @type {string[]} */
     items: [],
     categories: [],
     shoppingList: useStorage('shoppingList', [])
