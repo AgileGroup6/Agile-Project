@@ -17,6 +17,9 @@ app.use(express.json());
 // Cross Origin Resource Sharing
 app.use(cors());
 
+// let api return empty and undefined key pairs
+app.set("json replacer", undefined);
+
 // configure api routes
 routes(app);
 

@@ -3,40 +3,7 @@
     <head>
       <title>Add Recipe</title>
     </head>
-    <!-- <form class="container"><header><h1 class="title">Add Recipe</h1></header><div class="row"><label class="left-text" for="title">Title *</label><input
-          class="bar"
-          type="text"
-          name="title"
-          placeholder="Title"
-          v-model="title"
-          required
-        /></div><div class="row"><label class="left-text" for="serves">Serves</label><input
-          type="number"
-          name="serves"
-          class="bar"
-          placeholder="Serves"
-          v-model="serves"
-          required
-        /></div><div class="row"><label class="left-text" for="cars">Choose your ingredients:</label><select class="bar" name="ingredients" v-model="ingredient"><option v-for="ingredient in ingredients" :key="ingredient.id">
-            {{ ingredient.name }}
-          </option></select><input
-          class="bar"
-          type="text"
-          name="amount"
-          placeholder="Amount"
-          v-model="amount"
-          required
-        /><button type="button" @click="addMeasurement">Add</button></div><div class="row" ref="selectedMeasurements"><h2></h2><div><div class="left-text" v-for="measurement in selectedMeasurements" :key="measurement">
-            {{ measurement.ingredient }}
-            {{ measurement.amount }}
-            <button @click="deleteMeasurements(measurement)">Delete</button></div></div></div><div class="row"><label class="left-text" for="instructions">Instructions *</label><textarea
-          id="instructions"
-          name="instructions"
-          rows="4"
-          cols="50"
-          v-model="instructions"
-          required
-        ></textarea></div></form> -->
+
     <form style="color: black;" class="container">
 
       <header class="row">
@@ -65,8 +32,9 @@
               {{ ingredient.name }}
             </option>
           </select>
-          <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount" v-model="amount" required />
-          <button class="btn btn-success" type="button" @click="addMeasurement">Add</button>
+          <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount"
+            v-model="amount" required />
+          <button class="btn btn-success" type="button" @click="addMeasurement">Add ingredients</button>
         </div>
       </div>
 
@@ -98,7 +66,8 @@
       </div>
 
       <div class="row boxes">
-        <button type="button" @click="postRecipe" class="btn btn-success" style="color: white">ADD RECIPE</button>
+        <a href="admin"><button type="button" @click="postRecipe" class="btn btn-success" style="color: white">Add
+            recipe</button></a>
       </div>
 
     </form>
@@ -106,83 +75,83 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        // TODO fetch ingredients from pinata store
-        ingredients: [{
-          id: 1,
-          name: "Butter"
-        }, {
-          id: 2,
-          name: "Nuts"
-        }, {
-          id: 3,
-          name: "Beans"
-        }, {
-          id: 4,
-          name: "Balls"
-        }, {
-          id: 4,
-          name: "Poop"
-        }, ],
-        ingredient: "",
-        amount: "",
-        serves: "",
-        title: "",
-        instructions: "",
-        selectedMeasurements: [],
-      };
+export default {
+  data() {
+    return {
+      // TODO fetch ingredients from pinata store
+      ingredients: [{
+        id: 1,
+        name: "Butter"
+      }, {
+        id: 2,
+        name: "Nuts"
+      }, {
+        id: 3,
+        name: "Beans"
+      }, {
+        id: 4,
+        name: "rice"
+      }, {
+        id: 4,
+        name: "pasta"
+      },],
+      ingredient: "",
+      amount: "",
+      serves: "",
+      title: "",
+      instructions: "",
+      selectedMeasurements: [],
+    };
+  },
+  methods: {
+    addMeasurement() {
+      if (!this.ingredient || !this.amount) {
+        return;
+      }
+      this.selectedMeasurements.push({
+        ingredient: this.ingredient,
+        amount: this.amount,
+      });
     },
-    methods: {
-      addMeasurement() {
-        if (!this.ingredient || !this.amount) {
-          return;
-        }
-        this.selectedMeasurements.push({
-          ingredient: this.ingredient,
-          amount: this.amount,
-        });
-      },
-      deleteMeasurements(n) {
-        this.selectedMeasurements = this.selectedMeasurements.filter(
-          (m) => m.ingredient != n.ingredient || m.amount != n.amount);
-      },
-      postRecipe() {
-        console.log("POST");
-        console.log("measurements", this.selectedMeasurements);
-        console.log("title", this.title);
-        console.log("serves", this.serves);
-        console.log("instructions", this.instructions);
-      },
+    deleteMeasurements(n) {
+      this.selectedMeasurements = this.selectedMeasurements.filter(
+        (m) => m.ingredient != n.ingredient || m.amount != n.amount);
     },
-  };
+    postRecipe() {
+      console.log("POST");
+      console.log("measurements", this.selectedMeasurements);
+      console.log("title", this.title);
+      console.log("serves", this.serves);
+      console.log("instructions", this.instructions);
+    },
+  },
+};
 </script>
 
 <style>
-  * {
-    font-family: "arial";
-    background-color: #ffffff;
-  }
+* {
+  font-family: "arial";
+  background-color: #ffffff;
+}
 
-  body {
-    background-color: #ffffff;
-  }
+body {
+  background-color: #ffffff;
+}
 
-  .title{
-    margin-top: 2%;
-  }
+.title {
+  margin-top: 2%;
+}
 
-  h1 {
-    font-weight: 700;
-  }
+h1 {
+  font-weight: 700;
+}
 
-  .boxes{
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+.boxes {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-  .btn{
-    margin-top: 10px;
-  
+.btn {
+  margin-top: 10px;
+}
 </style>

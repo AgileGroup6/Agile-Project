@@ -1,56 +1,74 @@
 <script setup>
-import BigButton from "../components/admin/BigButton.vue";
 import LogOut from "../components/admin/LogOut.vue";
+import ButtonComponent from "../components/homePage/ButtonComponent.vue";
 </script>
 
 <template>
-  <div class="admin-home">
-    <div class="header">
-      <h class="title">Admin Page</h>
-      <p class="subtitle">
-        Please choose an option below
-      </p>
+  <div class="jumbotron text-center jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-6">Admin Page</h1>
+      <p class="lead">Please choose an option below:</p>
+      <div class="row">
+        <div class="col mb-3">
+          <RouterLink to="/addRecipe">
+            <ButtonComponent label="Add Recipe" />
+          </RouterLink>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <RouterLink to="/HighlightRecipe">
+            <ButtonComponent label="Highlight Recipe" />
+          </RouterLink>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <RouterLink to="/removeRecipe">
+            <ButtonComponent label="Remove Recipe" />
+          </RouterLink>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="container">
+            <div class="row d-flex justify-content-center">
+              <div class="col col-lg-8 col-xl-6">
+                <button
+                  id="logout-but"
+                  type="button"
+                  class="btn btn-dark"
+                  @click="logout"
+                >
+                  Log out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <BigButton />
-    <BigButton />
-    <BigButton />
-
-    <LogOut />
-
   </div>
 </template>
-  
-<style>
-  .admin-home {
-    background-color: #FFFFFF;
-    padding: 28px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .header {
-    background-color: #FFFFFF;
-    padding: 12px 24px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .title {
-    font-family: "arial";
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 44px;
-    color: #000000;
-    margin-bottom: 4px;
-    letter-spacing: -0.72px;
-  }
-  .subtitle {
-    font-family: "arial";
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: #329E63;
-  }
 
-  </style>
+<script>
+import { usePasswordStore } from "../stores/passwordStore";
+const store = usePasswordStore();
+
+export default {
+  methods: {
+    logout() {
+      store.logout();
+      this.$router.push("/adminLogin");
+    },
+  },
+  beforeMount() {
+    // check valid password, else redirect to login page
+    store.isValidPassword().then((valid) => {
+      if (!valid) {
+        this.$router.push("/adminLogin");
+      }
+    });
+  },
+};
+</script>

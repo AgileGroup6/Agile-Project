@@ -23,7 +23,8 @@ exports.recipeFinder = (ingredients, callback) => {
     JOIN Recipe_Measurement ON (Recipe.recipe_id = Recipe_Measurement.recipe_id)
     JOIN Measurement ON (Measurement.measurement_id = Recipe_Measurement.measurement_id)
     JOIN Ingredient ON (Ingredient.ingredient_id = Measurement.ingredient_id)
-    GROUP BY Recipe.recipe_id;`,
+    GROUP BY Recipe.recipe_id
+    LIMIT 5;`,
     [ingredients, ingredients],
     (err, response) => {
       if (err) {

@@ -42,10 +42,50 @@ const router = createRouter({
       component: () => import("../views/BrowseView.vue"),
     },
     {
+      path: "/browseRecipes",
+      name: "browseRecipes",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/BrowseAllRecipes.vue"),
+    },
+    {
       path: "/removeRecipe",
       name: "removeRecipe",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/RemoveRecipe.vue"),
+    },
+    {
+      path: "/allergyPage",
+      name: "allergyPage",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/AllergyPage.vue"),
+    },
+    {
+      path: "/highlightRecipe",
+      name: "highlightRecipe",
+      // route level code-splitting
+      // this generates npm a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/HighlightRecipe.vue"),
+    },
+    {
+      path: "/recipe/:recipe_id",
+      name: "recipePage",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/RecipePage.vue"),
+    },
+    {
+      path: "/removeRecipe",
+      name: "removeRecipe",
+      // route level code-splitting
+      // this generates npm a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/RemoveRecipe.vue"),
     },

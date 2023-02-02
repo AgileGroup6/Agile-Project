@@ -2,3 +2,5 @@ node_modules/
 .env
 package-lock.json
 client/app/package-lock.json
+server/app/package-lock.json
+client/app/package-lock.json

@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS Recipe (
 	recipe_name VARCHAR(255) NOT NULL,
 	serves INT DEFAULT FALSE,
 	instructions TEXT NOT NULL,
-	highlighted BOOLEAN DEFAULT FALSE,
+	highlight_start DATE,
+	highlight_end DATE,
 	PRIMARY KEY (recipe_id)
 );
 /*
@@ -44,13 +45,13 @@ CREATE TABLE IF NOT EXISTS Measurement (
 	ingredient_id INT,
 	amount VARCHAR(255) NOT NULL,
 	PRIMARY KEY (measurement_id),
-	FOREIGN KEY (ingredient_id) REFERENCES Ingredient(ingredient_id)
+	FOREIGN KEY (ingredient_id) REFERENCES Ingredient(ingredient_id) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS Recipe_Measurement (
 	recipe_measurement_id INT AUTO_INCREMENT,
 	recipe_id INT,
 	measurement_id INT,
 	PRIMARY KEY (recipe_measurement_id),
-	FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id),
-	FOREIGN KEY (measurement_id) REFERENCES Measurement(measurement_id)
+	FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id) ON DELETE CASCADE,
+	FOREIGN KEY (measurement_id) REFERENCES Measurement(measurement_id) ON DELETE CASCADE
 );
