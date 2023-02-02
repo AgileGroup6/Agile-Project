@@ -6,7 +6,9 @@
         <img class="card-img-top" src="@/assets/recipe1.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"> {{ curRecipe.name }} </h5>
-            <button class="btn btn-success">View Recipe</button>
+            <router-link :to="{ name: 'recipePage', params: { recipe_id: curRecipe.id } }">
+                <a href="#" class="btn btn-success">View Recipe</a>
+            </router-link>
         </div>
     </div>
 </template>
