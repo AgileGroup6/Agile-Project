@@ -32,7 +32,7 @@
           <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event)" />
           <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''"
             :doOnClick="addItemToCart" />
-          <input type="number" class="form-control" name="serves" :placeholder="selectedIngredient.name" readonly />
+          <input type="number" class="form-control" name="serves" :placeholder="selectedIngredient.name" :value="selectedIngredient.name" readonly />
           <input style="margin-top: 1%" class="form-control" type="text" name="amount" placeholder="Amount"
             v-model="amount" required />
 
@@ -78,9 +78,6 @@
  
 <script>
 export default {
-
-
-
   data() {
     return {
       // TODO fetch ingredients from pinata store
@@ -88,7 +85,10 @@ export default {
         search: ''
       },
       searchedIng: " ",
-
+      ingredient: " ",
+      amount : 0,
+      serves : 0,
+      selectedMeasurements :[]
     };
   },
   methods: {
@@ -98,7 +98,7 @@ export default {
       }
       this.selectedMeasurements.push({
         ingredient: this.ingredient,
-        amount: this.amount,
+        amount : this.amount,
       });
     },
     deleteMeasurements(n) {
@@ -119,11 +119,10 @@ export default {
 <script setup>
 import IngredientSearch from "@/components/homePage/IngredientSearch.vue";
 import ListItem from "../components/homePage/ListItem.vue";
-import ShoppingList from "@/components/homePage/ShoppingList.vue";
 import { useIngridentsStore } from "../stores/ingridentsStore";
 
 const store = useIngridentsStore();
-let selectedIngredient = {};
+let selectedIngredient = { name: ""};
 
 const res = await store.updateAllIngredients();
 
@@ -143,11 +142,8 @@ function EmptyShoppingCart() {
     store.shoppingList = [];
 }
 function addItemToCart(item) {
-
-  if (!item) return;
-  store.addItem(item);
-  //console.log(store.shoppingList);
-
+  selectedIngredient = item; 
+  console.log(selectedIngredient);
 }
 
 function AddNonStoreIngridents_ShoppingList(nonstore) {
