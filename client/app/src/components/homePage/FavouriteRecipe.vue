@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="recipe in highlightedRecipes"
+      v-for="(recipe, index) in highlightedRecipes"
       :key="recipe.recipe_id"
       class="carousel-item"
       :class="{ active: index === 1 }"
