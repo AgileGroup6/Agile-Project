@@ -76,15 +76,9 @@
             Add To Shopping List
           </button>
           <h3 class="card-title">Instructions:</h3>
-          <textarea
-            style="
-              width: 100%;
-              background-color: #edffed;
-              border-color: transparent;
-            "
-            v-model="recipe.instructions"
-            readonly
-          ></textarea>
+          <p 
+            v-html="processedText">
+          </p>
 
           <button type="button" @click="shareUrl" class="btn btn-primary">
             Share
@@ -149,6 +143,11 @@ export default {
         console.log(error);
       });
   },
+  computed: {
+    processedText() {
+      return this.recipe.instructions.replace(/-/g, '<br>-');
+    }
+  },
 };
 </script>
 <style scoped>
@@ -169,6 +168,8 @@ export default {
 .img-square-wrapper img {
   border: 2px solid #000;
   border-radius: 5px;
+  width: 300px;
+  height: 300px;
 }
 
 .error {
