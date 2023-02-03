@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .link {
     text-decoration: none;
     color: inherit;
