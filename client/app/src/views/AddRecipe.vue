@@ -1,13 +1,11 @@
 <template>
-  <body>
-    <head>
-      <title>Add Recipe</title>
-    </head>
-
-    <form style="color: black" class="container">
-      <header class="row">
-        <h1 class="title">Add Recipe</h1>
-      </header>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-6">Add recipe</h1>
+      <p class="lead">
+        Please fill out all of the mandatory fields (Adding a picture is
+        optional.)
+      </p>
 
       <div class="row boxes">
         <div class="form-group">
@@ -34,86 +32,93 @@
             required
           />
         </div>
-      </div>
 
-      <div class="row boxes">
-        <div class="form-group">
-          <label for="cars">Choose your ingredients:</label>
-          <select
-            class="form-control"
-            placeholder="Ingredients"
-            name="ingredients"
-            v-model="ingredient"
-          >
-            <option v-for="ingredient in ingredients" :key="ingredient.id">
-              {{ ingredient.name }}
-            </option>
-          </select>
-          <input
-            style="margin-top: 1%"
-            class="form-control"
-            type="text"
-            name="amount"
-            placeholder="Amount"
-            v-model="amount"
-            required
-          />
-          <button class="btn btn-success" type="button" @click="addMeasurement">
-            Add ingredients
-          </button>
-        </div>
-      </div>
-
-      <div class="row boxes">
-        <div class="row" ref="selectedMeasurements">
-          <h2></h2>
-          <div>
-            <div
+        <div class="row boxes">
+          <div class="form-group">
+            <label for="cars">Choose your ingredients: *</label>
+            <select
               class="form-control"
-              v-for="measurement in selectedMeasurements"
-              :key="measurement"
+              placeholder="Ingredients"
+              name="ingredients"
+              v-model="ingredient"
             >
-              {{ measurement.ingredient }}
-              {{ measurement.amount }}
-              <button
-                class="btn btn-danger"
-                @click="deleteMeasurements(measurement)"
+              <option v-for="ingredient in ingredients" :key="ingredient.id">
+                {{ ingredient.name }}
+              </option>
+            </select>
+            <input
+              style="margin-top: 1%"
+              class="form-control"
+              type="text"
+              name="amount"
+              placeholder="Amount"
+              v-model="amount"
+              required
+            />
+            <button
+              class="btn btn-success"
+              type="button"
+              @click="addMeasurement"
+            >
+              Add ingredients
+            </button>
+          </div>
+        </div>
+
+        <div class="row boxes mt-2">
+          <div class="row" ref="selectedMeasurements">
+            <div>
+              <div
+                class="form-control"
+                v-for="measurement in selectedMeasurements"
+                :key="measurement"
               >
-                Delete
-              </button>
+                {{ measurement.ingredient }}
+                {{ measurement.amount }}
+                <button
+                  class="btn btn-success btn-sm"
+                  @click="deleteMeasurements(measurement)"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row boxes">
-        <div class="form-group">
-          <label for="exampleFormControlFile1">Image</label>
-          <input type="file" class="form-control-file" id="Import Image" />
+        <div class="row boxes mt-2">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Image</label>
+            <input type="file" class="form-control-file" id="Import Image" />
+          </div>
         </div>
-      </div>
 
-      <div class="row boxes">
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Instructions *</label>
-          <textarea class="form-control" id="instructions" rows="3"></textarea>
+        <div class="row boxes mt-2">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Instructions *</label>
+            <textarea
+              class="form-control"
+              id="instructions"
+              rows="3"
+            ></textarea>
+          </div>
         </div>
-      </div>
 
-      <div class="row boxes">
-        <a href="admin"
-          ><button
-            type="button"
-            @click="postRecipe"
-            class="btn btn-success"
-            style="color: white"
+        <div class="row boxes">
+          <a href="admin"
+            ><button
+              type="button"
+              @click="postRecipe"
+              class="btn btn-success"
+              style="color: white"
+            >
+              Add recipe
+            </button></a
           >
-            Add recipe
-          </button></a
-        >
+        </div>
       </div>
-    </form>
-  </body>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -177,29 +182,7 @@ export default {
 };
 </script>
 
-<style>
-* {
-  font-family: "arial";
-  background-color: #ffffff;
-}
-
-body {
-  background-color: #ffffff;
-}
-
-.title {
-  margin-top: 2%;
-}
-
-h1 {
-  font-weight: 700;
-}
-
-.boxes {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
+<style scoped>
 .btn {
   margin-top: 10px;
 }
