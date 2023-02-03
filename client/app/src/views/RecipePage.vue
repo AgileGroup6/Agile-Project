@@ -51,10 +51,10 @@
                             </div>
                     </div>
                     </div>
-                    <button type="button" @click="addCheckBoxesToArray" class="btn btn-primary">Add To Shopping List</button>                
+                    <button type="button" @click="addCheckBoxesToArray" class="btn btn-success">Add To Shopping List</button>                
                     <h3 class="card-title">Instructions:</h3>
-                    <textarea style="width: 100%; background-color: #edffed; border-color: transparent;" readonly>{{ recipe.instructions }}</textarea>
-                    <button type="button" @click="shareUrl" class="btn btn-primary">Share</button>
+                    <p v-html="processedText"></p>
+                    <button type="button" @click="shareUrl" class="btn btn-success">Copy Link</button>
                 </div>
             </div>
         </div>
@@ -65,6 +65,7 @@ import axios from 'axios';
 import { useIngridentsStore } from "../stores/ingridentsStore.js"
 
 const store = useIngridentsStore();
+
     export default {
         data() {
             return {
@@ -89,7 +90,6 @@ const store = useIngridentsStore();
 
             },
         },
-
         beforeMount(){
             this.loading = true
             axios.get('https://lgl.caydey.com/api/getRecipe?id=' + this.$route.params.recipe_id)
@@ -106,6 +106,11 @@ const store = useIngridentsStore();
                 this.errored = true
                 console.log(error);
             })
+        },
+        computed: {
+            processedText() {
+                return this.recipe.instructions.replace(/-/g, '<br>-');
+            }
         },
     }  
 </script>

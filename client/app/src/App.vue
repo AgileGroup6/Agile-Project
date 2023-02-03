@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import instaPosts from "../src/components/homePage/instagramPosts.vue"
+import NavBar from "../src/components/homePage/NavBar.vue"
 
 </script>
 
@@ -9,15 +10,15 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue"
 
   <!-- header for the logo link -->
   <header>
+    <NavBar />
     <nav class="navbar justify-content-center">
-
+      
       <a class="navbar-brand">
-
         <RouterLink to='/'>
           <img src="@/assets/logo.webp" alt="" width="200">
         </RouterLink>
       </a>
-
+      
     </nav>
   </header>
 
