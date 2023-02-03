@@ -10,35 +10,36 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue";
 
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-light p-4">
+          <div class = "row justify-content-center" > 
+            <div class = "col-8">
 
-          <div class="row">
-            <div class="col-6">
-
+          
+          <ul class="list-group list-group-flush mx-2 py-3 d-flex justify-content-center text-center bg-transparent" >
+            <li class="list-group-item bg-transparent">
+              
               <RouterLink to="/">
                 <!-- home page -->
-                <button type="button" class="btn btn-outline-success btn-lg">Home</button>
+                <button type="button" class="btn btn-sm btn-outline-success " style = "width: 50%;">Home</button>
               </RouterLink>
+              </li>
+           
+            <li class="list-group-item bg-transparent">
 
-            </div>
-          </div>
-
-          <div class="row">
-
-            <router-link to="/browse">
+              <RouterLink to="/browse">
               <!-- browse ingredients page -->
-              <button type="button" class="btn btn-outline-success btn-lg mt-2">Browse All Ingredients</button>
-            </router-link>
-
-          </div>
-
-          <div class="row">
-
-            <router-link to="/browseRecipes">
+              <button type="button" class="btn btn-sm btn-outline-success  mt-2" style = "width: 50%;">Browse All Ingredients</button>
+            </RouterLink>
+            </li>
+            <li class="list-group-item bg-transparent">
+              <RouterLink to="/browseRecipes">
               <!-- browse ingredients page -->
-              <button type="button" class="btn btn-outline-success btn-lg mt-2">Browse All Recipes</button>
-            </router-link>
+              <button type="button" class="btn btn-sm btn-outline-success mt-2" style = "width: 50%;">Browse All Recipes</button>
+            </RouterLink>
 
-          </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
 
           <RouterLink to="/adminLogin">
