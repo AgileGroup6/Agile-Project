@@ -2,39 +2,22 @@
   <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
       <h1 class="display-6 mb-3">Browse Store</h1>
-      <button
-        class="btn btn-success dropdown-toggle"
-        type="button"
-        id="categoryButton"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
+      <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
         Browse by Category
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li>
-          <a class="dropdown-item text-center" href="#" @click="search('All')"
-            >All</a
-          >
+          <a class="dropdown-item text-center" href="#" @click="search('All')">All</a>
         </li>
         <li v-for="category in store.getCategories()" :key="category">
-          <a
-            class="dropdown-item text-center"
-            href="#"
-            @click="search(category)"
-            >{{ category }}</a
-          >
+          <a class="dropdown-item text-center" href="#" @click="search(category)">{{ category }}</a>
         </li>
       </ul>
     </div>
     <div class="ingredientsGrid">
       <!--THE KEY VAR IS ACTUALLY IMPORTANT! DO NOT DELETE. USED TO FORCE RE-RENDER OF CARD COMPONENTS -->
-      <ingredientCard
-        v-for="item in ingredientsInCategory"
-        class="card"
-        :key="item.tags"
-        :ingredientArray="item"
-      />
+      <ingredientCard v-for="item in ingredientsInCategory" class="card" :key="item.tags" :ingredientArray="item" />
     </div>
   </div>
 </template>

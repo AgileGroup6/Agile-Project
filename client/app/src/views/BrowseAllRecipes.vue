@@ -5,12 +5,8 @@
     </div>
     <!-- Uses styling as present for browse all ingredients-->
     <div class="ingredientsGrid">
-      <RecipeCard
-        v-for="recipe in recStore.items"
-        class="card"
-        :key="recipe.id"
-        :curRecipe="recipe"
-      />
+      <!-- Loops through the recipes stored in the recipe store and displays each recipe card -->
+      <RecipeCard v-for="recipe in recStore.items" class="card" :key="recipe.id" :curRecipe="recipe" />
     </div>
   </div>
 </template>
@@ -20,6 +16,7 @@ import RecipeCard from "../components/browseRecipes/RecipeCard.vue";
 </script>
 
 <script>
+//Accesses the recipe store
 const recStore = useRecipestore();
 export default {
   components: {

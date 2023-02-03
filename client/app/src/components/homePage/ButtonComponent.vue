@@ -1,13 +1,9 @@
 <template>
+  <!-- Main container for button -->
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col col-lg-8 col-xl-6">
-        <button
-          id="thebut"
-          type="button"
-          class="btn btn-success"
-          @click="doOnClick"
-        >
+        <button id="thebut" type="button" class="btn btn-success" @click="doOnClick">
           {{ label }}
         </button>
       </div>
@@ -16,6 +12,7 @@
 </template>
 <script>
 export default {
+  //Props to pass the button label and the click event handler function
   props: {
     label: {
       type: String,

@@ -6,23 +6,19 @@
         Select a recipe from the drop-down below to schedule a featured recipe
         for a date of your choice.
       </p>
-      <button
-        class="btn btn-success dropdown-toggle"
-        type="button"
-        id="categoryButton"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
+      <button class="btn btn-success dropdown-toggle" type="button" id="categoryButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
         Browse by Category
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <!-- THIS IS CURRENTLY HARD-CODED DATA!!! CHANGE BEFORE FINAL -->
+        <!-- Loop through the recipes to display each recipe name in the dropdown -->
         <li v-for="recipe in recipes" :key="recipe.id">
           <a class="dropdown-item" href="#" @click="select(recipe)">{{
             recipe.name
           }}</a>
         </li>
       </ul>
+      <!-- Display the selected recipe if a recipe is selected -->
       <div v-if="selectedRecipe">
         <div class="ingredient_card">
           <div class="row mt-4">
@@ -30,8 +26,6 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-7">
-              <!-- <img src={{image}}> -->
-              <!-- HARD CODED IMAGE FOR TESTING! CHANGE BEFORE FINAL -->
               <RecipeImage :recipe="selectedRecipe.name" />
             </div>
           </div>
@@ -44,11 +38,7 @@
               <input type="date" v-model="scheduleEnd" />
             </div>
             <div class="justify-content-center d-flex mt-3">
-              <button
-                class="btn btn-success"
-                id="schedule-button"
-                @click="highlightRecipe"
-              >
+              <button class="btn btn-success" id="schedule-button" @click="highlightRecipe">
                 Schedule
               </button>
             </div>
@@ -79,14 +69,12 @@ export default {
   },
   onMount() {
     console.log("hehrere");
-    //this.recipes = store.items
   },
   methods: {
     select(recipe) {
       this.selectedRecipe = recipe;
     },
     highlightRecipe() {
-      // this.scheduleStart
       const id = this.selectedRecipe.id;
       const scheduleStart = this.scheduleStart;
       const scheduleEnd = this.scheduleEnd;
@@ -97,12 +85,13 @@ export default {
       console.log(scheduleStart);
       console.log(scheduleEnd);
 
+      // create a JSON object with the id, schedule start and schedule end of the selected recipe
       const json = {
         id: this.selectedRecipe.id,
         scheduleStart: this.scheduleStart,
         scheduleEnd: this.scheduleEnd,
       };
-
+      // send a POST request to the specified URL with the JSON data
       axios
         .post("https://lgl.caydey.com/api/setFeatured", json)
         .then(() => {
@@ -117,4 +106,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

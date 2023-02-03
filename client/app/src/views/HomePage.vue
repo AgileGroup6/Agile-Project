@@ -7,14 +7,8 @@
     <!-- search ingredients -->
     <div class="row">
       <div class="col">
-        <IngredientSearch
-          v-model="event.search"
-          @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)"
-        />
-        <ListItem
-          :ingredients="SearchForIngridents(event.search)"
-          @click="event.search = ''"
-        />
+        <IngredientSearch v-model="event.search" @submit.prevent="AddNonStoreIngridents_ShoppingList(event.search)" />
+        <ListItem :ingredients="SearchForIngridents(event.search)" @click="event.search = ''" />
       </div>
     </div>
 
@@ -27,37 +21,21 @@
 
     <div class="row justify-content-center">
       <div class="col-xs-7">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <!-- carousel items -->
           <div class="carousel-inner">
-            <FavouriteRecipe
-              :highlightedRecipes="recipeStore.getHighlightedItems()"
-            />
-            <BasketRecipe
-              :recommendedRecipes="recipeStore.recommendedRecipes"
-            />
+            <FavouriteRecipe :highlightedRecipes="recipeStore.getHighlightedItems()" />
+            <BasketRecipe :recommendedRecipes="recipeStore.recommendedRecipes" />
           </div>
 
           <!-- carousel controls -->
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden"></span>
           </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden"></span>
           </button>
@@ -69,20 +47,14 @@
     <div class="row mt-3">
       <div class="col">
         <RouterLink to="/browse">
-          <ButtonComponent
-            label="Browse All Ingredients"
-            :doOnClick="testFunction"
-          />
+          <ButtonComponent label="Browse All Ingredients" :doOnClick="testFunction" />
         </RouterLink>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col">
         <RouterLink to="/browseRecipes">
-          <ButtonComponent
-            label="Browse All Recipes"
-            :doOnClick="testFunction"
-          />
+          <ButtonComponent label="Browse All Recipes" :doOnClick="testFunction" />
         </RouterLink>
       </div>
     </div>
@@ -132,8 +104,6 @@ var { shoppingList } = storeToRefs(store);
 let count = 0;
 
 watch(shoppingList, (newShoppingList) => {
-  // currentShoppingList = newShoppingList
-  //recipeStore.getRecommendedRecipes(currentShoppingList)
   console.log("hello");
   console.log((count = count + 1));
   if (newShoppingList.length > 0)

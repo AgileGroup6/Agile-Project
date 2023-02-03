@@ -1,4 +1,4 @@
-<!-- Recipe Card for recipes displayed in the browse all recipes page-->
+<!-- Recipe Card for recipes displayed in the remove recipe page-->
 <template>
   <!-- Uses styling as present for browse all ingredients-->
   <div class="card" id="ingredient_card">
@@ -20,9 +20,11 @@ import RecipeImage from "@/components/RecipeImage.vue";
 import axios from "axios";
 
 export default {
+  // Props to receive recipe details
   props: ["curRecipe"],
   methods: {
     removeRecipe(recipe_id) {
+      // Make a POST request to removeRecipe API with recipe ID
       axios.post("https://lgl.caydey.com/api/removeRecipe", { id: recipe_id }).then((response) => {
         console.log("Recipe successfully removed!");
       }).catch((error) => {

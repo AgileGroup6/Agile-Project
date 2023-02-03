@@ -1,6 +1,7 @@
 <template lang="">
   <div>
     <form class="form-inline">
+      <!-- v-bind used to bind input to any additional attributes and then an update event will be emitted when the input value is changed --->
       <input
         v-bind="$attrs"
         :value="modelValue"
@@ -16,6 +17,7 @@
 
 <script>
 export default {
+  //Prop for modelValue which is an empty string as defualt but can have a string or number value
   props: {
     modelValue: {
       type: [String, Number],
@@ -24,4 +26,6 @@ export default {
   },
 };
 </script>
-<style></style>
+<style scoped>
+
+</style>
