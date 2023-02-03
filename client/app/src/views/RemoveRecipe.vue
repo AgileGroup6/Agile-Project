@@ -10,22 +10,25 @@
   </div>
 </template>
 <script setup>
-import { useRecipestore } from "../stores/RecipeStore"
-import RemoveCard from '../components/remove/RemoveCard.vue';
+import { useRecipestore } from "../stores/RecipeStore";
+import RemoveCard from "../components/remove/RemoveCard.vue";
 const recStore = useRecipestore();
-recStore.updateAllRecipes().then(() => {
-  console.log(recipeStore.getHighlightedItems())
-}).catch((ex) => {
-  console.log(ex);
-})
+recStore
+  .updateAllRecipes()
+  .then(() => {
+    console.log(recStore.getHighlightedItems());
+  })
+  .catch((ex) => {
+    console.log(ex);
+  });
 </script>
 
 <script>
 export default {
   components: {
     RemoveCard,
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

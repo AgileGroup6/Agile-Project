@@ -7,25 +7,23 @@
         Browse by Category
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item text-center" href="#"
-            @click="search('All')">All</a></li>
-        <li v-for="category in store.getCategories()"><a class="dropdown-item text-center" href="#"
-            @click="search(category)">{{
-              category
-            }}</a></li>
+        <li>
+          <a class="dropdown-item text-center" href="#" @click="search('All')">All</a>
+        </li>
+        <li v-for="category in store.getCategories()" :key="category">
+          <a class="dropdown-item text-center" href="#" @click="search(category)">{{ category }}</a>
+        </li>
       </ul>
     </div>
     <div class="ingredientsGrid">
-    <!--THE KEY VAR IS ACTUALLY IMPORTANT! DO NOT DELETE. USED TO FORCE RE-RENDER OF CARD COMPONENTS -->
-    <ingredientCard v-for="item in ingredientsInCategory" class="card" :key="item.tags" :ingredientArray="item" />
+      <!--THE KEY VAR IS ACTUALLY IMPORTANT! DO NOT DELETE. USED TO FORCE RE-RENDER OF CARD COMPONENTS -->
+      <ingredientCard v-for="item in ingredientsInCategory" class="card" :key="item.tags" :ingredientArray="item" />
     </div>
   </div>
 </template>
 <script setup>
 import { useIngridentsStore } from "../stores/ingridentsStore.js";
-import ingredientCard from '../components/browseAll/ingredientCard.vue';
-const store = useIngridentsStore();
-
+import ingredientCard from "../components/browseAll/ingredientCard.vue";
 </script>
 
 <script>
@@ -35,17 +33,15 @@ export default {
     ingredientCard,
   },
   data() {
-
     return {
-      ingredientsInCategory: []
-    }
+      ingredientsInCategory: [],
+    };
   },
   methods: {
-
     search(category) {
-      this.active = !this.active
-      document.getElementById('categoryButton').innerHTML = category;
-      
+      this.active = !this.active;
+      document.getElementById("categoryButton").innerHTML = category;
+
       //The below is text data to test the formatting of the table.
       //When connecting the backend, replace with API Call to get ingredients by category.
       //Set resultsArray from query to ingredientsInCategory to run
@@ -55,29 +51,28 @@ export default {
 
       //Pushing items to an array will allow them to be added to the DOM after the component has alrady rendered.
       //Documentation here: https://vuejs.org/guide/essentials/list.html
-      if(category === "All"){
-        this.displayAll()
+      if (category === "All") {
+        this.displayAll();
       }
       for (let i = 0; i < store.items.length; i++) {
         if (store.items[i].category == category) {
-          this.ingredientsInCategory.push(store.items[i])
+          this.ingredientsInCategory.push(store.items[i]);
         }
       }
     },
-    displayAll(){
+    displayAll() {
       for (let i = 0; i < store.items.length; i++) {
-          this.ingredientsInCategory.push(store.items[i]);
+        this.ingredientsInCategory.push(store.items[i]);
       }
-    }
-
+    },
   },
   //This displays all ingredients on load
-  beforeMount(){
-    this.displayAll()
+  beforeMount() {
+    this.displayAll();
     //This scrolls to the top of the page, sometimes it was placing the scroll at the bottom on load, this fixes that
-    window.scrollTo(0,0);
-  }
-}
+    window.scrollTo(0, 0);
+  },
+};
 </script>
 
 <style scoped>

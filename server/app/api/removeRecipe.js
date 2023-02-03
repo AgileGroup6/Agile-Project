@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
   if (!recipe_id) {
     return res.status(400).send({
       success: false,
-      message: "id, schedule_start, schedule_end not set",
+      message: "id not set",
     });
   }
   // recipe_id is not a number
@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
     });
   }
 
-  delRecipe(recipe_id, schedule_start, schedule_end, (err) => {
+  delRecipe(recipe_id, (err) => {
     if (err) {
       return res.status(500).send({
         success: false,

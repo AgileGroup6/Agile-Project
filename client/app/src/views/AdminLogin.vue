@@ -7,16 +7,11 @@
       </p>
       <div class="form-group">
         <label class="left-text" for="password">Password</label>
-        <input
-          v-model="passwordLogin"
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
+        <input v-model="passwordLogin" class="form-control" type="password" name="password" placeholder="Password"
+          required />
       </div>
       <div class="row mt-3">
+        <!-- Button to login and take you to the next page -->
         <div class="col text-center">
           <ButtonComponent label="Continue" @click="doLogin" />
         </div>
@@ -36,6 +31,7 @@ export default {
       emptyFields: false,
     };
   },
+  // Check if valid password on component mount
   mounted() {
     store.isValidPassword().then((valid) => {
       if (valid) {
@@ -47,7 +43,7 @@ export default {
     doLogin() {
       if (this.passwordLogin) {
         store.password = this.passwordLogin;
-
+        // Assign password value to store
         store.isValidPassword().then((valid) => {
           if (valid) {
             this.$router.push("/admin");
