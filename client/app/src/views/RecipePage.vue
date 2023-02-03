@@ -28,7 +28,7 @@
           </u>
         </div>
 
-    <div v-else class="card container" style="background-color: #edffed;">
+    <div class="card container" style="background-color: #edffed;">
         <div class="card-vertical">
             <div class="img-square-wrapper">
                 <img src="../../src/assets/bred1test.jpg" alt="Card image cap">
