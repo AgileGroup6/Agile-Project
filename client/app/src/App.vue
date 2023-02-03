@@ -1,34 +1,34 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import instaPosts from "../src/components/homePage/instagramPosts.vue"
-import NavBar from "../src/components/homePage/NavBar.vue"
+import instaPosts from "../src/components/homePage/instagramPosts.vue";
+import NavBar from "../src/components/homePage/NavBar.vue";
 </script>
 
 <template>
-  <!-- header for the logo link -->
-  <header>
-    <NavBar />
-    <nav class="navbar justify-content-center">
-      
-      <a class="navbar-brand">
-        <RouterLink to='/'>
-          <img src="@/assets/logo.webp" alt="" width="200">
-        </RouterLink>
-      </a>
-      
-    </nav>
-  </header>
+  <div>
+    <!-- header for the logo link -->
+    <header>
+      <NavBar />
+      <nav class="navbar justify-content-center">
+        <a class="navbar-brand">
+          <RouterLink to="/">
+            <img src="@/assets/logo.webp" alt="" width="200" />
+          </RouterLink>
+        </a>
+      </nav>
+    </header>
 
-  <!-- main body views -->
-  <Suspense>
-    <RouterView />
-  </Suspense>
+    <!-- main body views -->
+    <Suspense>
+      <RouterView />
+    </Suspense>
 
-  <!-- footer containing social media integration -->
-  <footer>
-
-    <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-
+    <!-- footer containing social media integration -->
+    <footer>
+      <div
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <ul>
           <!-- Link to the facebook of LGL-->
           <li>
             <a
