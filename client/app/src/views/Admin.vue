@@ -7,7 +7,7 @@ import ButtonComponent from "../components/homePage/ButtonComponent.vue";
   <div class="jumbotron text-center jumbotron-fluid">
     <div class="container">
       <h1 class="display-6">Admin Page</h1>
-      <p class="lead"> Please choose an option below:</p>
+      <p class="lead">Please choose an option below:</p>
       <div class="row">
         <div class="col mb-3">
           <RouterLink to="/addRecipe">
@@ -31,14 +31,44 @@ import ButtonComponent from "../components/homePage/ButtonComponent.vue";
       </div>
       <div class="row">
         <div class="col">
-          <LogOut />
+          <div class="container">
+            <div class="row d-flex justify-content-center">
+              <div class="col col-lg-8 col-xl-6">
+                <button
+                  id="logout-but"
+                  type="button"
+                  class="btn btn-dark"
+                  @click="logout"
+                >
+                  Log out
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
-<style scoped>
+<script>
+import { usePasswordStore } from "../stores/passwordStore";
+const store = usePasswordStore();
 
-</style>
+export default {
+  methods: {
+    logout() {
+      store.logout();
+      this.$router.push("/adminLogin");
+    },
+  },
+  beforeMount() {
+    // check valid password, else redirect to login page
+    store.isValidPassword().then((valid) => {
+      if (!valid) {
+        this.$router.push("/adminLogin");
+      }
+    });
+  },
+};
+</script>

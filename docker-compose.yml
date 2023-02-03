@@ -5,7 +5,7 @@ services:
     build: ./server
     restart: always
     environment:
-      - ADMIN_PW=${ADMIN_PW:?err}
+      - ADMIN_PW=$ADMIN_PW
     depends_on:
       - database
 

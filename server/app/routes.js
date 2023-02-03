@@ -4,6 +4,7 @@ const allIngredients = require("./api/allIngredients");
 const allRecipes = require("./api/allRecipes");
 const findRecipe = require("./api/findRecipe");
 const getRecipe = require("./api/getRecipe");
+const removeRecipe = require("./api/removeRecipe");
 
 const setFeatured = require("./api/setFeatured");
 const removeFeatured = require("./api/removeFeatured");
@@ -23,22 +24,17 @@ const routes = (route) => {
 
   route.use(
     "/api/checkAdminPassword",
-    customLimit(16, 4), // only allow 16 attempts every 4 minutes
+    customLimit(32, 4), // only allow 32 attempts every 4 minutes
     checkAdminPassword.router
   );
 
-  // not used at the moment, testing admin authentication
-  route.use(
-    "/api/addRecipe",
-    // accessController, // must have admin cookie set for this
-    addRecipe.router
-  );
+  route.use("/api/removeRecipe", accessController, removeRecipe.router);
 
-  route.use("/api/setFeatured", setFeatured.router);
+  route.use("/api/setFeatured", accessController, setFeatured.router);
+  route.use("/api/removeFeatured", accessController, removeFeatured.router);
+  route.use("/api/listFeatured", accessController, listFeatured.router);
 
-  route.use("/api/removeFeatured", removeFeatured.router);
-
-  route.use("/api/listFeatured", listFeatured.router);
+  route.use("/api/addRecipe", accessController, addRecipe.router); // TODO
 };
 
 module.exports = routes;
