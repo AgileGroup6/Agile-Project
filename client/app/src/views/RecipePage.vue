@@ -201,6 +201,3 @@ textarea {
   resize: none;
 }
 </style>
-
-
-
