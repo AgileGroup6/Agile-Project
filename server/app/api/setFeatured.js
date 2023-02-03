@@ -5,13 +5,13 @@ const { scheduleFeaturedRecipe } = require("../db/scheduleFeaturedRecipe");
 const router = express.Router();
 router.post("/", (req, res) => {
   const recipe_id = req.body.id;
-  const schedule_start = req.body.schedule_start;
-  const schedule_end = req.body.schedule_end;
+  const scheduleStart = req.body.scheduleStart;
+  const scheduleEnd = req.body.scheduleEnd;
 
-  if (!recipe_id || !schedule_start || !schedule_end) {
+  if (!recipe_id || !scheduleStart || !scheduleEnd) {
     return res.status(400).send({
       success: false,
-      message: "id, schedule_start, schedule_end not set",
+      message: "id, scheduleStart, scheduleEnd not set",
     });
   }
   // recipe_id is not a number
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     });
   }
 
-  scheduleFeaturedRecipe(recipe_id, schedule_start, schedule_end, (err) => {
+  scheduleFeaturedRecipe(recipe_id, scheduleStart, scheduleEnd, (err) => {
     if (err) {
       return res.status(500).send({
         success: false,
