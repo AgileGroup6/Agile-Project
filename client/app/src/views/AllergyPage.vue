@@ -19,19 +19,15 @@
       <p class="lead">
         If you need any extensive allergy information, please don't hesitate to
         check out the
-        <a
-          id="agency-link"
-          target="_blank"
-          href="https://www.food.gov.uk/safety-hygiene/food-allergy-and-intolerance"
-          >Food Standards Agency</a
-        >
+        <a id="agency-link" target="_blank"
+          href="https://www.food.gov.uk/safety-hygiene/food-allergy-and-intolerance">Food Standards Agency</a>
       </p>
       <img src="@/assets/LGL_Refill_Image.jpg" alt="" width="400" />
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 #agency-link {
   color: #329e63;
   text-decoration: underline;
