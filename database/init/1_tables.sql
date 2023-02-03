@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS Ingredient (
 	ingredient_id INT AUTO_INCREMENT,
 	category_id INT,
 	grp_id INT,
-	ingredient_name VARCHAR(255) NOT NULL,
+	ingredient_name VARCHAR(255) NOT NULL UNIQUE,
 	store_has BOOLEAN DEFAULT FALSE,
 	vegan BOOLEAN DEFAULT FALSE,
 	fillable BOOLEAN DEFAULT FALSE,

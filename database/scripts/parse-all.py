@@ -1,6 +1,10 @@
 #!/usr/bin/env python
+import os
 
-
+ingredient_path = os.path.join(os.path.dirname(
+    os.path.realpath(__file__)), "ingredients")
+recipe_path = os.path.join(os.path.dirname(
+    os.path.realpath(__file__)), "recipes")
 # clear database
 print("USE lgl;")
 
@@ -10,7 +14,7 @@ allIngredients = []
 
 categorySet = set()
 groupSet = set()
-with open('./ingredients', 'r') as f:
+with open(ingredient_path, 'r') as f:
     category = ""
     tags = set()
     for line in f:
@@ -109,7 +113,7 @@ recipes = []
 nonStockMap = {}
 
 nonStockIngredients = set()
-with open("recipes", "r") as f:
+with open(recipe_path, "r") as f:
     title = ""
     serves = 0
     contents = ""

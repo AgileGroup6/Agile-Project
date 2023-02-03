@@ -34,7 +34,7 @@ const routes = (route) => {
   route.use("/api/removeFeatured", accessController, removeFeatured.router);
   route.use("/api/listFeatured", accessController, listFeatured.router);
 
-  route.use("/api/addRecipe", accessController, addRecipe.router); // TODO
+  route.use("/api/addRecipe", accessController, addRecipe.router);
 };
 
 module.exports = routes;
