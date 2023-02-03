@@ -25,4 +25,10 @@ describe("Recipestore Tests", () => {
         console.log(ex);
       });
   });
+  test("getHiglited is never null",()=>{
+    const store = useRecipestore(); 
+    let highlited = store.getHighlightedItems();
+    console.log(highlited);
+    expect(highlited).not.toBeNull(); 
+  })
 });
