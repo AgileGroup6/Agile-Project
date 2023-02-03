@@ -116,7 +116,11 @@ export default {
 
       for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked == true) {
-          store.shoppingList.push(this.recipe.ingredients[i]);
+          let ingrident = store.items.find((it)=>it.name.toLowerCase() === this.recipe.ingredients[i].name.toLowerCase()); 
+          if(ingrident)
+            store.addItem(ingrident);
+          else
+            store.addItem(this.recipe.ingredients[i]);
         }
       }
     },
