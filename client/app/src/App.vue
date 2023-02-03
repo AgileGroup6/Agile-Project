@@ -58,6 +58,7 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue";
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
+        
       </nav>
 
 
@@ -66,16 +67,13 @@ import instaPosts from "../src/components/homePage/instagramPosts.vue";
 
 
 
-    <!-- <nav class="navbar "> -->
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col">
+    <nav class="navbar justify-content-center">
+        <a class="navbar-brand">
           <RouterLink to="/">
             <img src="@/assets/logo.webp" alt="" width="200" />
           </RouterLink>
-        </div>
-      </div>
-    </div>
+        </a>
+    </nav>
 
     <!-- main body views -->
     <Suspense>
