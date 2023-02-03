@@ -10,13 +10,20 @@
             <label for="title">Title *</label>
             <input type="text" class="form-control" id="title" placeholder="Title" required>
           </div>
+
         </div>
 
-        <div class="row boxes">
-          <div class="form-group">
-            <label for="serves">Serves *</label>
-            <input type="number" class="form-control" name="serves" placeholder="Serves" v-model="serves" required />
-          </div>
+      <div class="row boxes">
+        <div class="form-group">
+          <label for="serves">Serves</label>
+          <input
+            type="number"
+            class="form-control"
+            name="serves"
+            placeholder="Serves"
+            v-model="serves"
+            required
+          />
         </div>
 
         <div class="row boxes">
@@ -59,13 +66,20 @@
           </div>
         </div>
 
-        <div class="row boxes">
-          <a href="admin"><button type="button" @click="postRecipe" class="btn btn-success" style="color: white">Add
-              recipe</button></a>
-        </div>
+      <div class="row boxes">
+        <a href="admin"
+          ><button
+            type="button"
+            @click="postRecipe"
+            class="btn btn-success"
+            style="color: white"
+          >
+            Add recipe
+          </button></a
+        >
       </div>
-    </div>
-  </form>
+    </form>
+  </body>
 </template>
 
 <script>
@@ -73,22 +87,28 @@ export default {
   data() {
     return {
       // TODO fetch ingredients from pinata store
-      ingredients: [{
-        id: 1,
-        name: "Butter"
-      }, {
-        id: 2,
-        name: "Nuts"
-      }, {
-        id: 3,
-        name: "Beans"
-      }, {
-        id: 4,
-        name: "rice"
-      }, {
-        id: 4,
-        name: "pasta"
-      },],
+      ingredients: [
+        {
+          id: 1,
+          name: "Butter",
+        },
+        {
+          id: 2,
+          name: "Nuts",
+        },
+        {
+          id: 3,
+          name: "Beans",
+        },
+        {
+          id: 4,
+          name: "rice",
+        },
+        {
+          id: 4,
+          name: "pasta",
+        },
+      ],
       ingredient: "",
       amount: "",
       serves: "",
@@ -109,7 +129,8 @@ export default {
     },
     deleteMeasurements(n) {
       this.selectedMeasurements = this.selectedMeasurements.filter(
-        (m) => m.ingredient != n.ingredient || m.amount != n.amount);
+        (m) => m.ingredient != n.ingredient || m.amount != n.amount
+      );
     },
     postRecipe() {
       console.log("POST");

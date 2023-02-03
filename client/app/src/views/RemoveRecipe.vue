@@ -4,28 +4,36 @@
       <h1 class="display-6 mb-3">Remove a recipe</h1>
       <!-- Uses styling as present for browse all ingredients-->
       <div class="ingredientsGrid">
-        <RemoveCard v-for="recipe in recStore.items" class="card" :key="recipe.id" :curRecipe="recipe" />
+        <RemoveCard
+          v-for="recipe in recStore.items"
+          class="card"
+          :key="recipe.id"
+          :curRecipe="recipe"
+        />
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { useRecipestore } from "../stores/RecipeStore"
-import RemoveCard from '../components/remove/RemoveCard.vue';
+import { useRecipestore } from "../stores/RecipeStore";
+import RemoveCard from "../components/remove/RemoveCard.vue";
 const recStore = useRecipestore();
-recStore.updateAllRecipes().then(() => {
-  console.log(recipeStore.getHighlightedItems())
-}).catch((ex) => {
-  console.log(ex);
-})
+recStore
+  .updateAllRecipes()
+  .then(() => {
+    console.log(recStore.getHighlightedItems());
+  })
+  .catch((ex) => {
+    console.log(ex);
+  });
 </script>
 
 <script>
 export default {
   components: {
     RemoveCard,
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
