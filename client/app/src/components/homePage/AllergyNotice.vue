@@ -1,6 +1,7 @@
 <template>
   <div class="row">
     <div class="col">
+      <!-- Dismissable Alert for allergy information -->
       <div id="allergyAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>ALLERGY NOTICE: </strong> We cannot guarantee that any of our
         products will not be cross contaminated. For further information
@@ -16,6 +17,7 @@
 <script>
 export default {
   methods: {
+    // Method for navigating to the allergy information page
     followLink() {
       this.$router.push({ path: "/allergyPage" });
     },

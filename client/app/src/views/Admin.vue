@@ -1,5 +1,4 @@
 <script setup>
-import LogOut from "../components/admin/LogOut.vue";
 import ButtonComponent from "../components/homePage/ButtonComponent.vue";
 </script>
 
@@ -34,12 +33,7 @@ import ButtonComponent from "../components/homePage/ButtonComponent.vue";
           <div class="container">
             <div class="row d-flex justify-content-center">
               <div class="col col-lg-8 col-xl-6">
-                <button
-                  id="logout-but"
-                  type="button"
-                  class="btn btn-dark"
-                  @click="logout"
-                >
+                <button id="logout-but" type="button" class="btn btn-dark" @click="logout">
                   Log out
                 </button>
               </div>
