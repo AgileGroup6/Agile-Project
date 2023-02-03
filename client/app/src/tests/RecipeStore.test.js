@@ -2,24 +2,18 @@ import { setActivePinia, createPinia } from "pinia";
 import { useRecipestore } from "../stores/RecipeStore.js";
 
 describe("Recipestore Tests", () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     setActivePinia(createPinia());
     const store = useRecipestore();
-    store
-      .updateAllRecipes()
-      .then(() => {
-        expect(store.items).not.toBeNull();
-      })
-      .catch((ex) => {
-        console.log(ex);
-      });
+    await store.updateAllRecipes()
+    expect(store.items).not.toBeNull();
   });
   test("Fetching Recipes ", () => {
     const store = useRecipestore();
     store
       .updateAllRecipes()
       .then(() => {
-        expect(store.items).not.toBeNull();
+        expect(store.items).not.toHaveLength(0);
       })
       .catch((ex) => {
         console.log(ex);
@@ -27,8 +21,10 @@ describe("Recipestore Tests", () => {
   });
   test("getHiglited is never null",()=>{
     const store = useRecipestore(); 
-    let highlited = store.getHighlightedItems();
+    let highlited = []
+    expect(store.items).not.toHaveLength(0);
+    highlited = store.getHighlightedItems();
     console.log(highlited);
-    expect(highlited).not.toBeNull(); 
+    expect(highlited).not.toHaveLength(0);
   })
 });
