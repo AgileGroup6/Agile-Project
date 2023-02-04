@@ -36,6 +36,9 @@ https://www.figma.com/proto/IHPEoSVqpofu3hx1YRLGhp/Untitled?node-id=0%3A1&viewpo
 ### Sprint 2 Backlog
 https://github.com/orgs/AgileGroup6/projects/3/views/5
 
+### Product Backlog
+https://github.com/orgs/AgileGroup6/projects/3/views/1
+
 ### Sprint 1 Retrospective
 https://docs.google.com/document/d/1bEFbt615xikgacnXf86Zi6uph09xd2WvPelGuJVi1P4/edit?usp=sharing
 
